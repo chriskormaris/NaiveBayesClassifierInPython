@@ -1,0 +1,2 @@
+python FeatureSelectionUsingIG.py
+pause;

@@ -1,0 +1,2 @@
+python MyCustomNaiveBayesSpamHam.py
+pause;

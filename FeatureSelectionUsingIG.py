@@ -1,8 +1,6 @@
 # force the result of divisions to be float numbers
 from __future__ import division
 
-__author__ = 'c.kormaris'
-
 from os import listdir
 from os.path import isfile, join
 import re
@@ -11,6 +9,8 @@ import math
 # for sorting dictionaries
 from collections import OrderedDict
 from operator import itemgetter
+
+__author__ = 'c.kormaris'
 
 
 ###############
@@ -147,7 +147,7 @@ H_C = - ( spam_label_probability * math.log(spam_label_probability) + ham_label_
 print('entropy of the dataset: H(C) = ' + str(H_C))
 
 # this is to avoid division by zero and log(0)
-error = 0.0000001
+error = 1e-7
 
 # Calculate the information gain for each candidate feature.
 # The feature that decreases the entropy less is the most desired feature,

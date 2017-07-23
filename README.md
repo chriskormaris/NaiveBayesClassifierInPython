@@ -23,5 +23,5 @@ After the feature selection step, run *"MyCustomNaiveBayesSpamHam.py"* to start 
 **Notes**
 <ol>
 <li>You can use your own Train and Test text files if you want, as long as they contain "spam" or "ham" in their names, according to their category. The existence of the substring *"spam"* or *"ham"* in a text file defines in which category of the two the text file belongs to.</li>
-<li>Console execution results are included in the *"console_outputs"* folder. One output is contained in the file *"naive_bayes_no_of_features_1000.txt"* where 1000 feature tokens were used and another output is contained in the file *"naive_bayes_no_of_features_100.txt"* where 100 feature tokens wre used.</li>
+<li>Console execution results are included in the *"console_outputs"* folder. One output is contained in the file **"naive_bayes_no_of_features_1000.txt"** where 1000 feature tokens were used and another output is contained in the file **"naive_bayes_no_of_features_100.txt"** where 100 feature tokens wre used.</li>
 </ol>

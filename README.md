@@ -22,11 +22,11 @@ After the feature selection step, run *"MyCustomNaiveBayesSpamHam.py"* to start 
 
 ![Laplace Smoothing token](http://latex.codecogs.com/gif.latex?%5Cfrac%7BspamDocumentFrequencyOfToken%5Bi%5D%20&plus;%201%7D%20%7BnumberOfSpamDocuments%20&plus;%20numberOfClasses%7D%20%3D%20%5Cfrac%7BspamDocumentFrequencyOfToken%5Bi%5D%20&plus;%201%7D%20%7BnumberOfSpamDocuments%20&plus;%202%7D)
 
-To calculate the probability of the entire feature vector belonging in the spam class we multiply the probabilities of each separate feature token belonging in the spam class. The formula
+To calculate the probability of the entire feature vector belonging in the spam class we multiply the probabilities of each separate feature token belonging in the spam class. The exact formula is:
 
-![Laplace Smoothing vector](http://latex.codecogs.com/gif.latex?probOfFeatureVectorBelongingInSpam%20%3D%20%5Cprod%20_i%20%5Cfrac%7BspamDocumentFrequencyOfToken%5Bi%5D%20&plus;%201%7D%20%7BnumberOfSpamDocuments%20&plus;%202%7D)
+![Laplace Smoothing vector](http://latex.codecogs.com/gif.latex?probOfFeatureVectorBelongingInSpam%20%3D%20%5Cfrac%7BP%28C%3D1%29%7D%7BP%28featureVector%29%7D%20%5Ccdot%20%5Cprod_i%20%5Cfrac%7BspamDocumentFrequencyOfToken%5Bi%5D%20&plus;%201%7D%20%7BnumberOfSpamDocuments%20&plus;%202%7D)
 
-We do the same for the ham class. The bigger probability of the two defines the category that the given documeny and its feature vector is more likely to belong.
+We do the same for the ham class. We can omit the term *P(featureVector)* since it's the same for both the 2 classes. The bigger probability of the two defines the category that the given document and its feature vector is more likely to belong to.
 
 
 The execution results of the classifier delivered an accuracy of 85% while using 100 features tokens and about 79% while using 1000 feature tokens. The accuracy should be better if we ran the classifier on a much smaller corpus.

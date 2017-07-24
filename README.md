@@ -14,7 +14,7 @@ First, run the python file "FeatureSelectionUsingIG.py" to generate the output f
 ![Information Gain](http://latex.codecogs.com/gif.latex?IG%28X%20%2C%20C%29%20%3D%20IG%20%28C%20%2C%20X%29%20%3D%20H%28C%29%20-%20%5Csum_%7Bi%3D0%7D%5E%7B1%7D%20%7BP%20%28X%3Di%29%20%5Ccdot%20H%20%28C%7CX%3Di%29%7D)
 
 where i=0 and i=1 are the boolean values that a feature token may take, indicating if it appears or not in a text.
-Concretely, the feature x that reduces the entropy less is the most desired candidate feature because it can discriminate the category of a document more efficiently. The number of feature tokens the feature selection algorithm returns is set to 1000, alternatively 100. The number of feature tokens to use depends on the classification algorithm that we'll use. Since we are building a Naive-Bayes classifier we set the number of features to 100. Using less features is more likely to make better predictions if Naive-Bayes is the classifier of our choice.
+Concretely, the feature X that reduces the entropy less is the most desired candidate feature because it can discriminate the category of a document more efficiently. The number of feature tokens the feature selection algorithm returns is set to 1000, alternatively 100. The number of feature tokens to use depends on the classification algorithm that we'll use. Since we are building a Naive-Bayes classifier we set the number of features to 100. Using less features is more likely to make better predictions if Naive-Bayes is the classifier of our choice.
 
 In addition, there has been implemented, inside block comments, an alternative way for calculating the Information Gain score, by using the following formula:
 

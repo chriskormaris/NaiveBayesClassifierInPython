@@ -6,7 +6,7 @@ Programming Language: Python
 
 Unzip the files *"TRAIN.zip"* and *"TEST.zip"*, in the same directory where the Python files are. 8512 train documents and 3000 documents are contained inside these files.
 
-## Information Gain step
+## Feature Selection with Information Gain
 
 Let's begin by denoting the variable C, which takes the values: C=1 for spam documents and C=0 for ham documents.
 First, run the python file "FeatureSelectionUsingIG.py" to generate the output file "feature_dictionary.txt", containing the features tokens that we'll use. Feature selection for the most useful tokens, using Information Gain (IG) has been implemented in thi file. The feature tokens are boolean, as in they take boolean values, 0 if the token does not appear in a text or 1 if the token appears in a text. The boolean values are assigned while generating the feature vectors of each text. At the start of the program, all the train files of the corpus are being parsed and we count in how many spam or ham documents in total, each word appears. The results are being saved in dictionary data structures with the names: *"feature_spam_frequency"*, *"feature_ham_frequency"* and *"feature_frequency"* respectively, with feature tokens being the keys and and frequencies being the values. These dictionary variables are used for the calculation of the probabilities of the Information Gain algorithm. Then, we calculate the entropy H(C) calculated and print it. The information gain for each score for each feature token is calculated using the formula:

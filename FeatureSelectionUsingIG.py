@@ -17,9 +17,11 @@ __author__ = 'c.kormaris'
 
 # FUNCTIONS #
 
-def read_labels(path):
+
+# defines the label of the files based on their names
+def read_labels(files):
     labels = []
-    for file in listdir(path):
+    for file in files:
         if "spam" in str(file):
             labels.append(1)
         elif "ham" in str(file):
@@ -55,9 +57,9 @@ def write_tokens_to_file(tokens, filename):
 train_dir = "TRAIN/"
 feature_dictionary_dir = "feature_dictionary.txt"
 
-train_files = [f for f in listdir(train_dir) if isfile(join(train_dir, f))]
+train_files = sorted([f for f in listdir(train_dir) if isfile(join(train_dir, f))])
 
-train_labels = read_labels(train_dir)
+train_labels = read_labels(train_files)
 
 spam_label_frequency = get_label_frequency(train_labels, 1)  # 1 is for SPAM, 0 is for HAM
 print("number of SPAM train documents: " + str(spam_label_frequency))

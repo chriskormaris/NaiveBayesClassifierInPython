@@ -129,7 +129,7 @@ print("\n")
 print("training files...")
 feature_vector_labels = dict()
 for i in range(len(train_files)):
-    print('Reading train file ' + train_files[i] + '...')
+    print('Reading train file ' + "'" + train_files[i] + "'" + '...')
 
     train_text = read_file(train_dir + train_files[i])
 
@@ -178,7 +178,6 @@ wrong_ham_counter = 0  # the number of ham files classified as spam
 print("testing files...")
 for i in range(len(test_files)):  # for all the test files that exist
 #for i in range(no_of_test_files):
-    #print('Reading test file ' + test_files[i] + '...')
 
     test_text = read_file(test_dir + test_files[i])
 
@@ -203,20 +202,20 @@ for i in range(len(test_files)):  # for all the test files that exist
         #print test_files[i] + " is: " + feature_vector_labels[feature_vector]
 
         if feature_vector_labels[feature_vector] == "SPAM" and "spam" in test_files[i]:
-            print(test_files[i] + " classified as: " + feature_vector_labels[feature_vector] + " -> correct")
+            print("'" + test_files[i] + "'" + " classified as: " + feature_vector_labels[feature_vector] + " -> correct")
             spam_counter = spam_counter + 1
         elif  feature_vector_labels[feature_vector] == "SPAM" and "ham" in test_files[i]:
-            print(test_files[i] + " classified as: " + feature_vector_labels[feature_vector] + " -> WRONG!")
+            print("'" + test_files[i] + "'" + " classified as: " + feature_vector_labels[feature_vector] + " -> WRONG!")
             ham_counter = ham_counter + 1
             wrong_ham_counter = wrong_ham_counter + 1
             wrong_counter = wrong_counter + 1
         elif  feature_vector_labels[feature_vector] == "HAM" and "spam" in test_files[i]:
-            print(test_files[i] + " classified as: " + feature_vector_labels[feature_vector] + " -> WRONG!")
+            print("'" + test_files[i] + "'" + " classified as: " + feature_vector_labels[feature_vector] + " -> WRONG!")
             spam_counter = spam_counter + 1
             wrong_spam_counter = wrong_spam_counter + 1
             wrong_counter = wrong_counter + 1
         elif  feature_vector_labels[feature_vector] == "HAM" and "ham" in test_files[i]:
-            print(test_files[i] + " classified as: " + feature_vector_labels[feature_vector] + " -> correct")
+            print("'" + test_files[i] + "'" + " classified as: " + feature_vector_labels[feature_vector] + " -> correct")
             ham_counter = ham_counter + 1
 
     else:
@@ -237,20 +236,20 @@ for i in range(len(test_files)):  # for all the test files that exist
         #print "ham_laplace_estimate_probability: " + str(ham_laplace_estimate_probability)
 
         if spam_laplace_estimate_probability >= ham_laplace_estimate_probability and "spam" in test_files[i]:
-            print(test_files[i] + " classified as: SPAM -> correct" + " (laplace estimate classification)")
+            print("'" + test_files[i] + "'" + " classified as: SPAM -> correct" + " (laplace estimate classification)")
             spam_counter = spam_counter + 1
         elif spam_laplace_estimate_probability >= ham_laplace_estimate_probability and "ham" in test_files[i]:
-            print(test_files[i] + " classified as: SPAM -> WRONG!" + " (laplace estimate classification)")
+            print("'" + test_files[i] + "'" +[i] + " classified as: SPAM -> WRONG!" + " (laplace estimate classification)")
             ham_counter = ham_counter + 1
             wrong_ham_counter = wrong_ham_counter + 1
             wrong_counter = wrong_counter + 1
         elif spam_laplace_estimate_probability < ham_laplace_estimate_probability and "spam" in test_files[i]:
-            print(test_files[i] + " classified as: HAM -> WRONG!" + " (laplace estimate classification)")
+            print("'" + test_files[i] + "'" + " classified as: HAM -> WRONG!" + " (laplace estimate classification)")
             spam_counter = spam_counter + 1
             wrong_spam_counter = wrong_spam_counter + 1
             wrong_counter = wrong_counter + 1
         elif spam_laplace_estimate_probability < ham_laplace_estimate_probability and "ham" in test_files[i]:
-            print(test_files[i] + " classified as: HAM -> correct" + " (laplace estimate classification)")
+            print("'" + test_files[i] + "'" + " classified as: HAM -> correct" + " (laplace estimate classification)")
             ham_counter = ham_counter + 1
 
 print('\n')

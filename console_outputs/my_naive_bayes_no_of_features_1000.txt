@@ -11526,7 +11526,7 @@ testing files...
 '5992.2002-03-25.lokay.ham.txt' classified as: HAM -> correct (laplace estimate classification)
 '5996.2002-03-25.lokay.ham.txt' classified as: HAM -> correct (laplace estimate classification)
 
-
+Manual Naive-Bayes Classifier:
 number of features used: 1000
 
 

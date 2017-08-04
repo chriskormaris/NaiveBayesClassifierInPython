@@ -9009,7 +9009,7 @@ testing files...
 '0916.2000-08-31.lokay.ham.txt' classified as: HAM -> correct (laplace estimate classification)
 '0916.2004-10-17.BG.spam.txt' classified as: HAM -> WRONG! (laplace estimate classification)
 '0917.2004-10-17.BG.spam.txt' classified as: SPAM -> correct
-'0919.2000-08-31.lokay.ham.txt' classified as: HAM -> correct (laplace estimate classification)
+ '0919.2000-08-31.lokay.ham.txt' classified as: HAM -> correct (laplace estimate classification)
 '0919.2004-10-17.BG.spam.txt' classified as: SPAM -> correct
 '0921.2004-10-17.BG.spam.txt' classified as: SPAM -> correct
 '0923.2004-10-18.BG.spam.txt' classified as: SPAM -> correct
@@ -11526,22 +11526,23 @@ testing files...
 '5992.2002-03-25.lokay.ham.txt' classified as: HAM -> correct (laplace estimate classification)
 '5996.2002-03-25.lokay.ham.txt' classified as: HAM -> correct (laplace estimate classification)
 
-
-Manual Naive-Bayes Classifier: 
+Manual Naive-Bayes Classifier:
 number of features used: 100
 
-
 accuracy: 85.63333333333333 %
+
 
 number of wrong classifications: 431 out of 3000 files
 number of wrong spam classifications: 377 out of 1500 spam files
 number of wrong ham classifications: 54 out of 1500 ham files
 
+
 precision for spam files: 0.9541206457094308
 precision for ham files: 0.7931980252331322
 recall for spam files: 0.7486666666666667
 recall for ham files: 0.964
-f1-score for spam files: 0.838998879343
-f1-score for ham files: 0.870297923563
+f1-score for spam files: 0.8389988793425477
+f1-score for ham files: 0.8702979235630455
 
-total duration : 479.97881412506104 seconds
+
+total duration : 834.7363290786743 seconds

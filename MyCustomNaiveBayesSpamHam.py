@@ -78,12 +78,12 @@ def calculate_laplace_estimate_probability(new_feature_vector, feature_tokens, f
                 token = feature_tokens[j]
                 #print("token: " + token + ", vector[j]: " + str(vector[j]) + ", new_feature_vector[j]: " + str(new_feature_vector[j]))
                 if vector[j] == new_feature_vector[j]:
-                    if laplace_estimate_frequencies.__contains__(token) == False:
+                    if not laplace_estimate_frequencies.__contains__(token):
                         laplace_estimate_frequencies[token] = 1
                     else:
                         laplace_estimate_frequencies[token] = laplace_estimate_frequencies[token] + 1
                 else:
-                    if laplace_estimate_frequencies.__contains__(token) == False:
+                    if not laplace_estimate_frequencies.__contains__(token):
                         laplace_estimate_frequencies[token] = 0
 
     label_probability = label_frequency / no_of_train_documents

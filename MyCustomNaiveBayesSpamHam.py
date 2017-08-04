@@ -51,6 +51,19 @@ def get_label_frequency(train_labels, label):
     return frequency
 
 
+# extracts tokens from the given text
+def getTokens(text):
+    text_tokens = re.findall(r"[\w']+", text)
+    # remove digits, special characters and convert to lowercase
+    for k in range(len(text_tokens)):
+        text_tokens[k] = text_tokens[k].lower()
+        text_tokens[k] = text_tokens[k].replace("_", "")
+        text_tokens[k] = re.sub("[0-9]+", "", text_tokens[k])
+    text_tokens = set(text_tokens)  # remove duplicate tokens
+    
+    return text_tokens
+
+
 def calculate_laplace_estimate_probability(new_feature_vector, feature_tokens, feature_vector_labels, label, label_frequency, no_of_classes, no_of_train_documents):
     laplace_estimate_frequencies = dict()  # same size as a feature vector
 
@@ -140,15 +153,7 @@ for i in range(len(train_files)):
 
     train_text = read_file(train_dir + train_files[i])
 
-    train_text_tokens = re.findall(r"[\w']+", train_text)
-
-    # remove digits, special characters and convert to lowercase
-    for k in range(len(train_text_tokens)):
-        train_text_tokens[k] = train_text_tokens[k].lower()
-        train_text_tokens[k] = train_text_tokens[k].replace("_", "")
-        train_text_tokens[k] = re.sub("[0-9]+", "", train_text_tokens[k])
-
-    train_text_tokens = set(train_text_tokens)  # remove duplicate tokens
+    train_text_tokens = getTokens(train_text)
 
     feature_vector = [0] * len(feature_tokens)
     for j in range(len(feature_tokens)):
@@ -185,15 +190,7 @@ for i in range(len(test_files)):  # for all the test files that exist
 
     test_text = read_file(test_dir + test_files[i])
 
-    test_text_tokens = re.findall(r"[\w']+", test_text)
-
-    # remove digits, special characters and convert to lowercase
-    for k in range(len(test_text_tokens)):
-        test_text_tokens[k] = test_text_tokens[k].lower()
-        test_text_tokens[k] = test_text_tokens[k].replace("_", "")
-        test_text_tokens[k] = re.sub("[0-9]+", "", test_text_tokens[k])
-
-    test_text_tokens = set(test_text_tokens)  # remove duplicate tokens
+    test_text_tokens = getTokens(test_text)
 
     feature_vector = [0] * len(feature_tokens)
     for j in range(len(feature_tokens)):

@@ -43,6 +43,19 @@ def read_file(filename):
     return text
 
 
+# extracts tokens from the given text
+def getTokens(text):
+    text_tokens = re.findall(r"[\w']+", text)
+    # remove digits, special characters and convert to lowercase
+    for k in range(len(text_tokens)):
+        text_tokens[k] = text_tokens[k].lower()
+        text_tokens[k] = text_tokens[k].replace("_", "")
+        text_tokens[k] = re.sub("[0-9]+", "", text_tokens[k])
+    text_tokens = set(text_tokens)  # remove duplicate tokens
+    
+    return text_tokens
+
+
 def write_tokens_to_file(tokens, filename):
     f = open(filename, 'w')
     for token in tokens:
@@ -95,15 +108,7 @@ feature_ham_frequency = dict()
 # calculate feature_frequencies dict
 for i in range(len(train_files)):
     train_text = read_file(train_dir + train_files[i])
-    candidate_features = re.findall(r"[\w']+", train_text)
-
-    # remove digits, special characters and convert to lowercase
-    for j in range(len(candidate_features)):
-        candidate_features[j] = candidate_features[j].lower()
-        candidate_features[j] = candidate_features[j].replace("_", "")
-        candidate_features[j] = re.sub("[0-9]+", "", candidate_features[j])
-
-    candidate_features = set(candidate_features)  # remove duplicate features
+    candidate_features = getTokens(text)
 
     for (j, token) in enumerate(candidate_features):
         if feature_frequency.__contains__(token) == False:

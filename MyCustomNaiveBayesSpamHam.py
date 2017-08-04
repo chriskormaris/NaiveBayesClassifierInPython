@@ -61,7 +61,7 @@ def calculate_laplace_estimate_probability(new_feature_vector, feature_tokens, f
         if feature_vector_labels[vector] == label:
             for j in range(len(vector)):
                 token = feature_tokens[j]
-                #print "token: " + token + ", vector[j]: " + str(vector[j]) + ", new_feature_vector[j]: " + str(new_feature_vector[j])
+                #print("token: " + token + ", vector[j]: " + str(vector[j]) + ", new_feature_vector[j]: " + str(new_feature_vector[j]))
                 if vector[j] == new_feature_vector[j]:
                     if laplace_estimate_frequencies.__contains__(token) == False:
                         laplace_estimate_frequencies[token] = 1
@@ -72,14 +72,21 @@ def calculate_laplace_estimate_probability(new_feature_vector, feature_tokens, f
                         laplace_estimate_frequencies[token] = 0
 
     label_probability = label_frequency / no_of_train_documents
-    #print "label_probability: " + str(label_probability)
+    #print("label_probability: " + str(label_probability))
+
+    # use sum of logs instead of multiplications of probabilities
     laplace_estimate_probability = 1
     for token in feature_tokens:
         if laplace_estimate_frequencies.__contains__(token):
-            laplace_estimate_probability *= (laplace_estimate_frequencies[token] + 1) / (label_frequency + no_of_classes)
+            #laplace_estimate_probability *= (laplace_estimate_frequencies[token] + 1) / (label_frequency + no_of_classes)
+            laplace_estimate_probability += math.log((laplace_estimate_frequencies[token] + 1) / (label_frequency + no_of_classes))
         else:
-            laplace_estimate_probability *= (0 + 1) / (label_frequency + no_of_classes)
-    laplace_estimate_probability *= label_probability
+            #laplace_estimate_probability *= (0 + 1) / (label_frequency + no_of_classes)
+            laplace_estimate_probability += math.log((0 + 1) / (label_frequency + no_of_classes))
+
+    #laplace_estimate_probability *= label_probability
+    laplace_estimate_probability += math.log(label_probability)
+
     return laplace_estimate_probability
 
 
@@ -153,7 +160,7 @@ for i in range(len(train_files)):
         feature_vector_labels[feature_vector] = "SPAM"
     else:
         feature_vector_labels[feature_vector] = "HAM"
-    #print train_files[i] + " is: " + feature_vector_labels[feature_vector]
+    #print(train_files[i] + " is: " + feature_vector_labels[feature_vector])
 
 # print all the feature vectors and their labels
 #for (i, vector) in enumerate(feature_vector_labels):
@@ -171,13 +178,10 @@ ham_counter = 0  # the number of ham files
 wrong_spam_counter = 0  # the number of spam files classified as ham
 wrong_ham_counter = 0  # the number of ham files classified as spam
 
-# test a small number of the test files for faster execution
-#no_of_test_files = 100
 
 # testing files with Naive Bayes classifier using Laplace estimates
 print("testing files...")
 for i in range(len(test_files)):  # for all the test files that exist
-#for i in range(no_of_test_files):
 
     test_text = read_file(test_dir + test_files[i])
 
@@ -199,8 +203,6 @@ for i in range(len(test_files)):  # for all the test files that exist
 
 
     if feature_vector_labels.__contains__(feature_vector):
-        #print test_files[i] + " is: " + feature_vector_labels[feature_vector]
-
         if feature_vector_labels[feature_vector] == "SPAM" and "spam" in test_files[i]:
             print("'" + test_files[i] + "'" + " classified as: " + feature_vector_labels[feature_vector] + " -> correct")
             spam_counter = spam_counter + 1
@@ -219,21 +221,23 @@ for i in range(len(test_files)):  # for all the test files that exist
             ham_counter = ham_counter + 1
 
     else:
-        #print "laplace estimate classification"
+        spam_laplace_estimate_probability = calculate_laplace_estimate_probability(feature_vector,
+                                                                           feature_tokens,
+                                                                           feature_vector_labels,
+                                                                           label="SPAM",
+                                                                           label_frequency=spam_label_frequency,
+                                                                           no_of_classes=2,
+                                                                           no_of_train_documents=len(train_files))
+        #print("spam_laplace_estimate_probability: " + str(spam_laplace_estimate_probability))
 
-        spam_laplace_estimate_probability = calculate_laplace_estimate_probability(feature_vector, feature_tokens,
-                                                                                   feature_vector_labels, label="SPAM",
-                                                                                   label_frequency=spam_label_frequency,
-                                                                                   no_of_classes=2,
-                                                                                   no_of_train_documents=len(train_files))
-        #print "spam_laplace_estimate_probability: " + str(spam_laplace_estimate_probability)
-
-        ham_laplace_estimate_probability = calculate_laplace_estimate_probability(feature_vector, feature_tokens,
-                                                                                  feature_vector_labels, label="HAM",
-                                                                                  label_frequency=ham_label_frequency,
-                                                                                  no_of_classes=2,
-                                                                                  no_of_train_documents=len(train_files))
-        #print "ham_laplace_estimate_probability: " + str(ham_laplace_estimate_probability)
+        ham_laplace_estimate_probability = calculate_laplace_estimate_probability(feature_vector,
+                                                                           feature_tokens,
+                                                                           feature_vector_labels,
+                                                                           label="HAM",
+                                                                           label_frequency=ham_label_frequency,
+                                                                           no_of_classes=2,
+                                                                           no_of_train_documents=len(train_files))
+        #print("ham_laplace_estimate_probability: " + str(ham_laplace_estimate_probability))
 
         if spam_laplace_estimate_probability >= ham_laplace_estimate_probability and "spam" in test_files[i]:
             print("'" + test_files[i] + "'" + " classified as: SPAM -> correct" + " (laplace estimate classification)")
@@ -267,14 +271,12 @@ print('\n')
 # Accuracy
 
 accuracy = ((len(test_files) - wrong_counter) / len(test_files)) * 100
-#accuracy = ((no_of_test_files - wrong_counter) / no_of_test_files) * 100
 print("accuracy: " + str(accuracy) + " %")
 print("\n")
 
 # Precision-Recall Report
 
 print("number of wrong classifications: " + str(wrong_counter) + ' out of ' + str(len(test_files)) + ' files')
-#print "number of wrong classifications: " + str(wrong_counter) + ' out of ' + str(no_of_test_files) + ' files'
 print("number of wrong spam classifications: " + str(wrong_spam_counter) + ' out of ' + str(spam_counter) + ' spam files')
 print("number of wrong ham classifications: " + str(wrong_ham_counter) + ' out of ' + str(ham_counter) + ' ham files')
 

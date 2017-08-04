@@ -77,7 +77,7 @@ def calculate_laplace_estimate_probability(new_feature_vector, feature_tokens, f
     # use sum of logs instead of multiplications of probabilities
     laplace_estimate_probability = 1
     for token in feature_tokens:
-        if laplace_estimate_frequencies.__contains__(token):
+        if laplace_estimate_frequencies.__contains__(token) and laplace_estimate_frequencies[token] != 0:
             #laplace_estimate_probability *= (laplace_estimate_frequencies[token] + 1) / (label_frequency + no_of_classes)
             laplace_estimate_probability += math.log((laplace_estimate_frequencies[token] + 1) / (label_frequency + no_of_classes))
         else:

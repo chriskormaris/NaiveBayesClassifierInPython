@@ -108,7 +108,7 @@ feature_ham_frequency = dict()
 # calculate feature_frequencies dict
 for i in range(len(train_files)):
     train_text = read_file(train_dir + train_files[i])
-    candidate_features = getTokens(text)
+    candidate_features = getTokens(train_text)
 
     for (j, token) in enumerate(candidate_features):
         if feature_frequency.__contains__(token) == False:

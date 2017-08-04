@@ -1,10 +1,12 @@
 # THIS NAIVE BAYES IMPLEMENTATION IS WRITTEN BY HAND #
+# IT USES BOOLEAN FEATURES #
 
 # force the result of divisions to be float numbers
 from __future__ import division
 
 import re
 import time
+import math
 
 # I/O Libraries
 from os import listdir
@@ -240,7 +242,7 @@ for i in range(len(test_files)):  # for all the test files that exist
             print("'" + test_files[i] + "'" + " classified as: SPAM -> correct" + " (laplace estimate classification)")
             spam_counter = spam_counter + 1
         elif spam_laplace_estimate_probability >= ham_laplace_estimate_probability and "ham" in test_files[i]:
-            print("'" + test_files[i] + "'" +[i] + " classified as: SPAM -> WRONG!" + " (laplace estimate classification)")
+            print("'" + test_files[i] + "'" + " classified as: SPAM -> WRONG!" + " (laplace estimate classification)")
             ham_counter = ham_counter + 1
             wrong_ham_counter = wrong_ham_counter + 1
             wrong_counter = wrong_counter + 1

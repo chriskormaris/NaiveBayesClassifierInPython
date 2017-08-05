@@ -43,8 +43,7 @@ To calculate the probability of the entire feature vector belonging to the spam 
 We do the same for the ham class. We can omit the term *P(featureVector)* since it's the same for both the 2 classes. The bigger probability of the two defines the category that the given document and its feature vector is more likely to belong to.
 
 
-The execution results of the classifier delivered an accuracy of 92.07% while using 100 features tokens and about 94.03% while using 1000 feature tokens. The classifier should have a higher accuracy on a much smaller corpus. For example, in a corpus with about 1000 train texts and 100 test texts that uses a good amount of features, around 1000, the accuracy would be above 95%.
-Feel free to make modifications in the code.
+The execution results of the classifier delivered an accuracy of 92.07% while using 100 features tokens and about 94.03% while using 1000 feature tokens. The classifier should have a higher accuracy on a much smaller corpus. Feel free to make modifications in the code.
 
 **Notes**
 <ol>

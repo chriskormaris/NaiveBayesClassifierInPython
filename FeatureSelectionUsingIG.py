@@ -17,7 +17,6 @@ __author__ = 'c.kormaris'
 
 # FUNCTIONS #
 
-
 # defines the label of the files based on their names
 def read_labels(files):
     labels = []
@@ -45,15 +44,25 @@ def read_file(filename):
 
 # extracts tokens from the given text
 def getTokens(text):
-    text_tokens = re.findall(r"[\w']+", text)
+    train_text_tokens = re.findall(r"[\w']+", train_text)
     # remove digits, special characters and convert to lowercase
-    for k in range(len(text_tokens)):
-        text_tokens[k] = text_tokens[k].lower()
-        text_tokens[k] = text_tokens[k].replace("_", "")
-        text_tokens[k] = re.sub("[0-9]+", "", text_tokens[k])
-    text_tokens = set(text_tokens)  # remove duplicate tokens
-    
-    return text_tokens
+    for k in range(len(train_text_tokens)):
+        train_text_tokens[k] = train_text_tokens[k].lower()
+        train_text_tokens[k] = train_text_tokens[k].replace("_", "")
+        train_text_tokens[k] = re.sub("[0-9]+", "", train_text_tokens[k])
+    train_text_tokens = set(train_text_tokens)  # remove duplicate tokens
+
+    return train_text_tokens
+
+
+def getStopwords(stopwords_file):
+    stopwords = []
+    # Load stopwords
+    with open(stopwords_file, 'r') as f:
+        for line in f:
+            stopwords.append(line.split()[0])
+
+    return stopwords
 
 
 def write_tokens_to_file(tokens, filename):
@@ -67,12 +76,13 @@ def write_tokens_to_file(tokens, filename):
 
 # MAIN #
 
-train_dir = "TRAIN/"
+train_dir = "./TRAIN/"
 feature_dictionary_dir = "feature_dictionary.txt"
+stopwords_dir = "stopwords.txt"
 
 train_files = sorted([f for f in listdir(train_dir) if isfile(join(train_dir, f))])
-
 train_labels = read_labels(train_files)
+stopwords = getStopwords(stopwords_dir)
 
 spam_label_frequency = get_label_frequency(train_labels, 1)  # 1 is for SPAM, 0 is for HAM
 print("number of SPAM train documents: " + str(spam_label_frequency))
@@ -95,6 +105,7 @@ print("\n")
 # number of features
 m = 1000
 #m = 100
+#m = 50
 
 # a dictionary which has as a key how many documents a feature (token) appears in
 feature_frequency = dict()
@@ -110,24 +121,25 @@ for i in range(len(train_files)):
     train_text = read_file(train_dir + train_files[i])
     candidate_features = getTokens(train_text)
 
-    for (j, token) in enumerate(candidate_features):
-        if feature_frequency.__contains__(token) == False:
-            feature_frequency[token] = 1
-        else:
-            feature_frequency[token] = feature_frequency[token] + 1
+    for token in candidate_features:
+        if token not in stopwords:
+            if not feature_frequency.__contains__(token):
+                feature_frequency[token] = 1
+            else:
+                feature_frequency[token] = feature_frequency[token] + 1
 
-        if train_labels[i] == 1:
-            if feature_spam_frequency.__contains__(token) == False:
-                feature_spam_frequency[token] = 1
-                feature_ham_frequency[token] = 0
-            else:
-                feature_spam_frequency[token] = feature_spam_frequency[token] + 1
-        elif train_labels[i] == 0:
-            if feature_ham_frequency.__contains__(token) == False:
-                feature_ham_frequency[token] = 1
-                feature_spam_frequency[token] = 0
-            else:
-                feature_ham_frequency[token] = feature_ham_frequency[token] + 1
+            if train_labels[i] == 1:
+                if not feature_spam_frequency.__contains__(token):
+                    feature_spam_frequency[token] = 1
+                    feature_ham_frequency[token] = 0
+                else:
+                    feature_spam_frequency[token] = feature_spam_frequency[token] + 1
+            elif train_labels[i] == 0:
+                if not feature_ham_frequency.__contains__(token):
+                    feature_ham_frequency[token] = 1
+                    feature_spam_frequency[token] = 0
+                else:
+                    feature_ham_frequency[token] = feature_ham_frequency[token] + 1
 
 
 # sort feature_tokens_dictionary in descending order by frequency
@@ -153,7 +165,7 @@ H_C = - ( spam_label_probability * math.log(spam_label_probability) + ham_label_
 
 print('entropy of the dataset: H(C) = ' + str(H_C))
 
-# this is to avoid division by zero and log(0)
+# precaution to avoid division by zero and log(0)
 error = 1e-7
 
 # Calculate the information gain for each candidate feature.

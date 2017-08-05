@@ -66,37 +66,42 @@ def getTokens(text):
     return text_tokens
 
 
-def calculate_laplace_estimate_probability(new_feature_vector, feature_tokens, feature_vector_labels, label, label_frequency, no_of_classes, no_of_train_documents):
+def calculate_laplace_estimate_frequencies(feature_tokens, feature_vector_labels, label):
     laplace_estimate_frequencies = dict()  # same size as a feature vector
 
-    # For each feature token of the new_feature_vector
-    # count how many documents of the given class contain it.
+    # For each feature token count how many documents of the given class contain it.
     for (i, vector) in enumerate(feature_vector_labels):
-        #print('feature vector {0}: {1}, label: {2}'.format(i, vector, feature_vector_labels[vector]))
         if feature_vector_labels[vector] == label:
-            for j in range(len(vector)):
+            for j in range(len(feature_tokens)):
                 token = feature_tokens[j]
-                #print("token: " + token + ", vector[j]: " + str(vector[j]) + ", new_feature_vector[j]: " + str(new_feature_vector[j]))
-                if vector[j] == new_feature_vector[j]:
-                    if not laplace_estimate_frequencies.__contains__(token):
-                        laplace_estimate_frequencies[token] = 1
-                    else:
+                if vector[j] == 1:
+                    if laplace_estimate_frequencies.__contains__(token):
                         laplace_estimate_frequencies[token] = laplace_estimate_frequencies[token] + 1
-                else:
-                    laplace_estimate_frequencies[token] = 0
+                    else:
+                        laplace_estimate_frequencies[token] = 1
+
+    return laplace_estimate_frequencies
+
+
+def calculate_laplace_estimate_probability(test_feature_vector, feature_tokens, laplace_estimate_frequencies, label_frequency, no_of_classes, no_of_train_documents):
 
     label_probability = label_frequency / no_of_train_documents
     #print("label_probability: " + str(label_probability))
 
-    # use sum of logs instead of multiplications of probabilities
     laplace_estimate_probability = 1
-    for token in feature_tokens:
-        if laplace_estimate_frequencies.__contains__(token) and laplace_estimate_frequencies[token] != 0:
-            #laplace_estimate_probability *= (laplace_estimate_frequencies[token] + 1) / (label_frequency + no_of_classes)
-            laplace_estimate_probability += math.log((laplace_estimate_frequencies[token] + 1) / (label_frequency + no_of_classes))
-        else:
-            #laplace_estimate_probability *= (0 + 1) / (label_frequency + no_of_classes)
-            laplace_estimate_probability += math.log((0 + 1) / (label_frequency + no_of_classes))
+
+    # use sum of logs instead of multiplications of probabilities
+    for (i, token) in enumerate(feature_tokens):
+        test_feature_token = test_feature_vector[i]
+        if test_feature_token == 1:
+            if laplace_estimate_frequencies.__contains__(token):
+                probOfTokenBelongingToLabel = (laplace_estimate_frequencies[token] + 1) / (label_frequency + no_of_classes)
+                #laplace_estimate_probability *= (probOfTokenBelongingToLabel)
+                laplace_estimate_probability += math.log(probOfTokenBelongingToLabel)
+            else:
+                probOfTokenBelongingToLabel = (0 + 1) / (label_frequency + no_of_classes)
+                #laplace_estimate_probability *= probOfTokenBelongingToLabel
+                laplace_estimate_probability += math.log(probOfTokenBelongingToLabel)
 
     #laplace_estimate_probability *= label_probability
     laplace_estimate_probability += math.log(label_probability)
@@ -110,9 +115,9 @@ def calculate_laplace_estimate_probability(new_feature_vector, feature_tokens, f
 
 start_time = time.time()
 
-train_dir = "../spam_ham/TRAIN/"
-test_dir = "../spam_ham/TEST/"
-feature_dictionary_dir = "../spam_ham/feature_dictionary.txt"
+train_dir = "TRAIN/"
+test_dir = "TEST/"
+feature_dictionary_dir = "feature_dictionary.txt"
 
 train_files = sorted([f for f in listdir(train_dir) if isfile(join(train_dir, f))])
 test_files = sorted([f for f in listdir(test_dir) if isfile(join(test_dir, f))])
@@ -184,6 +189,9 @@ ham_counter = 0  # the number of ham files
 wrong_spam_counter = 0  # the number of spam files classified as ham
 wrong_ham_counter = 0  # the number of ham files classified as spam
 
+spam_laplace_estimate_frequencies = calculate_laplace_estimate_frequencies(feature_tokens, feature_vector_labels, "SPAM")
+ham_laplace_estimate_frequencies = calculate_laplace_estimate_frequencies(feature_tokens, feature_vector_labels, "HAM")
+
 
 # testing files with Naive Bayes classifier using Laplace estimates
 print("testing files...")
@@ -199,30 +207,28 @@ for i in range(len(test_files)):  # for all the test files that exist
             feature_vector[j] = 1
     feature_vector = tuple(feature_vector)
 
-
     if feature_vector_labels.__contains__(feature_vector):
         if feature_vector_labels[feature_vector] == "SPAM" and "spam" in test_files[i]:
             print("'" + test_files[i] + "'" + " classified as: " + feature_vector_labels[feature_vector] + " -> correct")
             spam_counter = spam_counter + 1
-        elif  feature_vector_labels[feature_vector] == "SPAM" and "ham" in test_files[i]:
+        elif feature_vector_labels[feature_vector] == "SPAM" and "ham" in test_files[i]:
             print("'" + test_files[i] + "'" + " classified as: " + feature_vector_labels[feature_vector] + " -> WRONG!")
             ham_counter = ham_counter + 1
             wrong_ham_counter = wrong_ham_counter + 1
             wrong_counter = wrong_counter + 1
-        elif  feature_vector_labels[feature_vector] == "HAM" and "spam" in test_files[i]:
+        elif feature_vector_labels[feature_vector] == "HAM" and "spam" in test_files[i]:
             print("'" + test_files[i] + "'" + " classified as: " + feature_vector_labels[feature_vector] + " -> WRONG!")
             spam_counter = spam_counter + 1
             wrong_spam_counter = wrong_spam_counter + 1
             wrong_counter = wrong_counter + 1
-        elif  feature_vector_labels[feature_vector] == "HAM" and "ham" in test_files[i]:
+        elif feature_vector_labels[feature_vector] == "HAM" and "ham" in test_files[i]:
             print("'" + test_files[i] + "'" + " classified as: " + feature_vector_labels[feature_vector] + " -> correct")
             ham_counter = ham_counter + 1
 
     else:
         spam_laplace_estimate_probability = calculate_laplace_estimate_probability(feature_vector,
                                                                            feature_tokens,
-                                                                           feature_vector_labels,
-                                                                           label="SPAM",
+                                                                           spam_laplace_estimate_frequencies,
                                                                            label_frequency=spam_label_frequency,
                                                                            no_of_classes=2,
                                                                            no_of_train_documents=len(train_files))
@@ -230,8 +236,7 @@ for i in range(len(test_files)):  # for all the test files that exist
 
         ham_laplace_estimate_probability = calculate_laplace_estimate_probability(feature_vector,
                                                                            feature_tokens,
-                                                                           feature_vector_labels,
-                                                                           label="HAM",
+                                                                           ham_laplace_estimate_frequencies,
                                                                            label_frequency=ham_label_frequency,
                                                                            no_of_classes=2,
                                                                            no_of_train_documents=len(train_files))

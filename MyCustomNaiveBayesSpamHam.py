@@ -88,25 +88,34 @@ def calculate_laplace_estimate_probability(test_feature_vector, feature_tokens, 
     label_probability = label_frequency / no_of_train_documents
     #print("label_probability: " + str(label_probability))
 
+    '''
     laplace_estimate_probability = 1
-
-    # use sum of logs instead of multiplications of probabilities
     for (i, token) in enumerate(feature_tokens):
         test_feature_token = test_feature_vector[i]
         if test_feature_token == 1:
             if laplace_estimate_frequencies.__contains__(token):
                 probOfTokenBelongingToLabel = (laplace_estimate_frequencies[token] + 1) / (label_frequency + no_of_classes)
-                #laplace_estimate_probability *= (probOfTokenBelongingToLabel)
-                laplace_estimate_probability += math.log(probOfTokenBelongingToLabel)
+                laplace_estimate_probability *= (probOfTokenBelongingToLabel)
             else:
                 probOfTokenBelongingToLabel = (0 + 1) / (label_frequency + no_of_classes)
-                #laplace_estimate_probability *= probOfTokenBelongingToLabel
-                laplace_estimate_probability += math.log(probOfTokenBelongingToLabel)
+                laplace_estimate_probability *= probOfTokenBelongingToLabel
+    laplace_estimate_probability *= label_probability
+    '''
 
-    #laplace_estimate_probability *= label_probability
-    laplace_estimate_probability += math.log(label_probability)
+    # use sum of logs instead of multiplications of probabilities
+    laplace_estimate_log_probability = 0
+    for (i, token) in enumerate(feature_tokens):
+        test_feature_token = test_feature_vector[i]
+        if test_feature_token == 1:
+            if laplace_estimate_frequencies.__contains__(token):
+                probOfTokenBelongingToLabel = (laplace_estimate_frequencies[token] + 1) / (label_frequency + no_of_classes)
+                laplace_estimate_log_probability += math.log(probOfTokenBelongingToLabel)
+            else:
+                probOfTokenBelongingToLabel = (0 + 1) / (label_frequency + no_of_classes)
+                laplace_estimate_log_probability += math.log(probOfTokenBelongingToLabel)
+    laplace_estimate_log_probability += math.log(label_probability)
 
-    return laplace_estimate_probability
+    return laplace_estimate_log_probability
 
 
 ###############

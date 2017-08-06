@@ -86,7 +86,6 @@ def calculate_laplace_estimate_frequencies(feature_tokens, feature_vector_labels
 def calculate_laplace_estimate_probability(test_feature_vector, feature_tokens, laplace_estimate_frequencies, label_frequency, no_of_classes, no_of_train_documents):
 
     label_probability = label_frequency / no_of_train_documents
-    #print("label_probability: " + str(label_probability))
 
     '''
     laplace_estimate_probability = 1

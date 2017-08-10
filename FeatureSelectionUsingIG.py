@@ -96,9 +96,7 @@ print("HAM train document probability: " + str(ham_label_probability))
 
 print("\n")
 
-
 ###############
-
 
 # feature selection with Information Gain #
 
@@ -142,7 +140,7 @@ for i in range(len(train_files)):
                     feature_ham_frequency[token] = feature_ham_frequency[token] + 1
 
 
-# sort feature_tokens_dictionary in descending order by frequency
+# sort feature_frequency dictionary in descending order by frequency
 feature_frequency = OrderedDict(sorted(feature_frequency.items(), key=itemgetter(1), reverse=True))
 
 
@@ -196,11 +194,6 @@ for (i, token) in enumerate(feature_frequency):
         # IG(C,Xi) = IG(Xi,C) = H(C) - SUM ( P(Xi=x) * H(C|Xi=x) for every x)
         IG[token] = H_C - ( feature_probability[token] * H_C_given_X1 + (1 - feature_probability[token]) * H_C_given_X0 )
 
-        #print('{0}: P(Xi=1): {1}, P(Xi=1|C=0): {2}, P(Xi=1|C=1): {3}'.format(token, feature_probabilities[token],
-        #                                                                     feature_ham_probabilities[token],
-        #                                                                     feature_spam_probabilities[token]))
-
-
 '''
 # ALTERNATIVE IG score calculation implementation
 # Calculate the information gain for each candidate feature.
@@ -208,16 +201,12 @@ for (i, token) in enumerate(feature_frequency):
 # The tokens where this difference is higher have higher Information Gain.
 for (i, token) in enumerate(feature_frequencies):
     if token != "":  # exclude the empty string ""
-        feature_probabilities[token] = feature_frequencies[token] / len(train_files)
-        feature_ham_probabilities[token] = feature_ham_frequencies[token] / ham_label_frequency
-        feature_spam_probabilities[token] = feature_spam_frequencies[token] / spam_label_frequency
+        feature_probability[token] = feature_frequencies[token] / len(train_files)
+        feature_ham_probability[token] = feature_ham_frequencies[token] / ham_label_frequency
+        feature_spam_probability[token] = feature_spam_frequencies[token] / spam_label_frequency
 
-        #IG[token] = feature_probabilities[token] * abs(feature_ham_probabilities[token] - feature_spam_probabilities[token])
-        IG[token] = abs(feature_ham_probabilities[token] - feature_spam_probabilities[token])
-
-        #print('{0}: P(Xi=1): {1}, P(Xi=1|C=0): {2}, P(Xi=1|C=1): {3}'.format(token, feature_probabilities[token],
-        #                                                                     feature_ham_probabilities[token],
-        #                                                                     feature_spam_probabilities[token]))
+        #IG[token] = feature_probability[token] * abs(feature_ham_probability[token] - feature_spam_probability[token])
+        IG[token] = abs(feature_ham_probability[token] - feature_spam_probability[token])
 '''
 
 

@@ -181,7 +181,7 @@ for (i, token) in enumerate(feature_frequency):
         P_C0_given_X1 = feature_ham_cond_probability[token] * ham_label_probability / (feature_probability[token] + error)
 
         # conditional entropy: H(C|Xi=1)
-        H_C_given_X1 = - ( P_C1_given_X1 * math.log(P_C1_given_X1 + error) + P_C0_given_X1 * math.log(P_C0_given_X1 + error))
+        H_C_given_X1 = - (P_C1_given_X1 * math.log(P_C1_given_X1 + error) + P_C0_given_X1 * math.log(P_C0_given_X1 + error))
 
         # bayes rule: P(C=1|Xi=0) = P(Xi=0|C=1) * P(C=1) / P(Xi=0)
         P_C1_given_X0 = (1 - feature_spam_cond_probability[token]) * spam_label_probability / (1 - feature_probability[token] + error)
@@ -189,10 +189,10 @@ for (i, token) in enumerate(feature_frequency):
         P_C0_given_X0 = (1 - feature_ham_cond_probability[token]) * ham_label_probability / (1 - feature_probability[token] + error)
 
         # conditional entropy: H(C|Xi=0)
-        H_C_given_X0 = - ( P_C1_given_X0 * math.log(P_C1_given_X0 + error) + P_C0_given_X0 * math.log(P_C0_given_X0 + error) )
+        H_C_given_X0 = - (P_C1_given_X0 * math.log(P_C1_given_X0 + error) + P_C0_given_X0 * math.log(P_C0_given_X0 + error))
 
         # IG(C,Xi) = IG(Xi,C) = H(C) - SUM ( P(Xi=x) * H(C|Xi=x) for every x)
-        IG[token] = H_C - ( feature_probability[token] * H_C_given_X1 + (1 - feature_probability[token]) * H_C_given_X0 )
+        IG[token] = H_C - (feature_probability[token] * H_C_given_X1 + (1 - feature_probability[token]) * H_C_given_X0)
 
 '''
 # ALTERNATIVE IG score calculation implementation

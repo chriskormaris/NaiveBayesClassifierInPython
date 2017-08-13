@@ -1,0 +1,2 @@
+python NaiveBayesClassifier.py
+pause;

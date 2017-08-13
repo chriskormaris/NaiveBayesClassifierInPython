@@ -46,7 +46,7 @@ We do the same for the ham class. We can omit the term *P(featureVector)* since 
 The execution results of the classifier delivered an accuracy of 86.33 % while using 500 features tokens for spam class and 500 feature tokens for ham class. The classifier should have a higher accuracy on a much smaller corpus. Feel free to make modifications in the code.
 
 **Notes**
-<ol>
-<li>You can use your own Train and Test text files if you want, as long as they contain "spam" or "ham" in their names, according to their category. The existence of the substring "spam" or "ham" in a text file defines in which category of the two the text file belongs to.</li>
-<li>Console execution results are included in the "console_outputs" folder. One output is contained in the file "naive_bayes_output.txt" where 1000 feature tokens (500 spam and 500 ham) were used.</li>
-</ol>
+
+  1. You can use your own Train and Test text files if you want, as long as they contain "spam" or "ham" in their names, according to their category. The existence of the substring "spam" or "ham" in a text file defines in which category of the two the text file belongs to.</li>
+  2. Console execution results are included in the "console_outputs" folder. One output is contained in the file "naive_bayes_output.txt" where 1000 feature tokens (500 spam and 500 ham) were used.
+

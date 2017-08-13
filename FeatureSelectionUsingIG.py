@@ -226,9 +226,6 @@ ham_IG = OrderedDict(sorted(ham_IG.items(), key=itemgetter(1), reverse=True))
 # sort IG_spam dictionary in descending order by score (the higher score the better)
 spam_IG = OrderedDict(sorted(spam_IG.items(), key=itemgetter(1), reverse=True))
 
-print(len(ham_IG))
-print(len(spam_IG))
-
 ham_feature_tokens = []
 
 # create and print the list of the ham feature dictionary tokens and their corresponding ham IG scores

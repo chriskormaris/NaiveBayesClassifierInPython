@@ -48,5 +48,5 @@ The execution results of the classifier delivered an accuracy of 86.33 % while u
 **Notes**
 <ol>
 <li>You can use your own Train and Test text files if you want, as long as they contain "spam" or "ham" in their names, according to their category. The existence of the substring "spam" or "ham" in a text file defines in which category of the two the text file belongs to.</li>
-<li>Console execution results are included in the "console_outputs" folder. One output is contained in the file "naive_bayes_no_of_features_1000.txt" where 1000 feature tokens were used and another output is contained in the file "naive_bayes_no_of_features_100.txt" where 100 feature tokens were used.</li>
+<li>Console execution results are included in the "console_outputs" folder. One output is contained in the file "naive_bayes_output.txt" where 1000 feature tokens (500 spam and 500 ham) were used.</li>
 </ol>

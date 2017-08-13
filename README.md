@@ -9,7 +9,7 @@ Unzip the files *"TRAIN.zip"* and *"TEST.zip"*, in the same directory where the 
 ## Feature Selection with Information Gain
 
 Let's begin by denoting the variable C, which takes the values: C=1 for spam documents and C=0 for ham documents.
-First, run the python file "FeatureSelectionUsingIG.py" to generate the output file "feature_dictionary.txt", containing the features tokens that we'll use. Run:
+First, run the python file "FeatureSelectionUsingIG.py" to generate the features tokens that we'll use. Run:
 ```python
 python FeatureSelectionUsingIG.py
 ```

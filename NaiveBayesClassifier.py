@@ -1,5 +1,5 @@
 # THIS NAIVE BAYES IMPLEMENTATION IS WRITTEN BY HAND #
-# IT USES TF (TERM FREQUENCY) FEATURES #
+# IT USES BOOLEAN FEATURES AND SEPARATELY FOR "SPAM" AND "HAM" CLASSES #
 
 # force the result of divisions to be float numbers
 from __future__ import division
@@ -84,26 +84,25 @@ def calculate_label_tokens_frequencies(label_feature_tokens, feature_vectors, la
 
 
 def calculate_laplace_estimate_probability(test_feature_vector, label_feature_tokens, laplace_estimate_frequencies,
-                                           label_tokens_frequency, total_tokens_frequency, dictionary_size):
+                                           label_frequency, no_of_train_documents, dictionary_size):
 
-    label_probability = label_tokens_frequency / total_tokens_frequency
+    label_probability = label_frequency / no_of_train_documents
 
     # numerically stable way to avoid multiplications of probabilities
     # known as logsumexp trick
-    laplace_estimate_log_probability = 0
+    laplace_estimate_exp_probability = 0
     for (i, token) in enumerate(label_feature_tokens):
         test_feature_token_frequency = test_feature_vector[i]
         if test_feature_token_frequency >= 1:
             if laplace_estimate_frequencies.__contains__(token):
-                probOfTokenBelongingToLabel = (laplace_estimate_frequencies[token] + test_feature_token_frequency + 1) \
-                                              / (label_tokens_frequency + test_feature_token_frequency + dictionary_size)
-                laplace_estimate_log_probability += math.exp(probOfTokenBelongingToLabel)
+                probOfTokenBelongingToLabel = (laplace_estimate_frequencies[token] + 1) \
+                                              / (label_frequency + dictionary_size)
+                laplace_estimate_exp_probability += math.exp(probOfTokenBelongingToLabel)
             else:
-                probOfTokenBelongingToLabel = (0 + test_feature_token_frequency + 1) \
-                                              / (label_tokens_frequency + test_feature_token_frequency + dictionary_size)
-                laplace_estimate_log_probability += math.exp(probOfTokenBelongingToLabel)
-    laplace_estimate_log_probability += math.exp(label_probability)
-    laplace_estimate_log_probability = math.log(laplace_estimate_log_probability)
+                probOfTokenBelongingToLabel = (0 + 1) / (label_frequency + dictionary_size)
+                laplace_estimate_exp_probability += math.exp(probOfTokenBelongingToLabel)
+    laplace_estimate_exp_probability += math.exp(label_probability)
+    laplace_estimate_log_probability = math.log(laplace_estimate_exp_probability)
 
     return laplace_estimate_log_probability
 
@@ -169,17 +168,17 @@ for i in range(len(train_files)):
     if train_labels[i] == 1:  # 1 is for class "SPAM"
         spam_feature_vector = [0] * len(spam_feature_tokens)
         for j in range(len(spam_feature_tokens)):
-            spam_feature_vector[j] = train_text_tokens.count(spam_feature_tokens[j])
-            #if train_text_tokens.__contains__(spam_feature_tokens[j]):
-            #    spam_feature_vector[j] = 1
+            #spam_feature_vector[j] = train_text_tokens.count(spam_feature_tokens[j])  # UNCOMMENT TO USE TF (TERM-FREQUENCY) FEATURES
+            if train_text_tokens.__contains__(spam_feature_tokens[j]):
+                spam_feature_vector[j] = 1
         spam_feature_vector = tuple(spam_feature_vector)
         spam_feature_vectors.append(spam_feature_vector)
     elif train_labels[i] == 0:  # 1 is for class "HAM"
         ham_feature_vector = [0] * len(ham_feature_tokens)
         for j in range(len(ham_feature_tokens)):
-            ham_feature_vector[j] = train_text_tokens.count(ham_feature_tokens[j])
-            #if train_text_tokens.__contains__(ham_feature_tokens[j]):
-            #    ham_feature_vector[j] = 1
+            #ham_feature_vector[j] = train_text_tokens.count(ham_feature_tokens[j])  # UNCOMMENT TO USE TF (TERM-FREQUENCY) FEATURES
+            if train_text_tokens.__contains__(ham_feature_tokens[j]):
+                ham_feature_vector[j] = 1
         ham_feature_vector = tuple(ham_feature_vector)
         ham_feature_vectors.append(ham_feature_vector)
 
@@ -201,10 +200,6 @@ ham_feature_tokens_frequencies = calculate_label_tokens_frequencies(ham_feature_
 #print('spam feature tokens frequencies: ' + str(spam_feature_tokens_frequencies))
 #print('ham feature tokens frequencies: ' + str(ham_feature_tokens_frequencies))
 
-spam_label_tokens_frequency = sum(spam_feature_tokens_frequencies.values())
-ham_label_tokens_frequency = sum(ham_feature_tokens_frequencies.values())
-total_tokens_frequency = spam_label_tokens_frequency + ham_label_tokens_frequency
-
 
 spam_dictionary_size = len(spam_feature_tokens)
 ham_dictionary_size = len(ham_feature_tokens)
@@ -219,32 +214,32 @@ for i in range(len(test_files)):  # for all the test files that exist
 
     test_spam_feature_vector = [0] * len(spam_feature_tokens)
     for j in range(len(spam_feature_tokens)):
-        test_spam_feature_vector[j] = test_text_tokens.count(spam_feature_tokens[j])
-        #if test_text_tokens.__contains__(spam_feature_tokens[j]):
-        #    test_spam_feature_vector[j] = 1
+        #test_spam_feature_vector[j] = test_text_tokens.count(spam_feature_tokens[j])  # UNCOMMENT TO USE TF (TERM-FREQUENCY) FEATURES
+        if test_text_tokens.__contains__(spam_feature_tokens[j]):
+            test_spam_feature_vector[j] = 1
     test_spam_feature_vector = tuple(test_spam_feature_vector)
 
     test_ham_feature_vector = [0] * len(ham_feature_tokens)
     for j in range(len(spam_feature_tokens)):
-        test_ham_feature_vector[j] = test_text_tokens.count(ham_feature_tokens[j])
-        #if test_text_tokens.__contains__(ham_feature_tokens[j]):
-        #    test_ham_feature_vector[j] = 1
+        #test_ham_feature_vector[j] = test_text_tokens.count(ham_feature_tokens[j])  # UNCOMMENT TO USE TF (TERM-FREQUENCY) FEATURES
+        if test_text_tokens.__contains__(ham_feature_tokens[j]):
+            test_ham_feature_vector[j] = 1
     test_ham_feature_vector = tuple(test_ham_feature_vector)
 
     # classify the document
     spam_laplace_estimate_probability = calculate_laplace_estimate_probability(test_spam_feature_vector,
                                                                                spam_feature_tokens,
                                                                                spam_feature_tokens_frequencies,
-                                                                               label_tokens_frequency=spam_label_tokens_frequency,
-                                                                               total_tokens_frequency=total_tokens_frequency,
+                                                                               label_frequency=spam_label_frequency,
+                                                                               no_of_train_documents=len(train_files),
                                                                                dictionary_size=spam_dictionary_size)
     #print("spam_laplace_estimate_probability: " + str(spam_laplace_estimate_probability))
 
     ham_laplace_estimate_probability = calculate_laplace_estimate_probability(test_ham_feature_vector,
                                                                               ham_feature_tokens,
                                                                               ham_feature_tokens_frequencies,
-                                                                              label_tokens_frequency=ham_label_tokens_frequency,
-                                                                              total_tokens_frequency=total_tokens_frequency,
+                                                                              label_frequency=ham_label_frequency,
+                                                                              no_of_train_documents=len(train_files),
                                                                               dictionary_size=ham_dictionary_size)
     #print("ham_laplace_estimate_probability: " + str(ham_laplace_estimate_probability))
 

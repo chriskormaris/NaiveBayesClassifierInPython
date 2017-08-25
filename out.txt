@@ -3,10 +3,10 @@ number of HAM train documents: 4012
 SPAM train document probability: 0.5286654135338346
 HAM train document probability: 0.47133458646616544
 
-spam feature tokens dictionary:
-['oo', 'php', 'email', 'promotional', 'professional', 'yahoo', 'featured', 'dear', 'meds', 'prescription', 'adobe', 'pills', 'wi', 'medications', 'sum', 'sir', 'corel', 'save', 'viagra', 'cialis', 'lottery', 'serial', 'wiil', 'piease', 'html', 'sincerely', 'subscribers', 'brand', 'em', 'wil', 'mailings', 'hello', 'photoshop', 'shouid', 'medication', 'advice', 'unclaimed', 'anticipates', 'foresee', 'account', 'remitted', 'drugs', 'doctor', 'sex', 'ail', 'ooking', 'batch', 'pertaining', 'security', 'xp', 'popular', 'remember', 'generic', 'ion', 'computer', 'acrobat', 'predictions', 'newsletter', 'advises', 'quality', 'rm', 'couid', 'technoiogy', 'money', 'readers', 'kin', 'ballot', 'oniy', 'inciude', 'presently', 'differ', 'piaced', 'software', 'windows', 'materia', 'potentia', 'reply', 'watch', 'inherent', 'symantec', 'unsubscribe', 'ooo', 'lucky', 'selected', 'award', 'newsietter', 'deciding', 'sexual', 'affordable', 'resuits', 'cheap', 'click', 'registered', 'alias', 'websites', 'maiiings', 'madam', 'bait', 'pians', 'ticket', 'shiip', 'maya', 'lo', 'prize', 'programs', 'shipping', 'quark', 'rolex', 'utf', 'tablets', 'nero', 'oi', 'borland', 'protocol', 'graphics', 'dollars', 'softwares', 'super', 'deposited', 'info', 'mi', 'invoive', 'aiso', 'complications', 'macromedia', 'omit', 'specuiative', 'processed', 'rx', 'undue', 'miilion', 'lump', 'stocks', 'autodesk', 'reiease', 'meaning', 'advisor', 'pc', 'powerquest', 'roxio', 'emai', 'beiieves', 'ars', 'advertisement', 'symbol', 'beliefs', 'notification', 'claim', 'ce', 'store', 'online', 'dr', 'unnecessary', 'riverdeep', 'saave', 'pharmacy', 'tongue', 'drvgs', 'mai', 'internationa', 'mc', 'choose', 'pill', 'vmware', 'countrieswe', 'macrmedia', 'intuit', 'winners', 'mix', 'inform', 'cheaap', 'inciuding', 'profiie', 'pubiication', 'publisher', 'congratulations', 'actua', 'additiona', 'miliion', 'understands', 'pain', 'foreigner', 'anticipated', 'mortgage', 'men', 'microcap', 'man', 'loo', 'erections', 'attn', 'se', 'reliable', 'express', 'netscape', 'consequently', 'safe', 'seek', 'body', 'mx', 'um', 'confiict', 'receiving', 'unwarranted', 'check', 'winning', 'technoiogies', 'affiiiated', 'projections', 'microsoft', 'uncertainties', 'gem', 'en', 'gathered', 'correspondence', 'hat', 'watches', 'professiona', 'wrongfu', 'died', 'vi', 'membership', 'rea', 'ine', 'download', 'natura', 'prlce', 'norton', 'assumptions', 'pink', 'africa', 'addresses', 'objectives', 'excelled', 'wide', 'tion', 'witer', 'exampies', 'currentiy', 'biz', 'unscrupulous', 'webmail', 'voip', 'shlpp', 'ciick', 'compieted', 'soiicitation', 'pinnacle', 'constitutes', 'beneficiary', 'goais', 'beiieve', 'link', 'completeness', 'site', 'life', 'dose', 'vicodin', 'cialiis', 'wel', 'biank', 'promotions', 'disqualified', 'understood', 'abuse', 'investing', 'crystal', 'mobile', 'xanax', 'resuiting', 'nigeria', 'agent', 'al', 'remittance', 'sleeping', 'xanaax', 'impotence', 'pubiisher', 'symbo', 'beiiefs', 'wrongfuily', 'vaiue', 'worldwide', 'tabs', 'cs', 'linux', 'doliars', 'ast', 'soft', 'shop', 'sel', 'studios', 'mb', 'cum', 'siteguaaranteed', 'imited', 'presentiy', 'god', 'proven', 'positioned', 'aiready', 'whiie', 'united', 'medicine', 'indicating', 'illustrator', 'nationa', 'doilars', 'aiert', 'receipt', 'specially', 'stoxo', 'verge', 'licensed', 'otcbb', 'materialiy', 'wysk', 'es', 'si', 'wrongfully', 'perfect', 'ur', 'vlagra', 'winnings', 'soiutions', 'youcheckk', 'wgr', 'noneedl', 'xom', 'wysak', 'age', 'claiming', 'dysfunction', 'prom', 'historica', 'compiete', 'fiiings', 'simiiar', 'undervaiued', 'processing', 'draw', 'low', 'penny', 'tiscali', 'prescripiton', 'compiiance', 'petroieum', 'quote', 'country', 'fee', 'love', 'ng', 'children', 'disqualification', 'pk', 'alium', 'sidebacks', 'homeowner', 'shiiip', 'seil', 'materiaily', 'expiode', 'shipped', 'otc', 'consultation', 'ra', 'greetings', 'specials', 'penis', 'replicas', 'diiigence', 'worid', 'highiy', 'inches', 'deposit', 'deceased', 'reference', 'dia', 'advertisements', 'min', 'nl', 'publication', 'titles', 'kernel', 'vger', 'pubiic', 'piay', 'reiiance', 'properties', 'undervalued', 'assist', 'pleasure', 'alcohol', 'discovered', 'product', 'utmost', 'girls', 'tadalafil', 'relatives', 'profiled', 'ambieen', 'iaagra', 'ambiien', 'abiiity', 'sha', 'yourseif', 'inciudes', 'ook', 'financia', 'death', 'international', 'accuracy', 'valium', 'clalls', 'lkml', 'tux', 'orgasms', 'omega', 'cartier', 'genera', 'deveiopment', 'andmanyother', 'awesome', 'hottest', 'apr', 'browse', 'ingredient', 'nuke', 'gg', 'advertising', 'de', 'address', 'friend', 'earning', 'legitimate', 'twenty', 'wa', 'apple', 'yo', 'lotto', 'medssno', 'shippiing', 'barreis', 'unsuitable', 'chemist', 'correspondences', 'ls', 'double', 'este', 'modalities', 'shiiping', 'iwc', 'quaiity', 'invoiving', 'exxonmobiie', 'unsuitabie', 'remove', 'appointments', 'category', 'mac', 'discreet', 'unique', 'entertainment', 'vallum', 'famiiiar', 'deveiopments', 'oem', 'majordomo', 'undiscovered', 'revolutionary', 'drawn', 'drug', 'dvd', 'preceding', 'poised', 'para', 'bias', 'factual', 'sectionl', 'ci', 'sav', 'porn', 'shal', 'smal', 'sharehoider', 'gioba', 'seiected', 'soid', 'ciean', 'wn', 'welis', 'reliance', 'con', 'ut', 'brochures', 'private', 'involve', 'easy', 'ado', 'ment', 'capita']
+spam feature tokens dictionary: 
+['http', 'oo', 'php', 'email', 'promotional', 'professional', 'yahoo', 'featured', 'dear', 'meds', 'prescription', 'adobe', 'pills', 'wi', 'medications', 'sum', 'sir', 'corel', 'save', 'viagra', 'cialis', 'lottery', 'serial', 'wiil', 'piease', 'html', 'sincerely', 'subscribers', 'brand', 'em', 'wil', 'mailings', 'hello', 'photoshop', 'shouid', 'medication', 'advice', 'unclaimed', 'anticipates', 'foresee', 'account', 'remitted', 'drugs', 'doctor', 'sex', 'ail', 'ooking', 'batch', 'pertaining', 'security', 'xp', 'popular', 'remember', 'generic', 'ion', 'computer', 'acrobat', 'predictions', 'newsletter', 'advises', 'quality', 'rm', 'technoiogy', 'couid', 'money', 'readers', 'kin', 'ballot', 'oniy', 'inciude', 'presently', 'differ', 'piaced', 'software', 'windows', 'materia', 'potentia', 'reply', 'watch', 'inherent', 'symantec', 'unsubscribe', 'ooo', 'lucky', 'selected', 'award', 'newsietter', 'deciding', 'sexual', 'affordable', 'resuits', 'cheap', 'click', 'registered', 'alias', 'websites', 'maiiings', 'madam', 'bait', 'pians', 'ticket', 'shiip', 'maya', 'lo', 'prize', 'programs', 'shipping', 'quark', 'rolex', 'utf', 'tablets', 'nero', 'oi', 'borland', 'protocol', 'graphics', 'dollars', 'softwares', 'super', 'deposited', 'info', 'mi', 'invoive', 'aiso', 'complications', 'macromedia', 'omit', 'specuiative', 'processed', 'rx', 'undue', 'miilion', 'lump', 'stocks', 'autodesk', 'reiease', 'meaning', 'advisor', 'pc', 'roxio', 'powerquest', 'emai', 'beiieves', 'ars', 'advertisement', 'symbol', 'beliefs', 'notification', 'claim', 'ce', 'store', 'online', 'dr', 'unnecessary', 'riverdeep', 'saave', 'pharmacy', 'tongue', 'drvgs', 'mai', 'internationa', 'mc', 'choose', 'pill', 'countrieswe', 'macrmedia', 'intuit', 'vmware', 'winners', 'mix', 'inform', 'cheaap', 'inciuding', 'profiie', 'pubiication', 'publisher', 'congratulations', 'actua', 'additiona', 'miliion', 'understands', 'pain', 'foreigner', 'anticipated', 'mortgage', 'men', 'microcap', 'man', 'loo', 'erections', 'attn', 'se', 'reliable', 'express', 'netscape', 'consequently', 'safe', 'seek', 'body', 'mx', 'um', 'confiict', 'receiving', 'unwarranted', 'check', 'winning', 'technoiogies', 'affiiiated', 'projections', 'microsoft', 'uncertainties', 'gem', 'en', 'gathered', 'correspondence', 'hat', 'watches', 'professiona', 'wrongfu', 'died', 'vi', 'membership', 'rea', 'ine', 'download', 'natura', 'prlce', 'norton', 'assumptions', 'pink', 'africa', 'addresses', 'objectives', 'excelled', 'wide', 'tion', 'witer', 'exampies', 'currentiy', 'biz', 'unscrupulous', 'webmail', 'voip', 'shlpp', 'ciick', 'compieted', 'soiicitation', 'pinnacle', 'constitutes', 'beneficiary', 'goais', 'beiieve', 'link', 'completeness', 'site', 'life', 'dose', 'vicodin', 'cialiis', 'wel', 'biank', 'promotions', 'disqualified', 'understood', 'abuse', 'investing', 'crystal', 'mobile', 'xanax', 'resuiting', 'nigeria', 'agent', 'al', 'remittance', 'sleeping', 'xanaax', 'impotence', 'pubiisher', 'symbo', 'beiiefs', 'wrongfuily', 'vaiue', 'worldwide', 'tabs', 'cs', 'linux', 'doliars', 'ast', 'soft', 'shop', 'sel', 'studios', 'mb', 'cum', 'siteguaaranteed', 'imited', 'presentiy', 'god', 'proven', 'positioned', 'aiready', 'whiie', 'united', 'medicine', 'indicating', 'illustrator', 'nationa', 'doilars', 'aiert', 'receipt', 'specially', 'stoxo', 'verge', 'licensed', 'otcbb', 'materialiy', 'wysk', 'es', 'si', 'wrongfully', 'perfect', 'ur', 'vlagra', 'winnings', 'soiutions', 'youcheckk', 'noneedl', 'wysak', 'wgr', 'xom', 'age', 'claiming', 'dysfunction', 'prom', 'historica', 'compiete', 'fiiings', 'simiiar', 'undervaiued', 'processing', 'draw', 'low', 'penny', 'tiscali', 'prescripiton', 'compiiance', 'petroieum', 'quote', 'country', 'fee', 'love', 'ng', 'children', 'disqualification', 'pk', 'alium', 'sidebacks', 'homeowner', 'shiiip', 'seil', 'materiaily', 'expiode', 'shipped', 'otc', 'consultation', 'ra', 'greetings', 'specials', 'penis', 'replicas', 'diiigence', 'worid', 'highiy', 'inches', 'deposit', 'deceased', 'reference', 'dia', 'advertisements', 'min', 'nl', 'publication', 'titles', 'kernel', 'vger', 'pubiic', 'piay', 'reiiance', 'properties', 'undervalued', 'assist', 'pleasure', 'alcohol', 'discovered', 'product', 'utmost', 'girls', 'tadalafil', 'relatives', 'profiled', 'ambieen', 'iaagra', 'ambiien', 'abiiity', 'sha', 'yourseif', 'inciudes', 'ook', 'financia', 'death', 'international', 'accuracy', 'valium', 'clalls', 'tux', 'lkml', 'orgasms', 'omega', 'cartier', 'genera', 'deveiopment', 'andmanyother', 'awesome', 'hottest', 'apr', 'browse', 'ingredient', 'nuke', 'gg', 'advertising', 'de', 'address', 'friend', 'earning', 'legitimate', 'twenty', 'wa', 'apple', 'yo', 'lotto', 'shippiing', 'medssno', 'barreis', 'unsuitable', 'chemist', 'correspondences', 'ls', 'double', 'este', 'modalities', 'shiiping', 'iwc', 'quaiity', 'invoiving', 'exxonmobiie', 'unsuitabie', 'remove', 'appointments', 'category', 'mac', 'discreet', 'unique', 'entertainment', 'vallum', 'famiiiar', 'deveiopments', 'oem', 'majordomo', 'undiscovered', 'revolutionary', 'drawn', 'drug', 'dvd', 'preceding', 'poised', 'para', 'bias', 'factual', 'sectionl', 'ci', 'sav', 'porn', 'shal', 'smal', 'sharehoider', 'gioba', 'seiected', 'soid', 'ciean', 'wn', 'welis', 'reliance', 'con', 'ut', 'brochures', 'private', 'involve', 'easy', 'ado', 'ment']
 
-ham feature tokens dictionary:
+ham feature tokens dictionary: 
 ['enron', 'louise', 'original', 'pm', 'kitchen', 'cc', 'john', 'fw', 'questions', 'message', 'attached', 'meeting', 'mark', 'houston', 'power', 'call', 'monday', 'david', 'wednesday', 'gas', 'will', 'issues', 'thursday', 'lavorato', 'jeff', 'comments', 'tuesday', 'dave', 'discuss', 'update', 'deal', 'group', 'friday', 'ena', 'corp', 'october', 'greg', 'tomorrow', 'mike', 'calger', 'week', 'chris', 'americas', 'ect', 'trading', 'plan', 'conference', 'steve', 'enrononline', 'changes', 'kevin', 'energy', 'yesterday', 'issue', 'draft', 'employees', 'christopher', 'summary', 'asset', 'committee', 'richard', 'forwarded', 'contract', 'fyi', 'november', 'california', 'michael', 'mm', 'smith', 'afternoon', 'jim', 'september', 'working', 'contracts', 'discussed', 'wholesale', 'concerns', 'ubs', 'netco', 'review', 'tammie', 'jay', 'ees', 'schedule', 'brian', 'counterparties', 'jeffrey', 'hou', 'asked', 'eol', 'revised', 'received', 'davis', 'ferc', 'schoppe', 'karen', 'dynegy', 'belden', 'laura', 'presto', 'morning', 'comment', 'origination', 'bob', 'analyst', 'commercial', 'utility', 'scott', 'costs', 'utilities', 'bill', 'basis', 'groups', 'wes', 'august', 'enronxgate', 'scheduled', 'earlier', 'ene', 'counterparty', 'transmission', 'july', 'transactions', 'points', 'bonds', 'sheet', 'oxley', 'team', 'deals', 'whalley', 'traders', 'additional', 'agreement', 'appears', 'portland', 'tim', 'employee', 'proposed', 'markets', 'liquidity', 'ken', 'skilling', 'mentions', 'unit', 'forster', 'structure', 'difficult', 'duran', 'april', 'presentation', 'requested', 'earnings', 'eb', 'closed', 'trades', 'redmond', 'work', 'chief', 'jr', 'term', 'status', 'told', 'meetings', 'exposure', 'units', 'mrha', 'early', 'intended', 'pipeline', 'miller', 'oct', 'bid', 'trader', 'blackberry', 'colwell', 'mary', 'lead', 'project', 'fastow', "'", 'daily', 'commodity', 'james', 'credit', 'handheld', 'option', 'entity', 'palmer', 'filing', 'management', 'agenda', 'operations', 'copy', 'electricity', 'william', 'nov', 'reported', 'counsel', 'milnthorp', 'december', 'robert', 'capacity', 'close', 'positions', 'carol', 'steffes', 'sept', 'ben', 'spoke', 'paso', 'buyer', 'plants', 'uncertainty', 'luce', 'york', 'capital', 'jean', 'dowjones', 'executives', 'bloomberg', 'analysts', 'people', 'bradford', 'ratings', 'filed', 'sally', 'downgrade', 'market', 'posted', 'remain', 'spokesman', 'couple', 'point', 'jones', 'electric', 'talk', 'joe', 'collateral', 'tom', 'andrew', 'balance', 'event', 'moody', 'regulatory', 'mirant', 'spreadsheet', 'obligations', 'cell', 'pg', 'january', 'haedicke', 'rick', 'dealings', 'webb', 'legal', 'addition', 'concerned', 'fallen', 'disclosure', 'warburg', 'giant', 'declined', 'edison', 'newswires', 'analysis', 'lines', 'appropriate', 'morgan', 'ii', 'options', 'janet', 'request', 'aep', 'reserved', 'planning', 'calpine', 'currently', 'support', 'discussion', 'reuters', 'calls', 'chairman', 'despite', 'thoughts', 'termination', 'copyright', 'beth', 'activities', 'richter', 'amid', 'taylor', 'losses', 'managing', 'period', 'going', 'delainey', 'plant', 'bond', 'lay', 'tycholiz', 'continue', 'memo', 'assuming', 'floor', 'lisa', 'london', 'sale', 'frank', 'guys', 'generators', 'kenneth', 'hr', 'rights', 'confirmed', 'clear', 'debt', 'june', 'lowered', 'role', 'vice', 'mid', 'deffner', 'raymond', 'remains', 'fred', 'weekly', 'allen', 'quarter', 'senior', 'piper', 'citigroup', 'brad', 'mexico', 'physical', 'risk', 'vickers', 'denne', 'list', 'didn', 'contributed', 'assume', 'stephen', 'global', 'cfo', 'commission', 'quarterly', 'level', 'assets', 'duke', 'volumes', 'rating', 'buyers', 'turbine', 'spokeswoman', 'executive', 'commodities', 'fall', 'fourth', 'mcmahon', 'agreed', 'dwr', 'ews', 'midwest', 'jacoby', 'downgraded', 'hold', 'sign', 'short', 'copies', 'deadline', 'mw', 'andy', 'hedge', 'texas', 'chuck', 'settlement', 'liability', 'plunged', 'shively', 'kean', 'preliminary', 'cut', 'regulators', 'firms', 'understand', 'fired', 'salomon', 'internal', 'charges', 'responsible', 'mailto', 'swap', 'lynch', 'clearly', 'evidence', 'thought', 'spread', 'paragraph', 'pricing', 'stanley', 'approach', 'column', 'lagrasta', 'financial', 'associated', 'conversation', 'futures', 'west', 'infrastructure', 'dropped', 'decision', 'signed', 'reliant', 'merger', 'activity', 'disclosed', 'resigned', 'reached', 'eric', 'killen', 'lawsuit', 'amounts', 'outlook', 'grade', 'essentially', 'beck', 'woes', 'master', 'wireless', 'partnerships', 'delete', 'journal', 'black', 'ljm', 'hall', 'senate', 'repay', 'citing', 'failed', 'cover', 'lack', 'default', 'pipelines', 'amy', 'prc', 'views', 'initial', 'wouldn', 'don', 'barry', 'example', 'development', 'creditors', 'lot', 'bbb', 'hedging', 'legislature', 'provisions', 'chair', 'prepared', 'hasn', 'industrial', 'negotiating', 'agreements', 'reportedly', 'shapiro', 'turbines', 'flow', 'included', 'general', 'boston', 'loss', 'ensure', 'well', 'puc', 'pushed', 'disclosures', 'liabilities', 'martin', 'provide', 'coal', 'lost', 'faith', 'herndon', 'data', 'northwest', 'paul', 'weeks', 'closing', 'barney', 'originally', 'facing', 'credibility', 'arrangements', 'year', 'smaller', 'seller', 'focus', 'standard', 'progress']
 
 training files...
@@ -8523,8 +8523,6 @@ Reading train file '5998.2005-07-30.BG.spam.txt'...
 Reading train file '5999.2005-07-30.BG.spam.txt'...
 Reading train file '6000.2005-07-31.BG.spam.txt'...
 
-spam laplace estimate frequencies: {'email': 1780, 'sincerely': 230, 'reply': 413, 'children': 108, 'greetings': 45, 'assist': 209, 'address': 711, 'software': 656, 'ion': 206, 'click': 390, 'save': 552, 'rm': 284, 'tablets': 113, 'men': 146, 'professional': 650, 'adobe': 638, 'corel': 211, 'photoshop': 178, 'xp': 364, 'acrobat': 155, 'quality': 463, 'money': 1382, 'windows': 401, 'quark': 94, 'borland': 91, 'graphics': 145, 'macromedia': 163, 'mx': 185, 'microsoft': 340, 'norton': 125, 'illustrator': 66, 'perfect': 129, 'draw': 209, 'man': 240, 'wide': 250, 'country': 486, 'twenty': 109, 'oo': 938, 'popular': 326, 'lucky': 262, 'cheap': 215, 'shiip': 100, 'nero': 116, 'softwares': 447, 'super': 280, 'pc': 216, 'powerquest': 80, 'roxio': 80, 'riverdeep': 77, 'saave': 169, 'mc': 84, 'africa': 274, 'pinnacle': 117, 'agent': 407, 'cs': 132, 'shop': 131, 'ur': 349, 'low': 454, 'titles': 112, 'oem': 61, 'hello': 280, 'medication': 166, 'site': 579, 'age': 139, 'info': 497, 'processing': 169, 'death': 154, 'en': 222, 'biz': 135, 'dear': 376, 'programs': 263, 'store': 244, 'check': 396, 'viagra': 227, 'express': 275, 'xanax': 63, 'valium': 40, 'de': 1270, 'download': 242, 'promotional': 339, 'sum': 386, 'lottery': 677, 'serial': 165, 'account': 1054, 'remitted': 137, 'batch': 285, 'security': 970, 'remember': 352, 'computer': 430, 'ballot': 154, 'selected': 264, 'award': 310, 'ticket': 203, 'prize': 443, 'protocol': 152, 'deposited': 158, 'lump': 121, 'claim': 546, 'winners': 304, 'mix': 177, 'inform': 281, 'congratulations': 337, 'netscape': 107, 'consequently': 142, 'receiving': 252, 'winning': 454, 'correspondence': 124, 'addresses': 183, 'unscrupulous': 60, 'promotions': 255, 'remittance': 72, 'claiming': 146, 'quote': 161, 'disqualification': 56, 'reference': 301, 'nl': 72, 'international': 864, 'double': 194, 'category': 313, 'drawn': 143, 'easy': 231, 'sir': 191, 'unclaimed': 160, 'madam': 113, 'complications': 126, 'processed': 135, 'notification': 257, 'unnecessary': 120, 'unwarranted': 105, 'disqualified': 70, 'abuse': 94, 'united': 447, 'lotto': 93, 'dollars': 535, 'deposit': 264, 'meds': 290, 'prescription': 243, 'html': 243, 'drugs': 189, 'shipping': 253, 'online': 665, 'private': 404, 'cialis': 319, 'pain': 177, 'loo': 77, 'sleeping': 67, 'xanaax': 119, 'worldwide': 225, 'soft': 307, 'product': 507, 'discreet': 61, 'brand': 340, 'doctor': 147, 'sex': 140, 'generic': 231, 'sexual': 132, 'pill': 90, 'erections': 72, 'safe': 238, 'impotence': 63, 'dysfunction': 47, 'shipped': 68, 'pleasure': 94, 'tadalafil': 68, 'ingredient': 44, 'remove': 164, 'vlagra': 48, 'specials': 46, 'clalls': 40, 'vallum': 36, 'pharmacy': 105, 'vicodin': 62, 'kin': 353, 'choose': 266, 'foreigner': 116, 'died': 145, 'nigeria': 154, 'deceased': 108, 'penis': 105, 'inches': 86, 'fee': 232, 'friend': 149, 'webmail': 60, 'attn': 72, 'beneficiary': 129, 'life': 348, 'god': 165, 'legitimate': 61, 'symantec': 120, 'linux': 66, 'dvd': 74, 'php': 322, 'winnings': 66, 'em': 253, 'advice': 689, 'receipt': 123, 'apr': 54, 'link': 255, 'advertising': 120, 'rx': 118, 'mobile': 309, 'indicating': 173, 'browse': 52, 'presently': 180, 'publication': 173, 'mortgage': 159, 'consultation': 72, 'wi': 430, 'materia': 214, 'lo': 155, 'mi': 177, 'se': 341, 'rea': 77, 'al': 288, 'es': 263, 'si': 208, 'este': 71, 'para': 158, 'con': 223, 'dose': 105, 'ra': 73, 'bait': 153, 'medicine': 92, 'um': 115, 'medications': 204, 'ail': 179, 'emai': 164, 'hat': 94, 'pink': 86, 'tion': 67, 'ng': 97, 'wa': 240, 'unique': 170, 'entertainment': 199, 'subscribers': 272, 'registered': 359, 'symbol': 166, 'gem': 93, 'positioned': 120, 'verge': 91, 'otc': 214, 'undervalued': 89, 'unsubscribe': 187, 'body': 133, 'kernel': 140, 'vger': 91, 'lkml': 40, 'tux': 40, 'majordomo': 126, 'mailings': 146, 'seek': 252, 'vi': 89, 'accuracy': 135, 'drug': 96, 'ado': 87, 'reliable': 170, 'ce': 298, 'publisher': 254, 'featured': 320, 'advertisement': 137, 'discovered': 111, 'relatives': 67, 'yahoo': 349, 'anticipates': 180, 'foresee': 148, 'pertaining': 163, 'predictions': 169, 'advises': 146, 'readers': 252, 'differ': 361, 'watch': 404, 'inherent': 220, 'deciding': 149, 'websites': 115, 'omit': 85, 'stocks': 642, 'meaning': 369, 'advisor': 174, 'beliefs': 102, 'dr': 199, 'understands': 146, 'anticipated': 225, 'projections': 335, 'uncertainties': 342, 'gathered': 104, 'assumptions': 258, 'objectives': 178, 'constitutes': 99, 'completeness': 79, 'understood': 158, 'investing': 382, 'specially': 50, 'otcbb': 61, 'pk': 79, 'factual': 74, 'sectionl': 35, 'ut': 41, 'involve': 236, 'tiscali': 95, 'nuke': 39, 'modalities': 43, 'ooking': 373, 'natura': 100, 'ls': 53, 'utmost': 54, 'pills': 230, 'girls': 69, 'maya': 98, 'autodesk': 82, 'studios': 81, 'apple': 51, 'love': 163, 'proven': 136, 'ine': 72, 'correspondences': 47, 'membership': 172, 'voip': 342, 'yo': 226, 'ment': 35, 'piease': 198, 'aiso': 103, 'cialiis': 76, 'tabs': 193, 'newsletter': 403, 'rolex': 179, 'watches': 134, 'alias': 103, 'awesome': 75, 'undiscovered': 43, 'ci': 43, 'mb': 83, 'properties': 144, 'appointments': 67, 'earning': 76, 'licensed': 85, 'undue': 83, 'capita': 41, 'mai': 85, 'witer': 61, 'penny': 125, 'profiled': 76, 'poised': 100, 'reliance': 94, 'bias': 53, 'dia': 135, 'prom': 70, 'alium': 69, 'shiiping': 37, 'orgasms': 64, 'min': 66, 'affordable': 127, 'tongue': 80, 'sidebacks': 45, 'alcohol': 48, 'soiutions': 84, 'vmware': 75, 'countrieswe': 75, 'macrmedia': 75, 'intuit': 75, 'crystal': 83, 'mac': 107, 'utf': 270, 'revolutionary': 46, 'cum': 82, 'brochures': 41, 'drvgs': 77, 'microcap': 72, 'shlpp': 60, 'cheaap': 74, 'prlce': 63, 'ciick': 60, 'siteguaaranteed': 53, 'youcheckk': 48, 'sav': 45, 'homeowner': 45, 'hottest': 75, 'omega': 40, 'iwc': 37, 'ambieen': 62, 'iaagra': 84, 'replicas': 57, 'excelled': 105, 'advertisements': 50, 'cartier': 40, 'ooo': 225, 'shiiip': 45, 'preceding': 46, 'porn': 38, 'genera': 44, 'ars': 123, 'gg': 39, 'ambiien': 41, 'medssno': 38, 'shippiing': 38, 'couid': 188, 'technoiogy': 210, 'potentia': 127, 'newsietter': 199, 'resuits': 183, 'pians': 136, 'oi': 427, 'invoive': 125, 'miilion': 110, 'beiieves': 100, 'inciuding': 106, 'technoiogies': 98, 'professiona': 65, 'compieted': 67, 'wel': 199, 'pubiisher': 111, 'aiready': 55, 'historica': 47, 'diiigence': 44, 'pubiic': 50, 'abiiity': 45, 'famiiiar': 36, 'shal': 39, 'prescripiton': 46, 'symbo': 62, 'whiie': 56, 'wil': 245, 'wiil': 259, 'oniy': 141, 'internationa': 120, 'imited': 79, 'compiete': 50, 'seil': 49, 'worid': 56, 'profiie': 81, 'piay': 48, 'smal': 37, 'shouid': 161, 'reiease': 107, 'pubiication': 96, 'actua': 79, 'additiona': 80, 'confiict': 78, 'exampies': 61, 'sel': 67, 'materialiy': 54, 'fiiings': 63, 'compiiance': 47, 'sha': 45, 'sharehoider': 40, 'soiicitation': 60, 'nationa': 88, 'resuiting': 56, 'materiaily': 51, 'inciude': 144, 'miliion': 97, 'doilars': 52, 'wrongfully': 55, 'specuiative': 107, 'beiiefs': 55, 'reiiance': 42, 'deveiopment': 74, 'gioba': 44, 'piaced': 111, 'maiiings': 98, 'yourseif': 63, 'seiected': 35, 'goais': 63, 'presentiy': 53, 'quaiity': 37, 'wrongfu': 65, 'currentiy': 72, 'beiieve': 72, 'doliars': 59, 'affiiiated': 67, 'wrongfuily': 55, 'inciudes': 57, 'simiiar': 53, 'undervaiued': 56, 'invoiving': 42, 'aiert': 60, 'soid': 37, 'ook': 54, 'vaiue': 72, 'ast': 67, 'stoxo': 50, 'financia': 49, 'deveiopments': 36, 'biank': 58, 'ciean': 38, 'expiode': 45, 'highiy': 45, 'wn': 215, 'welis': 43, 'barreis': 58, 'petroieum': 93, 'wysk': 172, 'wgr': 48, 'noneedl': 48, 'xom': 48, 'wysak': 408, 'unsuitable': 38, 'exxonmobiie': 44, 'unsuitabie': 37, 'chemist': 58, 'andmanyother': 40}
-ham laplace estimate frequencies: {'john': 1764, 'david': 1305, 'issues': 963, 'plan': 1275, 'employees': 1068, 'review': 982, 'unit': 697, 'work': 976, 'going': 1049, 'delainey': 147, 'hr': 197, 'mid': 420, 'year': 3326, 'deal': 2724, 'positions': 336, 'guys': 189, 'example': 265, 'well': 1173, 'enron': 29801, 'louise': 3499, 'pm': 2052, 'kitchen': 1885, 'cc': 1613, 'mark': 1313, 'monday': 1537, 'will': 8648, 'lavorato': 462, 'group': 1904, 'corp': 2964, 'greg': 526, 'ect': 1963, 'yesterday': 1082, 'wholesale': 616, 'hou': 1029, 'oxley': 305, 'whalley': 210, "'": 34456, 'memo': 141, 'don': 1227, 'progress': 155, 'attached': 1165, 'forwarded': 318, 'contracts': 853, 'basis': 487, 'transmission': 467, 'points': 407, 'proposed': 483, 'project': 1166, 'filing': 690, 'filed': 451, 'ii': 368, 'request': 532, 'support': 662, 'continue': 784, 'commission': 1153, 'development': 713, 'power': 4272, 'gas': 3537, 'tuesday': 1143, 'week': 2632, 'energy': 5595, 'summary': 334, 'california': 1265, 'working': 680, 'received': 553, 'davis': 569, 'utility': 595, 'costs': 654, 'utilities': 567, 'groups': 311, 'bonds': 860, 'additional': 865, 'agreement': 1211, 'appears': 269, 'structure': 289, 'difficult': 303, 'term': 1440, 'told': 531, 'bid': 504, 'lead': 438, 'credit': 3331, 'management': 1465, 'robert': 416, 'capacity': 354, 'close': 905, 'plants': 408, 'market': 3169, 'pg': 293, 'edison': 526, 'currently': 538, 'period': 533, 'assuming': 121, 'generators': 199, 'clear': 445, 'debt': 2045, 'risk': 1071, 'level': 483, 'assets': 1806, 'executive': 1182, 'agreed': 548, 'dwr': 262, 'short': 743, 'deadline': 146, 'mw': 353, 'settlement': 176, 'fired': 165, 'internal': 240, 'reached': 233, 'outlook': 196, 'essentially': 95, 'creditors': 270, 'legislature': 150, 'reportedly': 114, 'general': 725, 'puc': 223, 'provide': 873, 'smaller': 171, 'standard': 647, 'questions': 1255, 'meeting': 1417, 'trading': 4159, 'closed': 452, 'chief': 1892, 'meetings': 216, 'early': 612, 'executives': 613, 'addition': 417, 'cover': 326, 'weeks': 741, 'message': 2860, 'call': 1635, 'jeff': 757, 'steve': 503, 'richard': 410, 'fyi': 247, 'michael': 525, 'dynegy': 4651, 'skilling': 697, 'intended': 411, 'william': 282, 'paso': 234, 'bradford': 180, 'jones': 3151, 'electric': 454, 'duke': 269, 'chuck': 206, 'delete': 176, 'agreements': 275, 'houston': 2445, 'dave': 509, 'discuss': 640, 'update': 1136, 'asked': 542, 'morning': 606, 'origination': 256, 'commercial': 856, 'employee': 356, 'markets': 1532, 'trader': 951, 'commodity': 272, 'operations': 789, 'nov': 886, 'talk': 335, 'analysis': 284, 'appropriate': 240, 'discussion': 248, 'senior': 594, 'understand': 329, 'pricing': 194, 'financial': 3599, 'decision': 411, 'lot': 483, 'negotiating': 133, 'wednesday': 1380, 'friday': 1323, 'contract': 893, 'afternoon': 310, 'team': 698, 'cell': 238, 'frank': 241, 'conference': 794, 'smith': 456, 'mirant': 211, 'calpine': 176, 'despite': 254, 'raymond': 157, 'salomon': 146, 'spread': 160, 'west': 374, 'barney': 132, 'asset': 637, 'bill': 759, 'earlier': 667, 'spoke': 171, 'people': 1346, 'concerned': 258, 'associated': 562, 'reliant': 177, 'lack': 165, 'faith': 254, 'original': 2481, 'fw': 1146, 'thursday': 1032, 'karen': 331, 'scott': 296, 'miller': 263, 'rick': 165, 'taylor': 232, 'conversation': 116, 'mike': 604, 'tammie': 303, 'belden': 226, 'tim': 362, 'daily': 423, 'tomorrow': 467, 'august': 602, 'uncertainty': 202, 'legal': 727, 'lines': 553, 'confirmed': 183, 'ena': 655, 'issue': 901, 'mm': 886, 'jim': 424, 'ees': 881, 'brian': 491, 'jeffrey': 361, 'wes': 274, 'enronxgate': 705, 'sheet': 793, 'april': 383, 'redmond': 226, 'colwell': 205, 'option': 428, 'buyer': 229, 'capital': 990, 'tom': 225, 'balance': 934, 'january': 557, 'managing': 334, 'floor': 309, 'rights': 1715, 'role': 305, 'brad': 202, 'global': 526, 'mcmahon': 327, 'thought': 311, 'signed': 269, 'merger': 996, 'industrial': 357, 'flow': 244, 'ensure': 301, 'lynch': 156, 'discussed': 272, 'status': 744, 'draft': 440, 'presentation': 292, 'james': 501, 'joe': 199, 'options': 626, 'data': 500, 'milnthorp': 154, 'comments': 548, 'laura': 298, 'luce': 150, 'shively': 98, 'schedule': 344, 'scheduled': 267, 'agenda': 255, 'point': 583, 'planning': 224, 'hold': 375, 'preliminary': 116, 'changes': 764, 'deals': 1001, 'calls': 301, 'evidence': 119, 'exposure': 547, 'units': 317, 'thoughts': 152, 'physical': 310, 'clearly': 194, 'approach': 230, 'reported': 942, 'remains': 268, 'cut': 844, 'amounts': 151, 'originally': 97, 'comment': 600, 'repay': 175, 'chairman': 1202, 'texas': 528, 'futures': 214, 'eric': 156, 'november': 670, 'december': 533, 'sign': 290, 'charges': 440, 'ferc': 686, 'copy': 359, 'carol': 279, 'regulatory': 448, 'pipelines': 195, 'steffes': 184, 'weekly': 345, 'haedicke': 131, 'allen': 144, 'black': 279, 'paul': 352, 'requested': 262, 'list': 1057, 'piper': 174, 'mailto': 163, 'termination': 194, 'plant': 454, 'hedge': 201, 'liability': 143, 'revised': 296, 'vickers': 115, 'kevin': 469, 'eol': 392, 'presto': 253, 'transactions': 1404, 'traders': 780, 'portland': 304, 'volumes': 184, 'committee': 758, 'analyst': 1081, 'electricity': 1095, 'analysts': 1253, 'bond': 483, 'didn': 430, 'loss': 793, 'lost': 602, 'closing': 351, 'losses': 700, 'rating': 1688, 'activity': 226, 'prepared': 148, 'couple': 202, 'beth': 156, 'responsible': 192, 'deffner': 123, 'copies': 138, 'killen': 132, 'calger': 471, 'ews': 163, 'mary': 285, 'shapiro': 110, 'york': 2090, 'giant': 394, 'copyright': 2479, 'june': 415, 'seller': 120, 'jay': 330, 'schoppe': 232, 'fastow': 1376, 'sally': 184, 'andrew': 639, 'andy': 233, 'beck': 137, 'enrononline': 614, 'earnings': 1570, 'mrha': 171, 'jean': 218, 'remain': 326, 'obligations': 320, 'column': 164, 'stephen': 202, 'ene': 471, 'mentions': 145, 'entity': 250, 'palmer': 268, 'disclosure': 355, 'reserved': 1549, 'sale': 783, 'denne': 205, 'assume': 156, 'fall': 531, 'kean': 110, 'infrastructure': 145, 'failed': 347, 'bbb': 270, 'focus': 340, 'concerns': 690, 'counterparty': 227, 'aep': 358, 'kenneth': 361, 'hall': 148, 'martin': 175, 'duran': 189, 'janet': 204, 'activities': 218, 'coal': 236, 'midwest': 102, 'facing': 129, 'cfo': 436, 'chris': 536, 'tycholiz': 112, 'eb': 191, 'bob': 362, 'fred': 171, 'counsel': 196, 'ben': 296, 'lisa': 197, 'turbine': 254, 'trades': 417, 'event': 332, 'firms': 402, 'mexico': 247, 'hasn': 128, 'vice': 442, 'wouldn': 185, 'richter': 183, 'christopher': 346, 'fallen': 303, 'dropped': 281, 'americas': 447, 'hedging': 126, 'quarter': 1689, 'lay': 1662, 'included': 375, 'stanley': 159, 'posted': 245, 'jr': 248, 'pipeline': 666, 'senate': 365, 'arrangements': 196, 'swap': 154, 'jacoby': 141, 'ken': 358, 'master': 300, 'prc': 203, 'chair': 225, 'herndon': 81, 'july': 498, 'spreadsheet': 125, 'london': 421, 'oct': 768, 'contributed': 148, 'liabilities': 180, 'boston': 156, 'turbines': 198, 'bloomberg': 871, 'provisions': 169, 'september': 611, 'regulators': 256, 'default': 207, 'ljm': 518, 'credibility': 202, 'forster': 217, 'lagrasta': 89, 'barry': 135, 'initial': 258, 'views': 115, 'counterparties': 353, 'commodities': 252, 'grade': 505, 'paragraph': 191, 'quarterly': 212, 'buyers': 189, 'pushed': 88, 'northwest': 206, 'liquidity': 454, 'declined': 463, 'morgan': 613, 'dowjones': 236, 'spokesman': 519, 'reuters': 1307, 'spokeswoman': 295, 'lawsuit': 254, 'october': 959, 'sept': 329, 'journal': 705, 'collateral': 304, 'disclosed': 356, 'downgrade': 486, 'webb': 189, 'ratings': 760, 'amid': 330, 'disclosures': 219, 'woes': 186, 'lowered': 229, 'moody': 743, 'newswires': 377, 'amy': 128, 'fourth': 288, 'citing': 175, 'resigned': 154, 'dealings': 396, 'partnerships': 1734, 'blackberry': 227, 'handheld': 131, 'wireless': 155, 'citigroup': 356, 'ubs': 553, 'warburg': 187, 'plunged': 239, 'downgraded': 280, 'netco': 427}
 testing files...
 '0001.2000-06-06.lokay.ham.txt' classified as: HAM -> correct
 '0004.2004-08-01.BG.spam.txt' classified as: HAM -> WRONG!
@@ -8644,7 +8642,7 @@ testing files...
 '0223.2004-08-23.BG.spam.txt' classified as: SPAM -> correct
 '0224.2004-08-23.BG.spam.txt' classified as: SPAM -> correct
 '0225.2000-06-30.lokay.ham.txt' classified as: HAM -> correct
-'0229.2004-08-24.BG.spam.txt' classified as: HAM -> WRONG!
+'0229.2004-08-24.BG.spam.txt' classified as: SPAM -> correct
 '0230.2000-07-01.lokay.ham.txt' classified as: HAM -> correct
 '0231.2004-08-24.BG.spam.txt' classified as: SPAM -> correct
 '0232.2004-08-24.BG.spam.txt' classified as: SPAM -> correct
@@ -8743,7 +8741,7 @@ testing files...
 '0413.2004-09-09.BG.spam.txt' classified as: SPAM -> correct
 '0414.2000-07-17.lokay.ham.txt' classified as: HAM -> correct
 '0415.2000-07-18.lokay.ham.txt' classified as: HAM -> correct
-'0415.2004-09-09.BG.spam.txt' classified as: HAM -> WRONG!
+'0415.2004-09-09.BG.spam.txt' classified as: SPAM -> correct
 '0417.2004-09-10.BG.spam.txt' classified as: SPAM -> correct
 '0420.2000-07-18.lokay.ham.txt' classified as: HAM -> correct
 '0423.2000-07-18.lokay.ham.txt' classified as: HAM -> correct
@@ -9004,7 +9002,7 @@ testing files...
 '0901.2000-08-30.lokay.ham.txt' classified as: HAM -> correct
 '0902.2004-10-16.BG.spam.txt' classified as: HAM -> WRONG!
 '0904.2000-08-31.lokay.ham.txt' classified as: HAM -> correct
-'0905.2004-10-16.BG.spam.txt' classified as: HAM -> WRONG!
+'0905.2004-10-16.BG.spam.txt' classified as: SPAM -> correct
 '0910.2000-08-31.lokay.ham.txt' classified as: HAM -> correct
 '0913.2000-08-31.lokay.ham.txt' classified as: HAM -> correct
 '0916.2000-08-31.lokay.ham.txt' classified as: HAM -> correct
@@ -9013,7 +9011,7 @@ testing files...
 '0919.2000-08-31.lokay.ham.txt' classified as: HAM -> correct
 '0919.2004-10-17.BG.spam.txt' classified as: SPAM -> correct
 '0921.2004-10-17.BG.spam.txt' classified as: SPAM -> correct
-'0923.2004-10-18.BG.spam.txt' classified as: HAM -> WRONG!
+'0923.2004-10-18.BG.spam.txt' classified as: SPAM -> correct
 '0924.2000-09-01.lokay.ham.txt' classified as: HAM -> correct
 '0925.2000-09-01.lokay.ham.txt' classified as: HAM -> correct
 '0929.2000-09-01.lokay.ham.txt' classified as: HAM -> correct
@@ -9045,7 +9043,7 @@ testing files...
 '0977.2000-09-06.lokay.ham.txt' classified as: HAM -> correct
 '0978.2000-09-06.lokay.ham.txt' classified as: HAM -> correct
 '0981.2000-09-07.lokay.ham.txt' classified as: HAM -> correct
-'0983.2004-10-19.BG.spam.txt' classified as: HAM -> WRONG!
+'0983.2004-10-19.BG.spam.txt' classified as: SPAM -> correct
 '0985.2000-09-07.lokay.ham.txt' classified as: HAM -> correct
 '0987.2004-10-19.BG.spam.txt' classified as: SPAM -> correct
 '0989.2000-09-07.lokay.ham.txt' classified as: HAM -> correct
@@ -9174,7 +9172,7 @@ testing files...
 '1221.2004-11-06.BG.spam.txt' classified as: SPAM -> correct
 '1222.2000-09-29.lokay.ham.txt' classified as: HAM -> correct
 '1223.2004-11-06.BG.spam.txt' classified as: SPAM -> correct
-'1226.2000-10-01.lokay.ham.txt' classified as: HAM -> correct
+'1226.2000-10-01.lokay.ham.txt' classified as: SPAM -> WRONG!
 '1226.2004-11-06.BG.spam.txt' classified as: SPAM -> correct
 '1229.2004-11-06.BG.spam.txt' classified as: HAM -> WRONG!
 '1230.2000-10-02.lokay.ham.txt' classified as: HAM -> correct
@@ -9227,7 +9225,7 @@ testing files...
 '1332.2000-10-06.lokay.ham.txt' classified as: HAM -> correct
 '1333.2004-11-10.BG.spam.txt' classified as: HAM -> WRONG!
 '1334.2000-10-06.lokay.ham.txt' classified as: HAM -> correct
-'1337.2004-11-10.BG.spam.txt' classified as: HAM -> WRONG!
+'1337.2004-11-10.BG.spam.txt' classified as: SPAM -> correct
 '1338.2000-10-09.lokay.ham.txt' classified as: HAM -> correct
 '1339.2004-11-10.BG.spam.txt' classified as: SPAM -> correct
 '1340.2004-11-11.BG.spam.txt' classified as: SPAM -> correct
@@ -9302,12 +9300,12 @@ testing files...
 '1469.2000-10-19.lokay.ham.txt' classified as: HAM -> correct
 '1470.2000-10-19.lokay.ham.txt' classified as: HAM -> correct
 '1470.2004-11-19.BG.spam.txt' classified as: SPAM -> correct
-'1473.2004-11-19.BG.spam.txt' classified as: HAM -> WRONG!
+'1473.2004-11-19.BG.spam.txt' classified as: SPAM -> correct
 '1476.2000-10-19.lokay.ham.txt' classified as: HAM -> correct
 '1478.2000-10-19.lokay.ham.txt' classified as: HAM -> correct
 '1480.2000-10-20.lokay.ham.txt' classified as: HAM -> correct
 '1481.2004-11-19.BG.spam.txt' classified as: SPAM -> correct
-'1484.2004-11-20.BG.spam.txt' classified as: HAM -> WRONG!
+'1484.2004-11-20.BG.spam.txt' classified as: SPAM -> correct
 '1485.2000-10-20.lokay.ham.txt' classified as: HAM -> correct
 '1487.2000-10-20.lokay.ham.txt' classified as: HAM -> correct
 '1487.2004-11-20.BG.spam.txt' classified as: SPAM -> correct
@@ -9355,7 +9353,7 @@ testing files...
 '1560.2004-11-25.BG.spam.txt' classified as: SPAM -> correct
 '1562.2004-11-25.BG.spam.txt' classified as: HAM -> WRONG!
 '1564.2000-10-27.lokay.ham.txt' classified as: HAM -> correct
-'1567.2004-11-25.BG.spam.txt' classified as: HAM -> WRONG!
+'1567.2004-11-25.BG.spam.txt' classified as: SPAM -> correct
 '1569.2000-10-27.lokay.ham.txt' classified as: HAM -> correct
 '1569.2004-11-26.BG.spam.txt' classified as: SPAM -> correct
 '1571.2004-11-26.BG.spam.txt' classified as: SPAM -> correct
@@ -9368,7 +9366,7 @@ testing files...
 '1584.2004-11-27.BG.spam.txt' classified as: SPAM -> correct
 '1586.2004-11-27.BG.spam.txt' classified as: SPAM -> correct
 '1589.2004-11-28.BG.spam.txt' classified as: HAM -> WRONG!
-'1591.2004-11-28.BG.spam.txt' classified as: HAM -> WRONG!
+'1591.2004-11-28.BG.spam.txt' classified as: SPAM -> correct
 '1592.2000-10-30.lokay.ham.txt' classified as: HAM -> correct
 '1592.2004-11-28.BG.spam.txt' classified as: HAM -> WRONG!
 '1593.2004-11-28.BG.spam.txt' classified as: HAM -> WRONG!
@@ -9536,7 +9534,7 @@ testing files...
 '1911.2004-12-16.BG.spam.txt' classified as: HAM -> WRONG!
 '1915.2004-12-17.BG.spam.txt' classified as: HAM -> WRONG!
 '1916.2000-11-15.lokay.ham.txt' classified as: HAM -> correct
-'1917.2004-12-17.BG.spam.txt' classified as: HAM -> WRONG!
+'1917.2004-12-17.BG.spam.txt' classified as: SPAM -> correct
 '1920.2004-12-18.BG.spam.txt' classified as: SPAM -> correct
 '1921.2000-11-16.lokay.ham.txt' classified as: HAM -> correct
 '1923.2000-11-16.lokay.ham.txt' classified as: HAM -> correct
@@ -9567,7 +9565,7 @@ testing files...
 '1962.2004-12-20.BG.spam.txt' classified as: HAM -> WRONG!
 '1963.2000-11-17.lokay.ham.txt' classified as: HAM -> correct
 '1964.2000-11-17.lokay.ham.txt' classified as: HAM -> correct
-'1965.2004-12-20.BG.spam.txt' classified as: HAM -> WRONG!
+'1965.2004-12-20.BG.spam.txt' classified as: SPAM -> correct
 '1967.2004-12-21.BG.spam.txt' classified as: SPAM -> correct
 '1969.2000-11-17.lokay.ham.txt' classified as: HAM -> correct
 '1970.2004-12-21.BG.spam.txt' classified as: HAM -> WRONG!
@@ -9582,7 +9580,7 @@ testing files...
 '1982.2004-12-22.BG.spam.txt' classified as: SPAM -> correct
 '1983.2004-12-23.BG.spam.txt' classified as: SPAM -> correct
 '1987.2000-11-21.lokay.ham.txt' classified as: HAM -> correct
-'1988.2004-12-23.BG.spam.txt' classified as: HAM -> WRONG!
+'1988.2004-12-23.BG.spam.txt' classified as: SPAM -> correct
 '1991.2000-11-21.lokay.ham.txt' classified as: HAM -> correct
 '1993.2000-11-21.lokay.ham.txt' classified as: HAM -> correct
 '1997.2004-12-23.BG.spam.txt' classified as: SPAM -> correct
@@ -9761,7 +9759,7 @@ testing files...
 '2338.2000-12-29.lokay.ham.txt' classified as: HAM -> correct
 '2341.2000-12-29.lokay.ham.txt' classified as: HAM -> correct
 '2341.2005-01-11.BG.spam.txt' classified as: SPAM -> correct
-'2343.2005-01-11.BG.spam.txt' classified as: HAM -> WRONG!
+'2343.2005-01-11.BG.spam.txt' classified as: SPAM -> correct
 '2346.2005-01-11.BG.spam.txt' classified as: SPAM -> correct
 '2347.2001-01-02.lokay.ham.txt' classified as: HAM -> correct
 '2349.2001-01-02.lokay.ham.txt' classified as: HAM -> correct
@@ -9787,7 +9785,7 @@ testing files...
 '2393.2005-01-12.BG.spam.txt' classified as: SPAM -> correct
 '2394.2005-01-12.BG.spam.txt' classified as: SPAM -> correct
 '2397.2001-01-05.lokay.ham.txt' classified as: HAM -> correct
-'2397.2005-01-13.BG.spam.txt' classified as: HAM -> WRONG!
+'2397.2005-01-13.BG.spam.txt' classified as: SPAM -> correct
 '2400.2001-01-05.lokay.ham.txt' classified as: HAM -> correct
 '2402.2001-01-05.lokay.ham.txt' classified as: HAM -> correct
 '2402.2005-01-14.BG.spam.txt' classified as: HAM -> WRONG!
@@ -9865,7 +9863,7 @@ testing files...
 '2538.2001-01-15.lokay.ham.txt' classified as: HAM -> correct
 '2541.2005-01-19.BG.spam.txt' classified as: HAM -> WRONG!
 '2543.2001-01-16.lokay.ham.txt' classified as: HAM -> correct
-'2544.2005-01-20.BG.spam.txt' classified as: HAM -> WRONG!
+'2544.2005-01-20.BG.spam.txt' classified as: SPAM -> correct
 '2546.2001-01-16.lokay.ham.txt' classified as: HAM -> correct
 '2548.2001-01-16.lokay.ham.txt' classified as: HAM -> correct
 '2550.2005-01-20.BG.spam.txt' classified as: SPAM -> correct
@@ -9914,7 +9912,7 @@ testing files...
 '2640.2001-01-19.lokay.ham.txt' classified as: HAM -> correct
 '2641.2005-01-23.BG.spam.txt' classified as: SPAM -> correct
 '2642.2001-01-19.lokay.ham.txt' classified as: HAM -> correct
-'2647.2005-01-23.BG.spam.txt' classified as: HAM -> WRONG!
+'2647.2005-01-23.BG.spam.txt' classified as: SPAM -> correct
 '2648.2001-01-21.lokay.ham.txt' classified as: HAM -> correct
 '2649.2005-01-23.BG.spam.txt' classified as: SPAM -> correct
 '2650.2005-01-23.BG.spam.txt' classified as: SPAM -> correct
@@ -9930,7 +9928,7 @@ testing files...
 '2664.2005-01-24.BG.spam.txt' classified as: SPAM -> correct
 '2667.2001-01-21.lokay.ham.txt' classified as: HAM -> correct
 '2668.2005-01-24.BG.spam.txt' classified as: SPAM -> correct
-'2669.2005-01-24.BG.spam.txt' classified as: HAM -> WRONG!
+'2669.2005-01-24.BG.spam.txt' classified as: SPAM -> correct
 '2671.2001-01-22.lokay.ham.txt' classified as: HAM -> correct
 '2673.2005-01-24.BG.spam.txt' classified as: SPAM -> correct
 '2674.2001-01-23.lokay.ham.txt' classified as: HAM -> correct
@@ -9957,7 +9955,7 @@ testing files...
 '2711.2005-01-26.BG.spam.txt' classified as: SPAM -> correct
 '2714.2001-01-25.lokay.ham.txt' classified as: HAM -> correct
 '2719.2001-01-25.lokay.ham.txt' classified as: HAM -> correct
-'2719.2005-01-26.BG.spam.txt' classified as: HAM -> WRONG!
+'2719.2005-01-26.BG.spam.txt' classified as: SPAM -> correct
 '2722.2005-01-26.BG.spam.txt' classified as: SPAM -> correct
 '2723.2005-01-27.BG.spam.txt' classified as: SPAM -> correct
 '2727.2001-01-25.lokay.ham.txt' classified as: HAM -> correct
@@ -9968,7 +9966,7 @@ testing files...
 '2734.2005-01-27.BG.spam.txt' classified as: SPAM -> correct
 '2737.2001-01-26.lokay.ham.txt' classified as: HAM -> correct
 '2738.2005-01-28.BG.spam.txt' classified as: SPAM -> correct
-'2740.2005-01-28.BG.spam.txt' classified as: HAM -> WRONG!
+'2740.2005-01-28.BG.spam.txt' classified as: SPAM -> correct
 '2741.2005-01-28.BG.spam.txt' classified as: SPAM -> correct
 '2743.2001-01-26.lokay.ham.txt' classified as: HAM -> correct
 '2746.2001-01-26.lokay.ham.txt' classified as: HAM -> correct
@@ -10060,7 +10058,7 @@ testing files...
 '2916.2001-02-01.lokay.ham.txt' classified as: HAM -> correct
 '2916.2005-02-05.BG.spam.txt' classified as: SPAM -> correct
 '2917.2005-02-05.BG.spam.txt' classified as: SPAM -> correct
-'2918.2005-02-05.BG.spam.txt' classified as: HAM -> WRONG!
+'2918.2005-02-05.BG.spam.txt' classified as: SPAM -> correct
 '2921.2001-02-01.lokay.ham.txt' classified as: HAM -> correct
 '2923.2001-02-01.lokay.ham.txt' classified as: HAM -> correct
 '2928.2001-02-01.lokay.ham.txt' classified as: HAM -> correct
@@ -10070,7 +10068,7 @@ testing files...
 '2937.2001-02-02.lokay.ham.txt' classified as: HAM -> correct
 '2938.2005-02-06.BG.spam.txt' classified as: HAM -> WRONG!
 '2940.2001-02-02.lokay.ham.txt' classified as: HAM -> correct
-'2943.2005-02-06.BG.spam.txt' classified as: HAM -> WRONG!
+'2943.2005-02-06.BG.spam.txt' classified as: SPAM -> correct
 '2948.2001-02-02.lokay.ham.txt' classified as: HAM -> correct
 '2948.2005-02-06.BG.spam.txt' classified as: SPAM -> correct
 '2951.2005-02-06.BG.spam.txt' classified as: SPAM -> correct
@@ -10181,7 +10179,7 @@ testing files...
 '3170.2005-02-17.BG.spam.txt' classified as: SPAM -> correct
 '3171.2001-02-26.lokay.ham.txt' classified as: HAM -> correct
 '3171.2005-02-17.BG.spam.txt' classified as: SPAM -> correct
-'3175.2005-02-18.BG.spam.txt' classified as: HAM -> WRONG!
+'3175.2005-02-18.BG.spam.txt' classified as: SPAM -> correct
 '3176.2001-02-27.lokay.ham.txt' classified as: HAM -> correct
 '3179.2001-03-01.lokay.ham.txt' classified as: HAM -> correct
 '3180.2005-02-18.BG.spam.txt' classified as: SPAM -> correct
@@ -10286,7 +10284,7 @@ testing files...
 '3379.2001-04-09.lokay.ham.txt' classified as: HAM -> correct
 '3380.2005-03-01.BG.spam.txt' classified as: SPAM -> correct
 '3382.2001-04-10.lokay.ham.txt' classified as: HAM -> correct
-'3382.2005-03-02.BG.spam.txt' classified as: HAM -> WRONG!
+'3382.2005-03-02.BG.spam.txt' classified as: SPAM -> correct
 '3385.2005-03-02.BG.spam.txt' classified as: HAM -> WRONG!
 '3386.2001-04-10.lokay.ham.txt' classified as: HAM -> correct
 '3389.2001-04-11.lokay.ham.txt' classified as: HAM -> correct
@@ -10488,7 +10486,7 @@ testing files...
 '3787.2005-03-30.BG.spam.txt' classified as: SPAM -> correct
 '3790.2005-03-31.BG.spam.txt' classified as: SPAM -> correct
 '3791.2001-06-18.lokay.ham.txt' classified as: HAM -> correct
-'3792.2005-03-31.BG.spam.txt' classified as: HAM -> WRONG!
+'3792.2005-03-31.BG.spam.txt' classified as: SPAM -> correct
 '3794.2005-03-31.BG.spam.txt' classified as: SPAM -> correct
 '3795.2001-06-18.lokay.ham.txt' classified as: HAM -> correct
 '3796.2005-03-31.BG.spam.txt' classified as: SPAM -> correct
@@ -10571,7 +10569,7 @@ testing files...
 '3942.2005-04-12.BG.spam.txt' classified as: SPAM -> correct
 '3945.2005-04-12.BG.spam.txt' classified as: SPAM -> correct
 '3947.2001-07-13.lokay.ham.txt' classified as: HAM -> correct
-'3954.2005-04-12.BG.spam.txt' classified as: HAM -> WRONG!
+'3954.2005-04-12.BG.spam.txt' classified as: SPAM -> correct
 '3955.2001-07-16.lokay.ham.txt' classified as: HAM -> correct
 '3956.2005-04-12.BG.spam.txt' classified as: SPAM -> correct
 '3958.2005-04-13.BG.spam.txt' classified as: HAM -> WRONG!
@@ -10601,8 +10599,8 @@ testing files...
 '4006.2001-07-19.lokay.ham.txt' classified as: HAM -> correct
 '4009.2005-04-17.BG.spam.txt' classified as: SPAM -> correct
 '4012.2001-07-19.lokay.ham.txt' classified as: HAM -> correct
-'4012.2005-04-17.BG.spam.txt' classified as: HAM -> WRONG!
-'4014.2001-07-19.lokay.ham.txt' classified as: HAM -> correct
+'4012.2005-04-17.BG.spam.txt' classified as: SPAM -> correct
+'4014.2001-07-19.lokay.ham.txt' classified as: SPAM -> WRONG!
 '4016.2001-07-19.lokay.ham.txt' classified as: HAM -> correct
 '4016.2005-04-17.BG.spam.txt' classified as: SPAM -> correct
 '4019.2005-04-18.BG.spam.txt' classified as: SPAM -> correct
@@ -10903,7 +10901,7 @@ testing files...
 '4589.2005-05-24.BG.spam.txt' classified as: SPAM -> correct
 '4592.2001-09-27.lokay.ham.txt' classified as: HAM -> correct
 '4595.2001-09-27.lokay.ham.txt' classified as: HAM -> correct
-'4595.2005-05-24.BG.spam.txt' classified as: HAM -> WRONG!
+'4595.2005-05-24.BG.spam.txt' classified as: SPAM -> correct
 '4597.2001-09-27.lokay.ham.txt' classified as: HAM -> correct
 '4598.2005-05-25.BG.spam.txt' classified as: SPAM -> correct
 '4599.2005-05-25.BG.spam.txt' classified as: HAM -> WRONG!
@@ -10922,7 +10920,7 @@ testing files...
 '4622.2005-05-27.BG.spam.txt' classified as: HAM -> WRONG!
 '4625.2001-10-01.lokay.ham.txt' classified as: HAM -> correct
 '4625.2005-05-27.BG.spam.txt' classified as: HAM -> WRONG!
-'4626.2005-05-28.BG.spam.txt' classified as: HAM -> WRONG!
+'4626.2005-05-28.BG.spam.txt' classified as: SPAM -> correct
 '4627.2005-05-28.BG.spam.txt' classified as: SPAM -> correct
 '4630.2005-05-28.BG.spam.txt' classified as: SPAM -> correct
 '4631.2001-10-01.lokay.ham.txt' classified as: HAM -> correct
@@ -11077,7 +11075,7 @@ testing files...
 '4912.2005-06-20.BG.spam.txt' classified as: SPAM -> correct
 '4917.2001-10-31.lokay.ham.txt' classified as: HAM -> correct
 '4917.2005-06-21.BG.spam.txt' classified as: HAM -> WRONG!
-'4921.2005-06-21.BG.spam.txt' classified as: HAM -> WRONG!
+'4921.2005-06-21.BG.spam.txt' classified as: SPAM -> correct
 '4922.2001-11-01.lokay.ham.txt' classified as: HAM -> correct
 '4926.2001-11-01.lokay.ham.txt' classified as: HAM -> correct
 '4929.2001-11-01.lokay.ham.txt' classified as: HAM -> correct
@@ -11139,7 +11137,7 @@ testing files...
 '5036.2001-11-26.lokay.ham.txt' classified as: HAM -> correct
 '5036.2005-06-28.BG.spam.txt' classified as: SPAM -> correct
 '5039.2001-11-26.lokay.ham.txt' classified as: HAM -> correct
-'5041.2005-06-28.BG.spam.txt' classified as: HAM -> WRONG!
+'5041.2005-06-28.BG.spam.txt' classified as: SPAM -> correct
 '5043.2001-11-27.lokay.ham.txt' classified as: HAM -> correct
 '5047.2001-11-27.lokay.ham.txt' classified as: HAM -> correct
 '5048.2005-06-28.BG.spam.txt' classified as: SPAM -> correct
@@ -11179,7 +11177,7 @@ testing files...
 '5109.2001-12-11.lokay.ham.txt' classified as: HAM -> correct
 '5109.2005-07-03.BG.spam.txt' classified as: SPAM -> correct
 '5112.2001-12-11.lokay.ham.txt' classified as: HAM -> correct
-'5113.2005-07-03.BG.spam.txt' classified as: HAM -> WRONG!
+'5113.2005-07-03.BG.spam.txt' classified as: SPAM -> correct
 '5116.2005-07-03.BG.spam.txt' classified as: HAM -> WRONG!
 '5117.2001-12-12.lokay.ham.txt' classified as: HAM -> correct
 '5118.2001-12-12.lokay.ham.txt' classified as: HAM -> correct
@@ -11236,7 +11234,7 @@ testing files...
 '5204.2005-07-08.BG.spam.txt' classified as: SPAM -> correct
 '5208.2001-12-31.lokay.ham.txt' classified as: HAM -> correct
 '5209.2005-07-08.BG.spam.txt' classified as: SPAM -> correct
-'5213.2005-07-08.BG.spam.txt' classified as: HAM -> WRONG!
+'5213.2005-07-08.BG.spam.txt' classified as: SPAM -> correct
 '5214.2001-12-31.lokay.ham.txt' classified as: HAM -> correct
 '5215.2002-01-02.lokay.ham.txt' classified as: HAM -> correct
 '5217.2005-07-09.BG.spam.txt' classified as: SPAM -> correct
@@ -11287,7 +11285,7 @@ testing files...
 '5296.2002-01-10.lokay.ham.txt' classified as: HAM -> correct
 '5296.2005-07-14.BG.spam.txt' classified as: SPAM -> correct
 '5302.2002-01-11.lokay.ham.txt' classified as: HAM -> correct
-'5302.2005-07-14.BG.spam.txt' classified as: HAM -> WRONG!
+'5302.2005-07-14.BG.spam.txt' classified as: SPAM -> correct
 '5303.2005-07-14.BG.spam.txt' classified as: SPAM -> correct
 '5308.2002-01-14.lokay.ham.txt' classified as: HAM -> correct
 '5308.2005-07-14.BG.spam.txt' classified as: SPAM -> correct
@@ -11311,7 +11309,7 @@ testing files...
 '5353.2005-07-16.BG.spam.txt' classified as: HAM -> WRONG!
 '5354.2002-01-18.lokay.ham.txt' classified as: HAM -> correct
 '5355.2005-07-16.BG.spam.txt' classified as: SPAM -> correct
-'5357.2005-07-16.BG.spam.txt' classified as: HAM -> WRONG!
+'5357.2005-07-16.BG.spam.txt' classified as: SPAM -> correct
 '5358.2002-01-18.lokay.ham.txt' classified as: HAM -> correct
 '5362.2002-01-22.lokay.ham.txt' classified as: HAM -> correct
 '5362.2005-07-17.BG.spam.txt' classified as: HAM -> WRONG!
@@ -11452,7 +11450,7 @@ testing files...
 '5706.2002-02-25.lokay.ham.txt' classified as: HAM -> correct
 '5708.2002-02-26.lokay.ham.txt' classified as: HAM -> correct
 '5712.2002-02-27.lokay.ham.txt' classified as: HAM -> correct
-'5718.2002-02-27.lokay.ham.txt' classified as: HAM -> correct
+'5718.2002-02-27.lokay.ham.txt' classified as: SPAM -> WRONG!
 '5722.2002-02-27.lokay.ham.txt' classified as: HAM -> correct
 '5726.2002-02-27.lokay.ham.txt' classified as: HAM -> correct
 '5729.2002-02-27.lokay.ham.txt' classified as: HAM -> correct
@@ -11527,21 +11525,21 @@ testing files...
 '5992.2002-03-25.lokay.ham.txt' classified as: HAM -> correct
 '5996.2002-03-25.lokay.ham.txt' classified as: HAM -> correct
 
-Manual Naive-Bayes Classifier:
+Manual Naive-Bayes Classifier: 
 number of spam features used: 500
 number of ham features used: 500
 
-accuracy: 85.26666666666667 %
+accuracy: 86.33333333333333 %
 
-number of wrong classifications: 442 out of 3000 files
-number of wrong spam classifications: 438 out of 1500 spam files
-number of wrong ham classifications: 4 out of 1500 ham files
+number of wrong classifications: 410 out of 3000 files
+number of wrong spam classifications: 403 out of 1500 spam files
+number of wrong ham classifications: 7 out of 1500 ham files
 
-precision for spam files: 0.9962476547842402
-precision for ham files: 0.7735263702171665
-recall for spam files: 0.708
-recall for ham files: 0.9973333333333333
-f1-score for spam files: 0.8277474668745128
-f1-score for ham files: 0.8712871287128713
+precision for spam files: 0.9936594202898551
+precision for ham files: 0.7874472573839663
+recall for spam files: 0.7313333333333333
+recall for ham files: 0.9953333333333333
+f1-score for spam files: 0.8425499231950845
+f1-score for ham files: 0.8792697290930506
 
-total duration : 106.10321497917175 seconds
+total duration : 118.86998510360718 seconds

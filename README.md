@@ -36,7 +36,8 @@ First, the classifier counts in how many spam documents each spam feature token 
 
 ![Laplace Smoothing token](http://latex.codecogs.com/gif.latex?\frac{spamDocumentFrequencyOfToken[i]%20&plus;%201}%20{numberOfSpamDocuments%20&plus;%20numberOfClasses}%20%3D%20\frac{spamDocumentFrequencyOfToken[i]%20&plus;%201}%20{numberOfSpamDocuments%20&plus;%20|V|})
 
-(where |V| is the is the size of the dictionary of the feature tokens)
+*(where |V| is the is the size of the dictionary of feature tokens)*
+
 To calculate the probability of the entire feature vector belonging to the spam class we multiply the probability of each separate feature token belonging to the spam class. The exact formula is:
 
 ![Laplace Smoothing vector](http://latex.codecogs.com/gif.latex?probOfFeatureVectorBelongingToSpam%20%3D%20\frac{P(C%3D1)}{P(featureVector)}%20\cdot%20\prod_i%20\frac{spamDocumentFrequencyOfToken[i]%20&plus;%201}%20{numberOfSpamDocuments%20&plus;%20|V|})

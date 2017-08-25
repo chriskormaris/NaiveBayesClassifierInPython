@@ -65,4 +65,4 @@ Then, run:
 ```python
 python NaiveBayesClassifierLingspamDataset.py
 ```
-The accuracy that was achieved: **96.54 %**
+The accuracy achieved, was: **96.54 %**

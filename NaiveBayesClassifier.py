@@ -61,8 +61,8 @@ def getTokens(text):
         text_tokens[k] = text_tokens[k].lower()
         text_tokens[k] = text_tokens[k].replace("_", "")
         text_tokens[k] = re.sub("[0-9]+", "", text_tokens[k])
-    #text_tokens = set(text_tokens)  # convert list to set, in order to remove duplicate tokens
-    #text_tokens = list(text_tokens)  # convert set back to list
+    text_tokens = set(text_tokens)  # convert list to set, in order to remove duplicate tokens
+    text_tokens = list(text_tokens)  # convert set back to list
 
     return text_tokens
 

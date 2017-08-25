@@ -157,7 +157,7 @@ print()
 # training files
 spam_feature_vectors = []
 ham_feature_vectors = []
-print("training files...")
+print("Reading TRAIN files...")
 for i in range(len(train_files)):
     print('Reading train file ' + "'" + train_files[i] + "'" + '...')
 
@@ -206,7 +206,7 @@ ham_dictionary_size = len(ham_feature_tokens)
 no_of_train_documents = len(train_files)
 
 # testing files with Naive Bayes classifier using Laplace estimates
-print("testing files...")
+print("Reading TEST files...")
 for i in range(len(test_files)):  # for all the test files that exist
 
     test_text = read_file(test_dir + test_files[i])

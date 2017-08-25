@@ -76,27 +76,23 @@ def write_tokens_to_file(tokens, filename):
 
 # MAIN #
 
+train_dir = "TRAIN/"
 spam_feature_dictionary_dir = "spam_feature_dictionary.txt"
 ham_feature_dictionary_dir = "ham_feature_dictionary.txt"
 stopwords_dir = "stopwords.txt"
 
-train_spam_dir = "LingspamDataset/spam-train/"
-train_ham_dir = "LingspamDataset/nonspam-train/"
-
-train_spam_files = sorted([f for f in listdir(train_spam_dir) if isfile(join(train_spam_dir, f))])
-train_ham_files = sorted([f for f in listdir(train_ham_dir) if isfile(join(train_ham_dir, f))])
+train_files = sorted([f for f in listdir(train_dir) if isfile(join(train_dir, f))])
+train_labels = read_labels(train_files)
 stopwords = getStopwords(stopwords_dir)
 
-no_of_train_files = len(train_spam_files) + len(train_ham_files)
-
-spam_label_frequency = len(train_spam_files)  # 1 is for SPAM, 0 is for HAM
+spam_label_frequency = get_label_frequency(train_labels, 1)  # 1 is for SPAM, 0 is for HAM
 print("number of SPAM train documents: " + str(spam_label_frequency))
-ham_label_frequency = len(train_ham_files)  # 1 is for SPAM, 0 is for HAM
+ham_label_frequency = get_label_frequency(train_labels, 0)  # 1 is for SPAM, 0 is for HAM
 print("number of HAM train documents: " + str(ham_label_frequency))
 
-spam_label_probability = spam_label_frequency / (len(train_spam_files) + len(train_ham_files))
+spam_label_probability = spam_label_frequency / len(train_files)
 print("SPAM train document probability: " + str(spam_label_probability))
-ham_label_probability = ham_label_frequency / (len(train_spam_files) + len(train_ham_files))
+ham_label_probability = ham_label_frequency / len(train_files)
 print("HAM train document probability: " + str(ham_label_probability))
 
 print()
@@ -118,9 +114,11 @@ feature_spam_frequency = dict()
 # a dictionary which has as a key how many train ham documents a feature appears in
 feature_ham_frequency = dict()
 
+print('Calculating the frequency of each token...')
+
 # calculate feature_frequencies dict
-for i in range(len(train_spam_files)):
-    train_text = read_file(train_spam_dir + train_spam_files[i])
+for i in range(len(train_files)):
+    train_text = read_file(train_dir + train_files[i])
     candidate_features = getTokens(train_text)
 
     for token in candidate_features:
@@ -130,28 +128,18 @@ for i in range(len(train_spam_files)):
             else:
                 feature_frequency[token] = feature_frequency[token] + 1
 
-            if not feature_spam_frequency.__contains__(token):
-                feature_spam_frequency[token] = 1
-                feature_ham_frequency[token] = 0
-            else:
-                feature_spam_frequency[token] = feature_spam_frequency[token] + 1
-
-for i in range(len(train_ham_files)):
-    train_text = read_file(train_ham_dir + train_ham_files[i])
-    candidate_features = getTokens(train_text)
-
-    for token in candidate_features:
-        if token not in stopwords:
-            if not feature_frequency.__contains__(token):
-                feature_frequency[token] = 1
-            else:
-                feature_frequency[token] = feature_frequency[token] + 1
-
-            if not feature_ham_frequency.__contains__(token):
-                feature_ham_frequency[token] = 1
-                feature_spam_frequency[token] = 0
-            else:
-                feature_ham_frequency[token] = feature_ham_frequency[token] + 1
+            if train_labels[i] == 1:  # 1 is for class "SPAM"
+                if not feature_spam_frequency.__contains__(token):
+                    feature_spam_frequency[token] = 1
+                    feature_ham_frequency[token] = 0
+                else:
+                    feature_spam_frequency[token] = feature_spam_frequency[token] + 1
+            elif train_labels[i] == 0:  # 0 is for class "HAM"
+                if not feature_ham_frequency.__contains__(token):
+                    feature_ham_frequency[token] = 1
+                    feature_spam_frequency[token] = 0
+                else:
+                    feature_ham_frequency[token] = feature_ham_frequency[token] + 1
 
 
 # sort feature_frequency dictionary in descending order by frequency
@@ -186,7 +174,7 @@ error = 1e-7
 # because that means that it is capable of achieving better classification.
 for (i, token) in enumerate(feature_frequency):
     if token != "":  # exclude the empty string ""
-        feature_probability[token] = feature_frequency[token] / no_of_train_files  # P(Xi=1)
+        feature_probability[token] = feature_frequency[token] / len(train_files)  # P(Xi=1)
         feature_ham_cond_probability[token] = feature_ham_frequency[token] / ham_label_frequency  # P(Xi=1|C=0)
         feature_spam_cond_probability[token] = feature_spam_frequency[token] / spam_label_frequency  # P(Xi=1|C=1)
 
@@ -223,7 +211,7 @@ feature_ham_probability = dict()
 feature_spam_probability = dict()
 for (i, token) in enumerate(feature_frequency):
     if token != "":  # exclude the empty string ""
-        feature_probability[token] = feature_frequency[token] / no_of_train_files
+        feature_probability[token] = feature_frequency[token] / len(train_files)
         feature_ham_probability[token] = feature_ham_frequency[token] / ham_label_frequency
         feature_spam_probability[token] = feature_spam_frequency[token] / spam_label_frequency
         

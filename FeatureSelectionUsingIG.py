@@ -44,7 +44,7 @@ def read_file(filename):
 
 # extracts tokens from the given text
 def getTokens(text):
-    text_tokens = re.findall(r"[\w']+", train_text)
+    text_tokens = re.findall(r"[\w']+", text)
     # remove digits, special characters and convert to lowercase
     for k in range(len(text_tokens)):
         text_tokens[k] = text_tokens[k].lower()

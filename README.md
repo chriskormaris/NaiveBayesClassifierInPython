@@ -4,7 +4,7 @@ Made by Chris Kormaris
 
 Programming Language: Python
 
-Unzip the files *"TRAIN.zip"* and *"TEST.zip"*, in the same directory where the Python files are. 8512 train documents and 3000 documents are contained inside these files.
+Unzip the compressed files *"TRAIN.zip"* and *"TEST.zip"* in the same directory where the Python files are. 8512 train documents and 3000 test documents are contained inside these folders.
 
 ## Feature Selection with Information Gain
 
@@ -55,6 +55,7 @@ The execution results of the classifier delivered an accuracy of **91.73 %** whi
 **Lingspam Dataset**
 
 Python code that makes use of the Lingspam Dataset is also included as well.
+Unzip the compressed file *"LingspamDataset.zip"* in the same directory where the Python files are. 700 train documents and 260 test documents are contained inside this folder.
 Run:
 ```python
 python FeatureSelectionUsingIGLingspamDataset.py

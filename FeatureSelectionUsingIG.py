@@ -28,6 +28,14 @@ def read_labels(files):
     return labels
 
 
+def get_label_frequency(train_labels, class_label):
+    frequency = 0
+    for train_label in train_labels:
+        if train_label == class_label:
+            frequency = frequency + 1
+    return frequency
+
+
 def read_file(filename):
     text_file = open(filename, "r")
     text = text_file.read()
@@ -68,12 +76,12 @@ def write_tokens_to_file(tokens, filename):
 
 # MAIN #
 
-spam_feature_dictionary_dir = "spam_feature_dictionary.txt"
-ham_feature_dictionary_dir = "ham_feature_dictionary.txt"
+feature_dictionary_dir = "feature_dictionary.txt"
 stopwords_dir = "stopwords.txt"
 
 spam_train_dir = "LingspamDataset/spam-train/"
 ham_train_dir = "LingspamDataset/nonspam-train/"
+
 spam_train_files = sorted([f for f in listdir(spam_train_dir) if isfile(join(spam_train_dir, f))])
 ham_train_files = sorted([f for f in listdir(ham_train_dir) if isfile(join(ham_train_dir, f))])
 
@@ -85,7 +93,7 @@ train_labels.extend([0] * len(ham_train_files))
 
 stopwords = getStopwords(stopwords_dir)
 
-no_of_train_files = len(spam_train_files) + len(ham_train_files)
+no_of_train_files = len(train_files)
 
 spam_class_frequency = len(spam_train_files)  # 1 is for SPAM, 0 is for HAM
 print("number of SPAM train documents: " + str(spam_class_frequency))
@@ -104,8 +112,9 @@ print('')
 # feature selection with Information Gain #
 
 # number of features
-no_spam_features = 500
-no_ham_features = 500
+m = 1000
+#m = 100
+#m = 50
 
 # a dictionary which has as a key how many documents a feature (token) appears in
 feature_frequency = dict()
@@ -121,9 +130,9 @@ print('Calculating the frequency of each token...')
 # calculate feature_frequencies dict
 for i in range(len(train_files)):
     train_text = ''
-    if train_labels[i] == 1:  # 1 is for class "SPAM"
+    if train_labels[i] == 1:  # for "SPAM" files
         train_text = read_file(spam_train_dir + train_files[i])
-    elif train_labels[i] == 0:  # 0 is for class "HAM"
+    elif train_labels[i] == 0:  # for "HAM" files
         train_text = read_file(ham_train_dir + train_files[i])
     candidate_features = getTokens(train_text)
 
@@ -134,19 +143,18 @@ for i in range(len(train_files)):
             else:
                 feature_frequency[token] = feature_frequency[token] + 1
 
-            if train_labels[i] == 1:  # 1 is for class "SPAM"
+            if train_labels[i] == 1:  # for "SPAM" files
                 if not feature_spam_frequency.__contains__(token):
                     feature_spam_frequency[token] = 1
                     feature_ham_frequency[token] = 0
                 else:
                     feature_spam_frequency[token] = feature_spam_frequency[token] + 1
-            elif train_labels[i] == 0:  # 0 is for class "HAM"
+            elif train_labels[i] == 0:  # for "HAM" files
                 if not feature_ham_frequency.__contains__(token):
                     feature_ham_frequency[token] = 1
                     feature_spam_frequency[token] = 0
                 else:
                     feature_ham_frequency[token] = feature_ham_frequency[token] + 1
-
 
 # sort feature_frequency dictionary in descending order by frequency
 feature_frequency = OrderedDict(sorted(feature_frequency.items(), key=itemgetter(1), reverse=True))
@@ -163,14 +171,12 @@ feature_spam_cond_probability = dict()
 feature_ham_cond_probability = dict()
 
 # a dictionary that contains the Information gain for each token
-spam_IG = dict()
-ham_IG = dict()
+IG = dict()
 
 # First calculate the entropy of the dataset
 H_C = - (spam_class_probability * math.log(spam_class_probability) + ham_class_probability * math.log(ham_class_probability))
 
 print('entropy of the dataset: H(C) = ' + str(H_C))
-print('')
 
 # precaution to avoid division by zero and log(0)
 error = 1e-7
@@ -200,13 +206,12 @@ for (i, token) in enumerate(feature_frequency):
         # conditional entropy: H(C|Xi=0)
         H_C_given_X0 = - (P_C1_given_X0 * math.log(P_C1_given_X0 + error) + P_C0_given_X0 * math.log(P_C0_given_X0 + error))
 
-        if feature_spam_cond_probability[token] > feature_ham_cond_probability[token]:
-            spam_IG[token] = H_C - (feature_probability[token] * H_C_given_X1 + (1 - feature_probability[token]) * H_C_given_X0)
-        else:
-            ham_IG[token] = H_C - (feature_probability[token] * H_C_given_X1 + (1 - feature_probability[token]) * H_C_given_X0)
-
         # IG(C,Xi) = IG(Xi,C) = H(C) - SUM ( P(Xi=x) * H(C|Xi=x) for every x)
-        #IG[token] = H_C - (feature_probability[token] * H_C_given_X1 + (1 - feature_probability[token]) * H_C_given_X0)
+        IG[token] = H_C - (feature_probability[token] * H_C_given_X1 + (1 - feature_probability[token]) * H_C_given_X0)
+
+        #print('{0}: P(Xi=1): {1}, P(Xi=1|C=0): {2}, P(Xi=1|C=1): {3}'.format(token, feature_probability[token],
+        #                                                                     feature_ham_probability[token],
+        #                                                                     feature_spam_probability[token]))
 
 '''
 # ALTERNATIVE IG score calculation implementation
@@ -220,53 +225,33 @@ for (i, token) in enumerate(feature_frequency):
         feature_probability[token] = feature_frequency[token] / no_of_train_files
         feature_ham_probability[token] = feature_ham_frequency[token] / ham_class_frequency
         feature_spam_probability[token] = feature_spam_frequency[token] / spam_class_frequency
-        
-        if feature_ham_probability[token] > feature_spam_probability[token]:
-            spam_IG[token] = abs(feature_ham_probability[token] - feature_spam_probability[token])
-        else:
-            ham_IG[token] = abs(feature_ham_probability[token] - feature_spam_probability[token])
 
-        #IG[token] = abs(feature_ham_probability[token] - feature_spam_probability[token])
+        #IG[token] = feature_probability[token] * abs(feature_ham_probability[token] - feature_spam_probability[token])
+        IG[token] = abs(feature_ham_probability[token] - feature_spam_probability[token])
+
+        #print('{0}: P(Xi=1): {1}, P(Xi=1|C=0): {2}, P(Xi=1|C=1): {3}'.format(token, feature_probability[token],
+        #                                                                     feature_ham_probability[token],
+        #                                                                     feature_spam_probability[token]))
 '''
 
-# sort IG_ham dictionary in descending order by score (the higher score the better)
-ham_IG = OrderedDict(sorted(ham_IG.items(), key=itemgetter(1), reverse=True))
 
-# sort IG_spam dictionary in descending order by score (the higher score the better)
-spam_IG = OrderedDict(sorted(spam_IG.items(), key=itemgetter(1), reverse=True))
+# sort IG dictionary in descending order by score (the higher score the better)
+IG = OrderedDict(sorted(IG.items(), key=itemgetter(1), reverse=True))
 
-ham_feature_tokens = []
+print('')
 
-# create and print the list of the ham feature dictionary tokens and their corresponding ham IG scores
-print("ham feature tokens: ")
-for (i, token) in enumerate(ham_IG):
-    # collect the m ham feature tokens with the highest information gain
-    if i < no_ham_features:
-        ham_feature_tokens.append(token)
-        print(token + ", ham information gain score: " + str(ham_IG[token]))
+feature_tokens = []
+
+# create and print the list of the feature dictionary tokens and their corresponding IG scores
+print("feature tokens: ")
+for (i, token) in enumerate(IG):
+    # collect the m feature tokens with the highest information gain
+    if i < m:
+        feature_tokens.append(token)
+        print(token + ", information gain score: " + str(IG[token]))
     else:
         break
 print('')
 
-#write ham_feature_tokens to file
-write_tokens_to_file(ham_feature_tokens, ham_feature_dictionary_dir)
-
-# do the same for class spam
-
-spam_feature_tokens = []
-
-# create and print the list of the spam feature dictionary tokens and their corresponding spam IG scores
-print("spam feature tokens: ")
-for (i, token) in enumerate(spam_IG):
-    # collect the m spam feature tokens with the highest information gain
-    if i < no_spam_features:
-        spam_feature_tokens.append(token)
-        print(token + ", spam information gain score: " + str(spam_IG[token]))
-    else:
-        break
-print('')
-
-#write spam_feature_tokens to file
-write_tokens_to_file(spam_feature_tokens, spam_feature_dictionary_dir)
-
-print('')
+#write feature_tokens to file
+write_tokens_to_file(feature_tokens, feature_dictionary_dir)

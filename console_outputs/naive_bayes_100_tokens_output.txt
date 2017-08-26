@@ -3,13 +3,11 @@ number of HAM train documents: 350
 SPAM train document probability: 0.5
 HAM train document probability: 0.5
 
-spam feature tokens dictionary: 
-['remove', 'free', 'money', 'click', 'business', 'sell', 'll', 'internet', 'day', 'product', 'best', 'company', 'easy', 'save', 'cost', 'win', 'month', 'today', 'offer', 'purchase', 'advertise', 'check', 'buy', 'cash', 'market', 'service', 'mailing', 'hour', 'guarantee', 'online', 'bulk', 'reply', 'receive', 'start', 'dollar', 'nt', 'income', 'financial', 'profit', 'week', 'sale', 'earn', 'wait', 'live', 'net', 'mail', 'success', 'bonus', 'credit', 've', 'pay', 'customer', 'zip', 'aol', 'search', 'fun', 'list', 'amaze', 'dream', 'fresh', 'add', 'simply', 'investment', 'toll', 'friend', 'personal', 'step', 'choose', 'big', 'hit', 'don', 'advertisement', 'opportunity', 'package', 'secret', 'simple', 'enter', 'top', 'security', 'great', 'message', 'rate', 'life', 'site', 'capital', 'instruction', 'price', 'delete', 'debt', 'mlm', 'ship', 'marketing', 'ad', 'letter', 'spend', 'return', 'card', 'excite', 'freedom', 'powerful', 'fantastic', 'partner', 'fast', 'piece', 'future', 'cd', 'spam', 'profitable', 'vacation', 'remember', 'huge', 'overnight', 'car', 'absolutely', 'prove', 'watch', 'hello', 'city', 'mailbox', 'chance', 'love', 'amount', 'bank', 'luck', 'retire', 'sender', 'tax', 'monthly', 'automatically', 'decide', 'bill', 'stealth', 'sales', 'resell', 'invest', 'fortune', 'campaign', 'envelope', 'greatest', 'risk', 'fill', 'visit', 'advantage', 'window', 'total', 'lose', 'shop', 'weekly', 'create', 'subject', 'expiration', 'guaranteed', 'deposit', 'bankruptcy', 'xxx', 'reports', 'read', 'sincerely', 'adult', 'join', 'real', 'charge', 'worth', 'pick', 'refund', 'better', 'legitimate', 'secure', 'unlimit', 'moneymake', 'unsubscribe', 'info', 'discover', 'quick', 'enjoy', 'pass', 'visa', 'easily', 'delivery', 'legal', 'alway', 'ticket', 'super', 'drop', 'addresses', 'cent', 'largest', 'clean', 'dollars', 'amazing', 'release', 'federal', 'trade', 'effective', 'action', 'generate', 'orders', 'afford', 'faster', 'software', 'lot', 'hottest', 'quit', 'incredible', 'undeliverable', 'excess', 'postage', 'roll', 'plans', 'request', 'suite', 'exactly', 'extra', 'air', 'sit', 'relax', 'low', 'imagine', 'industry', 'mortgage', 'yahoo', 'comply', 'isp', 'wa', 'fabulous', 'recruit', 'sameday', 'capitalfm', 'mastercard', 'manual', 'proof', 'competition', 'leave', 'special', 'multilevel', 'billion', 'earth', 'store', 'hot', 'corporation', 'engine', 'finally', 'order', 'enterprise', 'moment', 'lifetime', 'catch', 'ahead', 'paste', 'brand', 'millionaire', 'chat', 'gift', 'sources', 'financially', 'testimonial', 'corporations', 'gamble', 'hobby', 'family', 'entire', 'help', 'gold', 'speed', 'lucky', 'beach', 'private', 'succeed', 'intrusion', 'wrap', 'mailer', 'millions', 'services', 'creditor', 'teen', 'programs', 'hundreds', 'hr', 'instant', 'lottery', 'evaluating', 'instruct', 'everythe', 'game', 'news', 'download', 'thing', 'happy', 'latest', 'protect', 'works', 'filter', 'bit', 'correctly', 'duplicate', 'owe', 'practically', 'benefit', 'forget', 'hours', 'rush', 'biggest', 'florida', 'solid', 'amateur', 'bet', 'unsolicit', 'days', 'goods', 'downline', 'advertiser', 'true', 'report', 'forever', 'bid', 'discount', 'owner', 'waste', 'alter', 'enclose', 'pack', 'ez', 'estate', 'retirement', 'trash', 'whatsoever', 'award', 'trust', 'accountant', 'scam', 'vanish', 'awesome', 'tips', 'overload', 'turn', 'qualify', 'trial', 'file', 'code', 'honest', 'expensive', 'penny', 'limited', 'holiday', 'hesitate', 'loan', 'lists', 'payable', 'server', 'unique', 'doubt', 'law', 'print', 'sex', 'removed', 'hotmail', 'fastest', 'bad', 'conceal', 'refinance', 'savings', 'obligation', 'webmaster', 'mci', 'fl', 'privacy', 'upgrade', 'raleigh', 'moneymaking', 'believer', 'laugh', 'cram', 'album', 'allow', 'address', 'reach', 'excellent', 'boy', 'membership', 'star', 'button', 'junk', 'easiest', 'pm', 'cut', 'worldwide', 'increase', 'video', 'high', 'potential', 'instructions', 'happen', 'member', 'juno', 'entertainment', 'fraction', 'cleanest', 'emailer', 'dramatically', 'extractor', 'recieve', 'promotional', 'selle', 'unlimited', 'started', 'fulfill', 'death', 'weeks', 'cable', 'filled', 'log', 'dare', 'celebrate', 'cheap', 'comfort', 'astonishment', 'percentage', 'totals', 'persistent', 'staggering', 'reg', 'lawful', 'rom', 'eliminate', 'magazine', 'client', 'tv', 'stepby', 'verify', 'lay', 'completely', 'link', 'beautiful', 'gov', 'totally', 'team', 'effort', 'office', 'rights', 'age', 'ready', 'track', 'wonderful', 'legally', 'illegal', 'newest', 'entrepreneur', 'consumer', 'homebase', 'affordable', 'abuse', 'cyber', 'released', 'numbers', 'surf', 'imagination', 'flame', 'kitchen', 'kit', 'retail', 'secrets', 'thousands', 'someday', 'exceedingly', 'stun', 'downsize', 'stamped', 'spout', 'merciless', 'esq', 'fairchild', 'desirous', 'buyer', 'jackson', 'grumble', 'rockland', 'rat', 'spokane', 'extraordinary', 'onetime', 'clothe', 'fm', 'casino', 'compuserve', 'provider', 'radio', 'email', 'trip', 'pop', 'finance', 'kid', 'marketer', 'modem', 'asset', 'richer', 'statistics', 'nc', 'faith', 'race', 'small']
+feature tokens dictionary:
 
-ham feature tokens dictionary: 
-['language', 'linguistic', 'university', 'english', 'linguistics', 'papers', 'abstract', 'conference', 'theory', 'workshop', 'de', 'discussion', 'linguist', 'syntax', 'speaker', 'deadline', 'analysis', 'semantics', 'grammar', 'topic', 'speech', 'science', 'discourse', 'semantic', 'committee', 'structure', 'author', 'department', 'development', 'phonology', 'lexical', 'cognitive', 'tel', 'nl', 'affiliation', 'perspective', 'theoretical', 'context', 'institute', 'pragmatic', 'verb', 'study', 'computational', 'reference', 'august', 'focus', 'issue', 'morphology', 'aspect', 'invite', 'translation', 'programme', 'word', 'researcher', 'session', 'phonological', 'construction', 'ac', 'fax', 'acquisition', 'approach', 'french', 'submission', 'grammatical', 'aim', 'organize', 'interaction', 'german', 'european', 'role', 'syntactic', 'representation', 'evidence', 'student', 'paper', 'corpus', 'chair', 'modern', 'natural', 'constraint', 'comparative', 'editor', 'literature', 'general', 'discuss', 'van', 'organizer', 'registration', 'germany', 'society', 'sentence', 'framework', 'panel', 'formal', 'description', 'speak', 'john', 'native', 'mit', 'centre', 'summary', 'recognition', 'interpretation', 'academic', 'historical', 'pattern', 'lexicon', 'theme', 'variety', 'model', 'association', 'publication', 'graduate', 'netherland', 'datum', 'notion', 'argue', 'phonetic', 'movement', 'france', 'april', 'notification', 'presentation', 'query', 'dictionary', 'dialect', 'faculty', 'noun', 'implication', 'morphological', 'amsterdam', 'postscript', 'proceedings', 'submit', 'benjamin', 'multilingual', 'extend', 'identify', 'culture', 'principle', 'berkeley', 'phonetics', 'sociolinguistic', 'argument', 'keynote', 'dialogue', 'clause', 'statistical', 'variation', 'isbn', 'psychology', 'psycholinguistic', 'relate', 'japanese', 'relation', 'distinction', 'lecture', 'expression', 'logic', 'methodology', 'dutch', 'spain', 'text', 'application', 'peter', 'acceptance', 'communication', 'book', 'integrate', 'ii', 'length', 'february', 'relevant', 'retrieval', 'conjunction', 'colleague', 'organiser', 'unpublish', 'cloth', 'september', 'october', 'phrase', 'spanish', 'teacher', 'ling', 'japan', 'preferably', 'reflect', 'proposal', 'chapter', 'han', 'bibliography', 'campus', 'contrast', 'assumption', 'remark', 'relevance', 'scholar', 'generative', 'structural', 'consequence', 'berlin', 'symposium', 'pari', 'dissertation', 'plenary', 'languages', 'complement', 'robert', 'michael', 'july', 'professor', 'north', 'joseph', 'extraction', 'nature', 'evaluation', 'style', 'univ', 'maria', 'laboratory', 'typology', 'preference', 'interpret', 'montreal', 'parse', 'second', 'contribution', 'poster', 'complex', 'central', 'cambridge', 'march', 'david', 'article', 'perception', 'carnegie', 'mellon', 'au', 'lang', 'cultural', 'onepage', 'cognition', 'oxford', 'derive', 'universitaet', 'institut', 'empirical', 'ascii', 'dates', 'acl', 'hold', 'ph', 'universal', 'maximum', 'anne', 'functional', 'object', 'prof', 'forum', 'apply', 'dept', 'vowel', 'underlie', 'pennsylvanium', 'venue', 'fuer', 'marker', 'massachusett', 'organise', 'reception', 'nlp', 'optimality', 'classroom', 'fundamental', 'proceeding', 'xerox', 'publish', 'introduction', 'november', 'russian', 'chinese', 'generally', 'le', 'project', 'universite', 'contributor', 'chomsky', 'typological', 'suitable', 'anthropology', 'vocabulary', 'hypothesis', 'inference', 'stuttgart', 'evolution', 'korean', 'walter', 'prosodic', 'cameraready', 'tilburg', 'international', 'interface', 'term', 'human', 'anonymous', 'accommodation', 'jame', 'scope', 'italian', 'consist', 'californium', 'volume', 'perhap', 'announcement', 'michigan', 'conversational', 'accompany', 'blackwell', 'cmu', 'edinburgh', 'syllable', 'illinoi', 'curriculum', 'slavic', 'analyze', 'predicate', 'attribute', 'patrick', 'postfach', 'morpheme', 'formation', 'implementation', 'reconstruction', 'indo', 'arabic', 'indiana', 'multimodal', 'singapore', 'pb', 'studies', 'insight', 'speakers', 'nancy', 'sheffield', 'accord', 'relationship', 'surface', 'discipline', 'scientific', 'participant', 'susan', 'andrew', 'philosophy', 'jp', 'interdisciplinary', 'influence', 'fr', 'der', 'concern', 'shift', 'generation', 'basic', 'intend', 'represent', 'early', 'function', 'appropriate', 'assessment', 'explore', 'toronto', 'literary', 'genre', 'harri', 'bell', 'psychological', 'joan', 'diachronic', 'indefinite', 'terminology', 'germanic', 'utrecht', 'wolfgang', 'tense', 'alexis', 'paradigm', 'complexity', 'computation', 'overt', 'constituent', 'observation', 'sprachwissenschaft', 'nijmegen', 'leat', 'cluster', 'nlg', 'abstracts', 'secretariat', 'cfp', 'inherent', 'synthesis', 'spoken', 'lab', 'critical', 'teresa', 'anna', 'coordinator', 'indication', 'und', 'du', 'assess', 'negation', 'dr', 'hardcopy', 'criterion', 'dan', 'cooperation', 'parallel', 'marie', 'southern', 'comparison', 'jan', 'june', 'consonant', 'textual', 'cruz', 'langue', 'communicative', 'undergraduate', 'gender', 'reaction', 'tend', 'wherea', 'textbook', 'classical', 'narrative', 'etymology', 'diversity', 'pronunciation', 'crosslinguistic', 'plural', 'define', 'utterance', 'ian', 'groningen', 'korea', 'martinez', 'grammaticalization', 'hebrew', 'contrastive', 'perceive', 'daniel', 'barrier', 'experimental', 'generalize', 'corpusbase', 'alex', 'preliminary', 'humanities', 'humanity', 'universitat', 'bruce', 'rutger', 'cl', 'np', 'dieter', 'minimalist', 'von', 'alternate', 'illustrate', 'unify', 'architecture', 'particle', 'keck', 'kub', 'dfki', 'explanation', 'cv', 'integration', 'logical', 'helen', 'developer', 'contribute', 'usage', 'participation', 'mark', 'school', 'uk', 'indicate', 'tuesday', 'max', 'multimedium', 'practical', 'examine', 'hall', 'concept', 'propose', 'extent', 'availability', 'environment']
+['language', 'linguistic', 'university', 'remove', 'free', 'money', 'english', 'linguistics', 'click', 'papers', 'business', 'sell', 'll', 'abstract', 'internet', 'day', 'product', 'best', 'company', 'conference', 'easy', 'save', 'theory', 'workshop', 'cost', 'win', 'de', 'discussion', 'month', 'linguist', 'today', 'syntax', 'speaker', 'offer', 'purchase', 'advertise', 'check', 'buy', 'cash', 'market', 'service', 'mailing', 'deadline', 'hour', 'analysis', 'guarantee', 'semantics', 'online', 'bulk', 'reply', 'grammar', 'receive', 'topic', 'speech', 'science', 'start', 'discourse', 'semantic', 'dollar', 'nt', 'committee', 'income', 'financial', 'structure', 'profit', 'week', 'sale', 'author', 'department', 'development', 'earn', 'wait', 'phonology', 'live', 'lexical', 'net', 'cognitive', 'tel', 'nl', 'affiliation', 'mail', 'success', 'bonus', 'perspective', 'theoretical', 'context', 'credit', 've', 'pay', 'customer', 'zip', 'institute', 'aol', 'pragmatic', 'verb', 'search', 'fun', 'study', 'computational', 'reference']
 
-training files...
+Reading TRAIN files...
 Reading train file 'spmsga1.txt'...
 Reading train file 'spmsga10.txt'...
 Reading train file 'spmsga100.txt'...
@@ -360,7 +358,6 @@ Reading train file 'spmsgc96.txt'...
 Reading train file 'spmsgc97.txt'...
 Reading train file 'spmsgc98.txt'...
 Reading train file 'spmsgc99.txt'...
-
 Reading train file '3-380msg4.txt'...
 Reading train file '3-384msg0.txt'...
 Reading train file '3-385msg1.txt'...
@@ -712,137 +709,7 @@ Reading train file '9-974msg1.txt'...
 Reading train file '9-975msg1.txt'...
 Reading train file '9-995msg1.txt'...
 
-testing files...
-'3-379msg3.txt' classified as: HAM -> correct
-'3-380msg1.txt' classified as: HAM -> correct
-'3-389msg1.txt' classified as: HAM -> correct
-'3-391msg1.txt' classified as: HAM -> correct
-'3-402msg3.txt' classified as: HAM -> correct
-'5-1217msg1.txt' classified as: HAM -> correct
-'5-1218msg2.txt' classified as: HAM -> correct
-'5-1227msg2.txt' classified as: HAM -> correct
-'5-1279msg1.txt' classified as: HAM -> correct
-'5-1279msg2.txt' classified as: HAM -> correct
-'5-1284msg1.txt' classified as: HAM -> correct
-'5-1285msg2.txt' classified as: HAM -> correct
-'5-1293msg3.txt' classified as: HAM -> correct
-'5-1316msg1.txt' classified as: HAM -> correct
-'5-1372msg3.txt' classified as: HAM -> correct
-'5-1377msg1.txt' classified as: HAM -> correct
-'5-1455msg2.txt' classified as: HAM -> correct
-'5-1455msg3.txt' classified as: HAM -> correct
-'5-1462msg3.txt' classified as: HAM -> correct
-'5-1503msg1.txt' classified as: HAM -> correct
-'5-1508msg1.txt' classified as: HAM -> correct
-'5-1510msg1.txt' classified as: HAM -> correct
-'6-1010msg1.txt' classified as: HAM -> correct
-'6-1030msg2.txt' classified as: HAM -> correct
-'6-1048msg1.txt' classified as: HAM -> correct
-'6-1056msg1.txt' classified as: HAM -> correct
-'6-1071msg1.txt' classified as: HAM -> correct
-'6-1126msg1.txt' classified as: HAM -> correct
-'6-1152msg1.txt' classified as: HAM -> correct
-'6-1157msg2.txt' classified as: HAM -> correct
-'6-1157msg3.txt' classified as: HAM -> correct
-'6-1159msg1.txt' classified as: HAM -> correct
-'6-14msg3.txt' classified as: HAM -> correct
-'6-15msg2.txt' classified as: HAM -> correct
-'6-199msg4.txt' classified as: HAM -> correct
-'6-329msg3.txt' classified as: HAM -> correct
-'6-334msg1.txt' classified as: HAM -> correct
-'6-341msg1.txt' classified as: SPAM -> WRONG!
-'6-360msg1.txt' classified as: HAM -> correct
-'6-378msg1.txt' classified as: HAM -> correct
-'6-380msg1.txt' classified as: SPAM -> WRONG!
-'6-382msg1.txt' classified as: HAM -> correct
-'6-400msg3.txt' classified as: HAM -> correct
-'6-413msg1.txt' classified as: HAM -> correct
-'6-437msg2.txt' classified as: HAM -> correct
-'6-437msg3.txt' classified as: SPAM -> WRONG!
-'6-453msg1.txt' classified as: HAM -> correct
-'6-455msg2.txt' classified as: SPAM -> WRONG!
-'6-459msg1.txt' classified as: HAM -> correct
-'6-463msg1.txt' classified as: HAM -> correct
-'6-781msg5.txt' classified as: SPAM -> WRONG!
-'6-790msg1.txt' classified as: SPAM -> WRONG!
-'6-791msg1.txt' classified as: HAM -> correct
-'6-7msg2.txt' classified as: HAM -> correct
-'6-809msg3.txt' classified as: SPAM -> WRONG!
-'6-80msg1.txt' classified as: HAM -> correct
-'6-828msg2.txt' classified as: HAM -> correct
-'6-839msg2.txt' classified as: HAM -> correct
-'6-843msg2.txt' classified as: HAM -> correct
-'6-855msg1.txt' classified as: HAM -> correct
-'6-875msg1.txt' classified as: HAM -> correct
-'6-890msg3.txt' classified as: HAM -> correct
-'6-904msg1.txt' classified as: HAM -> correct
-'6-987msg4.txt' classified as: HAM -> correct
-'6-992msg4.txt' classified as: HAM -> correct
-'8-1031msg1.txt' classified as: HAM -> correct
-'8-1096msg1.txt' classified as: HAM -> correct
-'8-1125msg4.txt' classified as: HAM -> correct
-'8-1126msg1.txt' classified as: HAM -> correct
-'8-1128msg1.txt' classified as: HAM -> correct
-'8-1136msg1.txt' classified as: HAM -> correct
-'8-1231msg1.txt' classified as: HAM -> correct
-'8-811msg1.txt' classified as: HAM -> correct
-'8-817msg1.txt' classified as: HAM -> correct
-'8-824msg1.txt' classified as: SPAM -> WRONG!
-'8-872msg1.txt' classified as: HAM -> correct
-'8-874msg1.txt' classified as: HAM -> correct
-'8-965msg1.txt' classified as: SPAM -> WRONG!
-'9-1020msg2.txt' classified as: HAM -> correct
-'9-1026msg1.txt' classified as: HAM -> correct
-'9-103msg1.txt' classified as: HAM -> correct
-'9-1073msg1.txt' classified as: HAM -> correct
-'9-1128msg2.txt' classified as: HAM -> correct
-'9-1139msg1.txt' classified as: HAM -> correct
-'9-114msg2.txt' classified as: HAM -> correct
-'9-1156msg1.txt' classified as: HAM -> correct
-'9-1163msg2.txt' classified as: HAM -> correct
-'9-1228msg1.txt' classified as: HAM -> correct
-'9-1246msg1.txt' classified as: HAM -> correct
-'9-1290msg1.txt' classified as: HAM -> correct
-'9-1301msg2.txt' classified as: HAM -> correct
-'9-1376msg1.txt' classified as: HAM -> correct
-'9-1400msg2.txt' classified as: HAM -> correct
-'9-1404msg2.txt' classified as: HAM -> correct
-'9-1415msg1.txt' classified as: HAM -> correct
-'9-1418msg1.txt' classified as: HAM -> correct
-'9-1444msg1.txt' classified as: HAM -> correct
-'9-1527msg2.txt' classified as: HAM -> correct
-'9-1536msg2.txt' classified as: HAM -> correct
-'9-1543msg1.txt' classified as: HAM -> correct
-'9-1602msg3.txt' classified as: HAM -> correct
-'9-168msg1.txt' classified as: HAM -> correct
-'9-1716msg1.txt' classified as: HAM -> correct
-'9-1730msg1.txt' classified as: HAM -> correct
-'9-1738msg1.txt' classified as: HAM -> correct
-'9-1765msg1.txt' classified as: HAM -> correct
-'9-1769msg1.txt' classified as: HAM -> correct
-'9-1782msg1.txt' classified as: HAM -> correct
-'9-2msg1.txt' classified as: HAM -> correct
-'9-387msg2.txt' classified as: HAM -> correct
-'9-420msg1.txt' classified as: HAM -> correct
-'9-442msg2.txt' classified as: HAM -> correct
-'9-475msg1.txt' classified as: HAM -> correct
-'9-505msg2.txt' classified as: HAM -> correct
-'9-519msg1.txt' classified as: HAM -> correct
-'9-523msg1.txt' classified as: HAM -> correct
-'9-537msg1.txt' classified as: HAM -> correct
-'9-542msg1.txt' classified as: HAM -> correct
-'9-570msg2.txt' classified as: HAM -> correct
-'9-575msg1.txt' classified as: HAM -> correct
-'9-590msg2.txt' classified as: HAM -> correct
-'9-663msg1.txt' classified as: HAM -> correct
-'9-750msg1.txt' classified as: HAM -> correct
-'9-792msg1.txt' classified as: HAM -> correct
-'9-841msg1.txt' classified as: HAM -> correct
-'9-878msg1.txt' classified as: HAM -> correct
-'9-886msg1.txt' classified as: HAM -> correct
-'9-968msg1.txt' classified as: HAM -> correct
-'9-989msg1.txt' classified as: HAM -> correct
-'9-992msg1.txt' classified as: HAM -> correct
+Reading TEST files...
 'spmsga102.txt' classified as: SPAM -> correct
 'spmsga11.txt' classified as: SPAM -> correct
 'spmsga119.txt' classified as: SPAM -> correct
@@ -973,22 +840,151 @@ testing files...
 'spmsgc7.txt' classified as: SPAM -> correct
 'spmsgc78.txt' classified as: SPAM -> correct
 'spmsgc79.txt' classified as: SPAM -> correct
+'3-379msg3.txt' classified as: HAM -> correct
+'3-380msg1.txt' classified as: HAM -> correct
+'3-389msg1.txt' classified as: HAM -> correct
+'3-391msg1.txt' classified as: HAM -> correct
+'3-402msg3.txt' classified as: HAM -> correct
+'5-1217msg1.txt' classified as: HAM -> correct
+'5-1218msg2.txt' classified as: HAM -> correct
+'5-1227msg2.txt' classified as: HAM -> correct
+'5-1279msg1.txt' classified as: HAM -> correct
+'5-1279msg2.txt' classified as: HAM -> correct
+'5-1284msg1.txt' classified as: HAM -> correct
+'5-1285msg2.txt' classified as: HAM -> correct
+'5-1293msg3.txt' classified as: HAM -> correct
+'5-1316msg1.txt' classified as: HAM -> correct
+'5-1372msg3.txt' classified as: HAM -> correct
+'5-1377msg1.txt' classified as: HAM -> correct
+'5-1455msg2.txt' classified as: HAM -> correct
+'5-1455msg3.txt' classified as: HAM -> correct
+'5-1462msg3.txt' classified as: HAM -> correct
+'5-1503msg1.txt' classified as: HAM -> correct
+'5-1508msg1.txt' classified as: HAM -> correct
+'5-1510msg1.txt' classified as: HAM -> correct
+'6-1010msg1.txt' classified as: HAM -> correct
+'6-1030msg2.txt' classified as: HAM -> correct
+'6-1048msg1.txt' classified as: HAM -> correct
+'6-1056msg1.txt' classified as: HAM -> correct
+'6-1071msg1.txt' classified as: HAM -> correct
+'6-1126msg1.txt' classified as: HAM -> correct
+'6-1152msg1.txt' classified as: HAM -> correct
+'6-1157msg2.txt' classified as: HAM -> correct
+'6-1157msg3.txt' classified as: HAM -> correct
+'6-1159msg1.txt' classified as: HAM -> correct
+'6-14msg3.txt' classified as: HAM -> correct
+'6-15msg2.txt' classified as: HAM -> correct
+'6-199msg4.txt' classified as: HAM -> correct
+'6-329msg3.txt' classified as: HAM -> correct
+'6-334msg1.txt' classified as: HAM -> correct
+'6-341msg1.txt' classified as: HAM -> correct
+'6-360msg1.txt' classified as: HAM -> correct
+'6-378msg1.txt' classified as: HAM -> correct
+'6-380msg1.txt' classified as: SPAM -> WRONG!
+'6-382msg1.txt' classified as: HAM -> correct
+'6-400msg3.txt' classified as: HAM -> correct
+'6-413msg1.txt' classified as: HAM -> correct
+'6-437msg2.txt' classified as: HAM -> correct
+'6-437msg3.txt' classified as: SPAM -> WRONG!
+'6-453msg1.txt' classified as: SPAM -> WRONG!
+'6-455msg2.txt' classified as: SPAM -> WRONG!
+'6-459msg1.txt' classified as: HAM -> correct
+'6-463msg1.txt' classified as: HAM -> correct
+'6-781msg5.txt' classified as: HAM -> correct
+'6-790msg1.txt' classified as: HAM -> correct
+'6-791msg1.txt' classified as: SPAM -> WRONG!
+'6-7msg2.txt' classified as: HAM -> correct
+'6-809msg3.txt' classified as: SPAM -> WRONG!
+'6-80msg1.txt' classified as: HAM -> correct
+'6-828msg2.txt' classified as: HAM -> correct
+'6-839msg2.txt' classified as: HAM -> correct
+'6-843msg2.txt' classified as: HAM -> correct
+'6-855msg1.txt' classified as: HAM -> correct
+'6-875msg1.txt' classified as: HAM -> correct
+'6-890msg3.txt' classified as: HAM -> correct
+'6-904msg1.txt' classified as: HAM -> correct
+'6-987msg4.txt' classified as: HAM -> correct
+'6-992msg4.txt' classified as: HAM -> correct
+'8-1031msg1.txt' classified as: HAM -> correct
+'8-1096msg1.txt' classified as: HAM -> correct
+'8-1125msg4.txt' classified as: HAM -> correct
+'8-1126msg1.txt' classified as: HAM -> correct
+'8-1128msg1.txt' classified as: HAM -> correct
+'8-1136msg1.txt' classified as: HAM -> correct
+'8-1231msg1.txt' classified as: HAM -> correct
+'8-811msg1.txt' classified as: HAM -> correct
+'8-817msg1.txt' classified as: HAM -> correct
+'8-824msg1.txt' classified as: HAM -> correct
+'8-872msg1.txt' classified as: HAM -> correct
+'8-874msg1.txt' classified as: HAM -> correct
+'8-965msg1.txt' classified as: HAM -> correct
+'9-1020msg2.txt' classified as: HAM -> correct
+'9-1026msg1.txt' classified as: HAM -> correct
+'9-103msg1.txt' classified as: HAM -> correct
+'9-1073msg1.txt' classified as: HAM -> correct
+'9-1128msg2.txt' classified as: HAM -> correct
+'9-1139msg1.txt' classified as: HAM -> correct
+'9-114msg2.txt' classified as: HAM -> correct
+'9-1156msg1.txt' classified as: HAM -> correct
+'9-1163msg2.txt' classified as: HAM -> correct
+'9-1228msg1.txt' classified as: HAM -> correct
+'9-1246msg1.txt' classified as: HAM -> correct
+'9-1290msg1.txt' classified as: HAM -> correct
+'9-1301msg2.txt' classified as: HAM -> correct
+'9-1376msg1.txt' classified as: HAM -> correct
+'9-1400msg2.txt' classified as: HAM -> correct
+'9-1404msg2.txt' classified as: HAM -> correct
+'9-1415msg1.txt' classified as: HAM -> correct
+'9-1418msg1.txt' classified as: HAM -> correct
+'9-1444msg1.txt' classified as: HAM -> correct
+'9-1527msg2.txt' classified as: HAM -> correct
+'9-1536msg2.txt' classified as: HAM -> correct
+'9-1543msg1.txt' classified as: HAM -> correct
+'9-1602msg3.txt' classified as: HAM -> correct
+'9-168msg1.txt' classified as: HAM -> correct
+'9-1716msg1.txt' classified as: HAM -> correct
+'9-1730msg1.txt' classified as: HAM -> correct
+'9-1738msg1.txt' classified as: HAM -> correct
+'9-1765msg1.txt' classified as: HAM -> correct
+'9-1769msg1.txt' classified as: HAM -> correct
+'9-1782msg1.txt' classified as: HAM -> correct
+'9-2msg1.txt' classified as: HAM -> correct
+'9-387msg2.txt' classified as: HAM -> correct
+'9-420msg1.txt' classified as: HAM -> correct
+'9-442msg2.txt' classified as: HAM -> correct
+'9-475msg1.txt' classified as: HAM -> correct
+'9-505msg2.txt' classified as: HAM -> correct
+'9-519msg1.txt' classified as: HAM -> correct
+'9-523msg1.txt' classified as: HAM -> correct
+'9-537msg1.txt' classified as: HAM -> correct
+'9-542msg1.txt' classified as: HAM -> correct
+'9-570msg2.txt' classified as: HAM -> correct
+'9-575msg1.txt' classified as: HAM -> correct
+'9-590msg2.txt' classified as: HAM -> correct
+'9-663msg1.txt' classified as: HAM -> correct
+'9-750msg1.txt' classified as: HAM -> correct
+'9-792msg1.txt' classified as: HAM -> correct
+'9-841msg1.txt' classified as: HAM -> correct
+'9-878msg1.txt' classified as: HAM -> correct
+'9-886msg1.txt' classified as: HAM -> correct
+'9-968msg1.txt' classified as: HAM -> correct
+'9-989msg1.txt' classified as: HAM -> correct
+'9-992msg1.txt' classified as: HAM -> correct
 
 Manual Naive-Bayes Classifier: 
-number of spam features used: 500
-number of ham features used: 500
+number of features used: 100
 
-accuracy: 96.53846153846153 %
+accuracy: 97.6923076923077 %
 
-number of wrong classifications: 9 out of 260 files
+number of wrong classifications: 6 out of 260 files
 number of wrong spam classifications: 0 out of 130 spam files
-number of wrong ham classifications: 9 out of 130 ham files
+number of wrong ham classifications: 6 out of 130 ham files
 
-precision for spam files: 0.935251798561151
+precision for spam files: 0.9558823529411765
 precision for ham files: 1.0
 recall for spam files: 1.0
-recall for ham files: 0.9307692307692308
-f1-score for spam files: 0.966542750929368
-f1-score for ham files: 0.9641434262948207
+recall for ham files: 0.9538461538461539
+f1-score for spam files: 0.9774436090225563
+f1-score for ham files: 0.9763779527559054
 
-total duration : 10.856155157089233 seconds
+total duration : 1.3201673030853271 seconds

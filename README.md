@@ -4,7 +4,8 @@ Made by Chris Kormaris
 
 Programming Language: Python
 
-Unzip the compressed files *"TRAIN.zip"* and *"TEST.zip"* in the same directory where the Python files are. 8512 train documents and 3000 test documents are contained inside these folders.
+
+Unzip the compressed file *"LingspamDataset.zip"* in the same directory where the Python files are. 700 train documents and 260 test documents will reside inside the uncompressed folder.
 
 ## Feature Selection with Information Gain
 
@@ -45,24 +46,11 @@ To calculate the probability of the entire feature vector belonging to the spam 
 We do the same for the ham class. We can omit the term *P(featureVector)* since it's the same for both the 2 classes. The bigger probability of the two defines the category that the given document and its feature vector is more likely to belong to. We can also avoid multiplying probabilities by using the numerically stable logsumexp trick.
 
 
-The execution results of the classifier delivered an accuracy of **91.73 %** while using 500 features tokens for spam class and 500 feature tokens for ham class. The classifier should have a higher accuracy on a much smaller corpus.
+The execution results of the classifier delivered an accuracy of **96.54 %** while using 500 features tokens for spam class and 500 feature tokens for ham class.
+
 
 **Notes**
 
-* You can use your own Train and Test text files if you want, as long as they contain "spam" or "ham" in their names, according to their category. The existence of the substring "spam" or "ham" in a text file defines in which category of the two the text file belongs to.</li>
+* Statistics show that the Naive-Bayes classifier has a higher accuracy on a small corpus, rather than a big corpus.
 * Console execution results are included in the "console_outputs" folder. One output is contained in the file "naive_bayes_output.txt" where 1000 feature tokens (500 spam and 500 ham) were used.
 
-
-**Lingspam Dataset**
-
-Python code that makes use of the Lingspam Dataset is also included as well.
-Unzip the compressed file *"LingspamDataset.zip"* in the same directory where the Python files are. 700 train documents and 260 test documents are contained inside this folder.
-Run:
-```python
-python FeatureSelectionUsingIGLingspamDataset.py
-```
-Then, run:
-```python
-python NaiveBayesClassifierLingspamDataset.py
-```
-The accuracy achieved, was: **96.54 %**

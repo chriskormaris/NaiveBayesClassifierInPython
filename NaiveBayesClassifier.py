@@ -242,7 +242,7 @@ for i in range(len(test_files)):  # for all the test files that exist
             test_ham_feature_vector[j] = 1
     test_ham_feature_vector = tuple(test_ham_feature_vector)
 
-    # classify the document
+    # Laplace estimate classification #
     spam_laplace_estimate_probability = calculate_laplace_estimate_probability(test_spam_feature_vector,
                                                                       spam_feature_tokens,
                                                                       spam_feature_tokens_frequencies,

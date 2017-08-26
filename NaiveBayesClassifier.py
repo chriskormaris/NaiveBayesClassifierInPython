@@ -187,7 +187,6 @@ for i in range(len(train_files)):
     if train_labels[i] == 1:  # 1 is for class "SPAM"
         spam_feature_vector = [0] * len(spam_feature_tokens)
         for j in range(len(spam_feature_tokens)):
-            #spam_feature_vector[j] = train_text_tokens.count(spam_feature_tokens[j])  # UNCOMMENT TO USE TF (TERM-FREQUENCY) FEATURES
             if train_text_tokens.__contains__(spam_feature_tokens[j]):
                 spam_feature_vector[j] = 1
         spam_feature_vector = tuple(spam_feature_vector)
@@ -195,7 +194,6 @@ for i in range(len(train_files)):
     if train_labels[i] == 0:  # 0 is for class "HAM"
         ham_feature_vector = [0] * len(ham_feature_tokens)
         for j in range(len(ham_feature_tokens)):
-            # ham_feature_vector[j] = train_text_tokens.count(ham_feature_tokens[j])  # UNCOMMENT TO USE TF (TERM-FREQUENCY) FEATURES
             if train_text_tokens.__contains__(ham_feature_tokens[j]):
                 ham_feature_vector[j] = 1
         ham_feature_vector = tuple(ham_feature_vector)
@@ -216,9 +214,6 @@ wrong_ham_counter = 0  # the number of ham files classified as spam
 spam_feature_tokens_frequencies = calculate_label_tokens_frequencies(spam_feature_tokens, spam_feature_vectors, "SPAM")
 ham_feature_tokens_frequencies = calculate_label_tokens_frequencies(ham_feature_tokens, ham_feature_vectors, "HAM")
 
-#print('spam feature tokens frequencies: ' + str(spam_feature_tokens_frequencies))
-#print('ham feature tokens frequencies: ' + str(ham_feature_tokens_frequencies))
-
 spam_dictionary_size = len(spam_feature_tokens)
 ham_dictionary_size = len(ham_feature_tokens)
 no_of_train_documents = len(train_files)
@@ -237,34 +232,30 @@ for i in range(len(test_files)):  # for all the test files that exist
 
     test_spam_feature_vector = [0] * len(spam_feature_tokens)
     for j in range(len(spam_feature_tokens)):
-        #test_spam_feature_vector[j] = test_text_tokens.count(spam_feature_tokens[j])  # UNCOMMENT TO USE TF (TERM-FREQUENCY) FEATURES
         if test_text_tokens.__contains__(spam_feature_tokens[j]):
             test_spam_feature_vector[j] = 1
     test_spam_feature_vector = tuple(test_spam_feature_vector)
 
     test_ham_feature_vector = [0] * len(ham_feature_tokens)
     for j in range(len(ham_feature_tokens)):
-        #test_ham_feature_vector[j] = test_text_tokens.count(ham_feature_tokens[j])  # UNCOMMENT TO USE TF (TERM-FREQUENCY) FEATURES
         if test_text_tokens.__contains__(ham_feature_tokens[j]):
             test_ham_feature_vector[j] = 1
     test_ham_feature_vector = tuple(test_ham_feature_vector)
 
     # classify the document
     spam_laplace_estimate_probability = calculate_laplace_estimate_probability(test_spam_feature_vector,
-                                                                               spam_feature_tokens,
-                                                                               spam_feature_tokens_frequencies,
-                                                                               label_frequency=spam_label_frequency,
-                                                                               no_of_train_documents=no_of_train_documents,
-                                                                               dictionary_size=spam_dictionary_size)
-    #print("spam_laplace_estimate_probability: " + str(spam_laplace_estimate_probability))
+                                                                      spam_feature_tokens,
+                                                                      spam_feature_tokens_frequencies,
+                                                                      label_frequency=spam_label_frequency,
+                                                                      no_of_train_documents=no_of_train_documents,
+                                                                      dictionary_size=spam_dictionary_size)
 
     ham_laplace_estimate_probability = calculate_laplace_estimate_probability(test_ham_feature_vector,
-                                                                              ham_feature_tokens,
-                                                                              ham_feature_tokens_frequencies,
-                                                                              label_frequency=ham_label_frequency,
-                                                                              no_of_train_documents=no_of_train_documents,
-                                                                              dictionary_size=ham_dictionary_size)
-    #print("ham_laplace_estimate_probability: " + str(ham_laplace_estimate_probability))
+                                                                      ham_feature_tokens,
+                                                                      ham_feature_tokens_frequencies,
+                                                                      label_frequency=ham_label_frequency,
+                                                                      no_of_train_documents=no_of_train_documents,
+                                                                      dictionary_size=ham_dictionary_size)
 
     if spam_laplace_estimate_probability >= ham_laplace_estimate_probability and test_true_labels[i] == 1:
         print("'" + test_files[i] + "'" + " classified as: SPAM -> correct")

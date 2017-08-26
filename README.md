@@ -43,7 +43,7 @@ To calculate the probability of the entire feature vector belonging to the spam 
 
 ![Laplace Smoothing vector](http://latex.codecogs.com/gif.latex?probOfFeatureVectorBelongingToSpam%20%3D%20\frac{P(C%3D1)}{P(featureVector)}%20\cdot%20\prod_i%20\frac{spamDocumentFrequencyOfToken[i]%20&plus;%201}%20{numberOfSpamDocuments%20&plus;%20|V|})
 
-We do the same for the ham class. We can omit the term *P(featureVector)* since it's the same for both the 2 classes. The bigger probability of the two defines the category that the given document and its feature vector is more likely to belong to. We can also avoid multiplying probabilities by using the numerically stable logsumexp trick.
+We do the same for the ham class. We can omit the term *P(featureVector)* since it's the same for both 2 classes. The probability of the 2 which is bigger, indicates the category that the given test document and its feature vector is more likely to belong to. Also, it is a good idea to use the numerically stable "logsumexp trick", thus taking sum of exponentials, rather than multiplications of probabilities.
 
 
 The execution results of the classifier delivered an accuracy of **96.54 %** while using 500 features tokens for spam class and 500 feature tokens for ham class.

@@ -46,8 +46,7 @@ To calculate the probability of the entire feature vector belonging to the spam 
 We do the same for the ham class. We can omit the term *P(featureVector)* since it's the same for both 2 classes. The probability of the 2 which is bigger, indicates the category that the given test document and its feature vector is more likely to belong to. Also, it is a good idea to use the numerically stable "logsumexp trick", thus taking sum of exponentials, rather than multiplications of probabilities.
 
 
-The execution results of the classifier delivered an accuracy of **98.08 %** while using 1000 features tokens.
-The execution results of the classifier delivered an accuracy of **97.69 %** while using 100 features tokens.
+The execution results of the classifier delivered an accuracy of **98.08 %**, while using 1000 features tokens and **97.69 %**, while using 100 features tokens.
 
 **Notes**
 

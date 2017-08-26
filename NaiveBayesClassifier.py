@@ -148,7 +148,7 @@ print("SPAM train document probability: " + str(spam_label_probability))
 ham_label_probability = ham_label_frequency / (len(spam_train_files) + len(ham_train_files))
 print("HAM train document probability: " + str(ham_label_probability))
 
-print()
+print('')
 
 
 ###############
@@ -160,10 +160,10 @@ ham_feature_tokens = read_dictionary_file(ham_feature_dictionary_dir)
 
 print("spam feature tokens dictionary: ")
 print(spam_feature_tokens)
-print()
+print('')
 print("ham feature tokens dictionary: ")
 print(ham_feature_tokens)
-print()
+print('')
 
 
 ###############
@@ -199,7 +199,7 @@ for i in range(len(train_files)):
         ham_feature_vector = tuple(ham_feature_vector)
         ham_feature_vectors.append(ham_feature_vector)
 
-print()
+print('')
 
 
 ###############
@@ -274,7 +274,7 @@ for i in range(len(test_files)):  # for all the test files that exist
         print("'" + test_files[i] + "'" + " classified as: HAM -> correct")
         ham_counter = ham_counter + 1
 
-print()
+print('')
 
 
 ###############
@@ -285,13 +285,13 @@ print('Manual Naive-Bayes Classifier: ')
 print('number of spam features used: ' + str(spam_dictionary_size))
 print('number of ham features used: ' + str(ham_dictionary_size))
 
-print()
+print('')
 
 # Accuracy
 
 accuracy = ((len(test_files) - wrong_counter) / len(test_files)) * 100
 print("accuracy: " + str(accuracy) + " %")
-print()
+print('')
 
 # Precision-Recall Report
 
@@ -299,7 +299,7 @@ print("number of wrong classifications: " + str(wrong_counter) + ' out of ' + st
 print("number of wrong spam classifications: " + str(wrong_spam_counter) + ' out of ' + str(spam_counter) + ' spam files')
 print("number of wrong ham classifications: " + str(wrong_ham_counter) + ' out of ' + str(ham_counter) + ' ham files')
 
-print()
+print('')
 
 spam_precision = (spam_counter - wrong_spam_counter) / (spam_counter - wrong_spam_counter + wrong_ham_counter)
 print("precision for spam files: " + str(spam_precision))
@@ -316,7 +316,7 @@ print("f1-score for spam files: " + str(spam_f1_score))
 ham_f1_score = 2 * ham_precision * ham_recall / (ham_precision + ham_recall)
 print("f1-score for ham files: " + str(ham_f1_score))
 
-print()
+print('')
 
 ###############
 

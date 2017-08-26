@@ -106,7 +106,7 @@ print("SPAM train document probability: " + str(spam_label_probability))
 ham_label_probability = ham_label_frequency / (len(spam_train_files) + len(ham_train_files))
 print("HAM train document probability: " + str(ham_label_probability))
 
-print()
+print('')
 
 ###############
 
@@ -179,7 +179,7 @@ ham_IG = dict()
 H_C = - (spam_label_probability * math.log(spam_label_probability) + ham_label_probability * math.log(ham_label_probability))
 
 print('entropy of the dataset: H(C) = ' + str(H_C))
-print()
+print('')
 
 # precaution to avoid division by zero and log(0)
 error = 1e-7
@@ -255,7 +255,7 @@ for (i, token) in enumerate(ham_IG):
         print(token + ", ham information gain score: " + str(ham_IG[token]))
     else:
         break
-print()
+print('')
 
 #write ham_feature_tokens to file
 write_tokens_to_file(ham_feature_tokens, ham_feature_dictionary_dir)
@@ -273,9 +273,9 @@ for (i, token) in enumerate(spam_IG):
         print(token + ", spam information gain score: " + str(spam_IG[token]))
     else:
         break
-print()
+print('')
 
 #write spam_feature_tokens to file
 write_tokens_to_file(spam_feature_tokens, spam_feature_dictionary_dir)
 
-print()
+print('')

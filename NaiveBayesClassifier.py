@@ -152,7 +152,7 @@ print('')
 # read feature dictionary from file
 feature_tokens = read_dictionary_file(feature_dictionary_dir)
 
-print("feature tokens dictionary:" + "\n")
+print("feature tokens dictionary: ")
 print(feature_tokens)
 print('')
 

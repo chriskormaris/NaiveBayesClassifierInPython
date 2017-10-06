@@ -72,8 +72,8 @@ def calculate_laplace_estimate_probability(test_feature_vector, feature_tokens, 
     '''
     laplace_estimate_probability = 1
     for (i, token) in enumerate(feature_tokens):
-        test_feature_token = test_feature_vector[i]
-        if test_feature_token == 1:
+        test_feature = test_feature_vector[i]
+        if test_feature == 1:
             if class_tokens_frequencies.__contains__(token):
                 probOfTokenBelongingToClass = (class_tokens_frequencies[token] + 1) \
                                               / (class_frequency + dictionary_size)
@@ -87,8 +87,8 @@ def calculate_laplace_estimate_probability(test_feature_vector, feature_tokens, 
     # numerically stable way to avoid multiplications of probabilities
     laplace_estimate_log_probability = 0
     for (i, token) in enumerate(feature_tokens):
-        test_feature_token = test_feature_vector[i]
-        if test_feature_token == 1:
+        test_feature = test_feature_vector[i]
+        if test_feature == 1:
             if class_tokens_frequencies.__contains__(token):
                 probOfTokenBelongingToClass = (class_tokens_frequencies[token] + 1) \
                                               / (class_frequency + dictionary_size)

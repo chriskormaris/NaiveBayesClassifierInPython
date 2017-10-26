@@ -44,7 +44,7 @@ def read_file(filename):
 
 # extracts tokens from the given text
 def getTokens(text):
-    text_tokens = re.findall(r"[/w']+", text)
+    text_tokens = re.findall(r"[\w']+", text)
     # remove digits, special characters and convert to lowercase
     for k in range(len(text_tokens)):
         text_tokens[k] = text_tokens[k].lower()
@@ -68,7 +68,7 @@ def getStopwords(stopwords_file):
 def write_tokens_to_file(tokens, filename):
     f = open(filename, 'w')
     for token in tokens:
-        f.write(token + '/n')
+        f.write(token + '\n')
     f.close()
 
 

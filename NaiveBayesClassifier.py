@@ -90,7 +90,7 @@ def calculate_laplace_estimate_probability(test_feature_vector, feature_tokens, 
         test_feature = test_feature_vector[i]
         if test_feature == 1:
             if class_tokens_frequencies.__contains__(token):
-                probOfTokenBelongingToClass = (class_tokens_frequencies[token] + 1) /
+                probOfTokenBelongingToClass = (class_tokens_frequencies[token] + 1) \
                                               / (class_frequency + dictionary_size)
                 laplace_estimate_log_probability += math.log(probOfTokenBelongingToClass, 2)
             else:

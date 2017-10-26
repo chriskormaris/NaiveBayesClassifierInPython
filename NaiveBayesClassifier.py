@@ -24,7 +24,7 @@ def read_dictionary_file(filename):
     text_file = open(filename, "r")
     lines = text_file.readlines()
     for i in range(len(lines)):
-        lines[i] = lines[i].replace("\n", "")
+        lines[i] = lines[i].replace("/n", "")
     return lines
 
 
@@ -36,7 +36,7 @@ def read_file(filename):
 
 # extracts tokens from the given text
 def getTokens(text):
-    text_tokens = re.findall(r"[\w']+", text)
+    text_tokens = re.findall(r"[/w']+", text)
     # remove digits, special characters and convert to lowercase
     for k in range(len(text_tokens)):
         text_tokens[k] = text_tokens[k].lower()
@@ -75,7 +75,7 @@ def calculate_laplace_estimate_probability(test_feature_vector, feature_tokens, 
         test_feature = test_feature_vector[i]
         if test_feature == 1:
             if class_tokens_frequencies.__contains__(token):
-                probOfTokenBelongingToClass = (class_tokens_frequencies[token] + 1) \
+                probOfTokenBelongingToClass = (class_tokens_frequencies[token] + 1) /
                                               / (class_frequency + dictionary_size)
                 laplace_estimate_probability *= probOfTokenBelongingToClass
             else:
@@ -90,7 +90,7 @@ def calculate_laplace_estimate_probability(test_feature_vector, feature_tokens, 
         test_feature = test_feature_vector[i]
         if test_feature == 1:
             if class_tokens_frequencies.__contains__(token):
-                probOfTokenBelongingToClass = (class_tokens_frequencies[token] + 1) \
+                probOfTokenBelongingToClass = (class_tokens_frequencies[token] + 1) /
                                               / (class_frequency + dictionary_size)
                 laplace_estimate_log_probability += math.log(probOfTokenBelongingToClass, 2)
             else:

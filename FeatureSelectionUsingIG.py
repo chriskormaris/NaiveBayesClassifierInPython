@@ -206,7 +206,7 @@ for (i, token) in enumerate(feature_frequency):
         # conditional entropy: H(C|Xi=0)
         H_C_given_X0 = - (P_C1_given_X0 * math.log(P_C1_given_X0 + error) + P_C0_given_X0 * math.log(P_C0_given_X0 + error))
 
-        # IG(C,Xi) = IG(Xi,C) = H(C) - SUM ( P(Xi=x) * H(C|Xi=x) for every x)
+        # IG(C,Xi) = IG(Xi,C) = H(C) - SUM ( P(Xi=X_train) * H(C|Xi=X_train) for every X_train)
         IG[token] = H_C - (feature_probability[token] * H_C_given_X1 + (1 - feature_probability[token]) * H_C_given_X0)
 
         #print('{0}: P(Xi=1): {1}, P(Xi=1|C=0): {2}, P(Xi=1|C=1): {3}'.format(token, feature_probability[token],

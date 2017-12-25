@@ -27,7 +27,7 @@ In addition, there has been implemented, inside block comments, an alternative w
 
 which is the absolute difference between the conditional probabilities for the 2 classes (spam or ham). The tokens for which this absolute difference is bigger are selected as feature tokens of the feature vectors, based on which we will classify our corpus files. Using the feature tokens of this formula, slightly worse accuracy has been observed. In the end of the program "FeatureSelectionWithIG.py", two dictionaries will be created, which contain the feature tokens that will be used for the Naive-Bayes classifier and they are saved in the files: *"spam_feature_dictionary.txt"* and *"ham_feature_dictionary.txt"*.
 
-## Perform Naive-Bayes classification
+## Perform Naive-Bayes Classification
 
 After the feature selection step, run *"NaiveBayesClassifier.py"* to start the classification process. Run:
 ```python

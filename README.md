@@ -21,7 +21,7 @@ Feature selection for the most useful feature tokens, using Information Gain (IG
 where i=0 and i=1 are the boolean values that a feature token may take, indicating if it appears or not in a text.
 Concretely, the feature X that reduces the entropy less is the most desired candidate feature because it can discriminate the category of a document more efficiently. The number of feature tokens that the feature selection algorithm returns is set to 1000. The number of feature tokens to use depends on the classification task we want to execute. For our Naive-Bayes spam-ham classifier a number of 1000 feature tokens is a good choice.
 
-In addition, there has been implemented, inside block comments, an alternative way for calculating the Information Gain score, by using the following formula:
+In addition, I have implemented, inside of block comments, an alternative way for calculating the Information Gain score, by using the following formula:
 
 ![Information Gain alterative](http://latex.codecogs.com/gif.latex?IG%28X%2C%20C%29_%7Balt%7D%20%3D%20IG%28C%2C%20X%29_%7Balt%7D%20%3D%20%7CP%28X%3D1%7CC%3D0%29%20-%20P%20%28X%3D1%7CC%3D1%29%7C)
 
@@ -37,7 +37,7 @@ First, the classifier counts in how many spam documents each spam feature token 
 
 ![Laplace Smoothing token](http://latex.codecogs.com/gif.latex?\frac{spamDocumentFrequencyOfToken[i]%20&plus;%201}%20{numberOfSpamDocuments%20&plus;%20numberOfFeatures}%20%3D%20\frac{spamDocumentFrequencyOfToken[i]%20&plus;%201}%20{numberOfSpamDocuments%20&plus;%20|V|})
 
-*(where |V| is the is the size of the dictionary of feature tokens)*
+*(where |V| is the is the dictionary size of the feature tokens)*
 
 To calculate the probability of the entire feature vector belonging to the spam class we multiply the probability of each separate feature token belonging to the spam class. The exact formula is:
 

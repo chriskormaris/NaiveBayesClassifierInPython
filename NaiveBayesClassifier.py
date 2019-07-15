@@ -277,22 +277,27 @@ print("number of wrong classifications: " + str(wrong_counter) + ' out of ' + st
 print("number of wrong spam classifications: " + str(wrong_spam_counter) + ' out of ' + str(spam_counter) + ' spam files')
 print("number of wrong ham classifications: " + str(wrong_ham_counter) + ' out of ' + str(ham_counter) + ' ham files')
 
+true_positive = spam_counter - wrong_spam_counter
+false_positive = wrong_ham_counter
+true_negative = ham_counter - wrong_ham_counter
+false_negative = wrong_spam_counter
+
 print('')
 
-spam_precision = (spam_counter - wrong_spam_counter) / (spam_counter - wrong_spam_counter + wrong_ham_counter)
-print("precision for spam files: " + str(spam_precision))
-ham_precision = (ham_counter - wrong_ham_counter) / (ham_counter - wrong_ham_counter + wrong_spam_counter)
-print("precision for ham files: " + str(ham_precision))
+spam_precision = true_positive / (true_positive + false_positive) * 100
+print("precision for spam files: " + str(spam_precision) + " %")
+ham_precision = true_negative / (true_negative + false_negative) * 100
+print("precision for ham files: " + str(ham_precision) + " %")
 
-spam_recall = (spam_counter - wrong_spam_counter) / spam_counter
-print("recall for spam files: " + str(spam_recall))
-ham_recall = (ham_counter - wrong_ham_counter) / ham_counter
-print("recall for ham files: " + str(ham_recall))
+spam_recall = true_positive / (true_positive + false_negative) * 100
+print("recall for spam files: " + str(spam_recall) + " %")
+ham_recall = true_negative / (true_negative + false_positive) * 100
+print("recall for ham files: " + str(ham_recall) + " %")
 
 spam_f1_score = 2 * spam_precision * spam_recall / (spam_precision + spam_recall)
-print("f1-score for spam files: " + str(spam_f1_score))
+print("f1-score for spam files: " + str(spam_f1_score) + " %")
 ham_f1_score = 2 * ham_precision * ham_recall / (ham_precision + ham_recall)
-print("f1-score for ham files: " + str(ham_f1_score))
+print("f1-score for ham files: " + str(ham_f1_score) + " %")
 
 print('')
 

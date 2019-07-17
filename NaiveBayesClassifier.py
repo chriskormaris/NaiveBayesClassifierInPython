@@ -202,6 +202,11 @@ ham_class_tokens_frequencies = calculate_class_tokens_frequencies(feature_tokens
 dictionary_size = len(feature_tokens)
 no_of_train_documents = len(spam_train_files) + len(ham_train_files)
 
+true_positive = 0
+false_positive = 0
+true_negative = 0
+false_negative = 0
+
 # testing files with Naive Bayes classifier using Laplace estimates
 print("Reading TEST files...")
 for i in range(len(test_files)):  # for all the test files that exist
@@ -238,20 +243,18 @@ for i in range(len(test_files)):  # for all the test files that exist
 
     if spam_laplace_estimate_probability >= ham_laplace_estimate_probability and test_true_labels[i] == 1:
         print("'" + test_files[i] + "'" + " classified as: SPAM -> correct")
-        spam_counter = spam_counter + 1
+        true_positive += 1
     elif spam_laplace_estimate_probability >= ham_laplace_estimate_probability and test_true_labels[i] == 0:
         print("'" + test_files[i] + "'" + " classified as: SPAM -> WRONG!")
-        ham_counter = ham_counter + 1
-        wrong_ham_counter = wrong_ham_counter + 1
-        wrong_counter = wrong_counter + 1
+        wrong_counter += 1
+        false_positive += 1
     elif spam_laplace_estimate_probability < ham_laplace_estimate_probability and test_true_labels[i] == 1:
         print("'" + test_files[i] + "'" + " classified as: HAM -> WRONG!")
-        spam_counter = spam_counter + 1
-        wrong_spam_counter = wrong_spam_counter + 1
-        wrong_counter = wrong_counter + 1
+        wrong_counter += 1
+        false_negative += 1
     elif spam_laplace_estimate_probability < ham_laplace_estimate_probability and test_true_labels[i] == 0:
         print("'" + test_files[i] + "'" + " classified as: HAM -> correct")
-        ham_counter = ham_counter + 1
+        true_negative += 1
 
 print('')
 
@@ -274,13 +277,7 @@ print('')
 # Precision-Recall Report
 
 print("number of wrong classifications: " + str(wrong_counter) + ' out of ' + str(len(test_files)) + ' files')
-print("number of wrong spam classifications: " + str(wrong_spam_counter) + ' out of ' + str(spam_counter) + ' spam files')
-print("number of wrong ham classifications: " + str(wrong_ham_counter) + ' out of ' + str(ham_counter) + ' ham files')
-
-true_positive = spam_counter - wrong_spam_counter
-false_positive = wrong_ham_counter
-true_negative = ham_counter - wrong_ham_counter
-false_negative = wrong_spam_counter
+print(true_positive, false_positive, true_negative, false_negative)
 
 print('')
 

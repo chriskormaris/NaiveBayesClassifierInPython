@@ -202,10 +202,10 @@ ham_class_tokens_frequencies = calculate_class_tokens_frequencies(feature_tokens
 dictionary_size = len(feature_tokens)
 no_of_train_documents = len(spam_train_files) + len(ham_train_files)
 
-true_positive = 0
-false_positive = 0
-true_negative = 0
-false_negative = 0
+true_positives = 0
+false_positives = 0
+true_negatives = 0
+false_negatives = 0
 
 # testing files with Naive Bayes classifier using Laplace estimates
 print("Reading TEST files...")
@@ -243,18 +243,18 @@ for i in range(len(test_files)):  # for all the test files that exist
 
     if spam_laplace_estimate_probability >= ham_laplace_estimate_probability and test_true_labels[i] == 1:
         print("'" + test_files[i] + "'" + " classified as: SPAM -> correct")
-        true_positive += 1
+        true_positives += 1
     elif spam_laplace_estimate_probability >= ham_laplace_estimate_probability and test_true_labels[i] == 0:
         print("'" + test_files[i] + "'" + " classified as: SPAM -> WRONG!")
         wrong_counter += 1
-        false_positive += 1
+        false_positives += 1
     elif spam_laplace_estimate_probability < ham_laplace_estimate_probability and test_true_labels[i] == 1:
         print("'" + test_files[i] + "'" + " classified as: HAM -> WRONG!")
         wrong_counter += 1
-        false_negative += 1
+        false_negatives += 1
     elif spam_laplace_estimate_probability < ham_laplace_estimate_probability and test_true_labels[i] == 0:
         print("'" + test_files[i] + "'" + " classified as: HAM -> correct")
-        true_negative += 1
+        true_negatives += 1
 
 print('')
 
@@ -277,18 +277,18 @@ print('')
 # Precision-Recall Report
 
 print("number of wrong classifications: " + str(wrong_counter) + ' out of ' + str(len(test_files)) + ' files')
-print(true_positive, false_positive, true_negative, false_negative)
+print(true_positives, false_positives, true_negatives, false_negatives)
 
 print('')
 
-spam_precision = true_positive / (true_positive + false_positive) * 100
+spam_precision = true_positives / (true_positives + false_positives) * 100
 print("precision for spam files: " + str(spam_precision) + " %")
-ham_precision = true_negative / (true_negative + false_negative) * 100
+ham_precision = true_negatives / (true_negatives + false_negatives) * 100
 print("precision for ham files: " + str(ham_precision) + " %")
 
-spam_recall = true_positive / (true_positive + false_negative) * 100
+spam_recall = true_positives / (true_positives + false_negatives) * 100
 print("recall for spam files: " + str(spam_recall) + " %")
-ham_recall = true_negative / (true_negative + false_positive) * 100
+ham_recall = true_negatives / (true_negatives + false_positives) * 100
 print("recall for ham files: " + str(ham_recall) + " %")
 
 spam_f1_score = 2 * spam_precision * spam_recall / (spam_precision + spam_recall)

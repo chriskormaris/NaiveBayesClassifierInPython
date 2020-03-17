@@ -273,7 +273,10 @@ print('')
 # Precision-Recall Report
 
 print("number of wrong classifications: " + str(wrong_counter) + ' out of ' + str(len(test_files)) + ' files')
-print(true_positives, false_positives, true_negatives, false_negatives)
+print("number of wrong spam classifications: " + str(false_positives) + ' out of ' + str(y_test.size) + ' files')
+print("number of wrong ham classifications: " + str(false_negatives) + ' out of ' + str(y_test.size) + ' files')
+
+# print(true_positives, false_positives, true_negatives, false_negatives)
 
 print('')
 

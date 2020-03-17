@@ -47,20 +47,20 @@ def getTokens(text):
     return text_tokens
 
 
-def calculate_class_tokens_frequencies(feature_tokens, feature_vector_labels, class_label):
+def calculate_class_tokens_frequencies(feature_tokens, feature_vectors, labels, class_label):
     class_tokens_frequencies = dict()  # same size as a feature vector
 
     # For each feature token count how many documents of the given class contain it.
-    for (i, vector) in enumerate(feature_vector_labels):
-        if feature_vector_labels[vector] == class_label:
+    for i, feature_vector in enumerate(feature_vectors):
+        if labels[i] == 1 and class_label == "SPAM" or labels[i] == 0 and class_label == "HAM":
             for j in range(len(feature_tokens)):
                 token = feature_tokens[j]
-                if vector[j] == 1:
+                if feature_vector[j] == 1:
                     if class_tokens_frequencies.__contains__(token):
                         class_tokens_frequencies[token] = class_tokens_frequencies[token] + 1
                     else:
                         class_tokens_frequencies[token] = 1
-
+    
     return class_tokens_frequencies
 
 
@@ -152,9 +152,9 @@ print('')
 # read feature dictionary from file
 feature_tokens = read_dictionary_file(feature_dictionary_dir)
 
-print("feature tokens dictionary: ")
-print(feature_tokens)
-print('')
+# print("feature tokens dictionary: ")
+# print(feature_tokens)
+# print('')
 
 
 ###############
@@ -162,7 +162,7 @@ print('')
 
 # training files
 print("Reading TRAIN files...")
-feature_vector_labels = dict()
+feature_vectors = list()
 for i in range(len(train_files)):
     print('Reading train file ' + "'" + train_files[i] + "'" + '...')
 
@@ -178,12 +178,9 @@ for i in range(len(train_files)):
     for j in range(len(feature_tokens)):
         if train_text_tokens.__contains__(feature_tokens[j]):
             feature_vector[j] = 1
-    feature_vector = tuple(feature_vector)
 
-    if train_labels[i] == 1:  # 1 is for class "SPAM"
-        feature_vector_labels[feature_vector] = "SPAM"
-    elif train_labels[i] == 0:  # 0 is for class "HAM"
-        feature_vector_labels[feature_vector] = "HAM"
+    feature_vectors.append(feature_vector)
+        
 print('')
 
 
@@ -196,8 +193,8 @@ ham_counter = 0  # the number of ham files
 wrong_spam_counter = 0  # the number of spam files classified as ham
 wrong_ham_counter = 0  # the number of ham files classified as spam
 
-spam_class_tokens_frequencies = calculate_class_tokens_frequencies(feature_tokens, feature_vector_labels, "SPAM")
-ham_class_tokens_frequencies = calculate_class_tokens_frequencies(feature_tokens, feature_vector_labels, "HAM")
+spam_class_tokens_frequencies = calculate_class_tokens_frequencies(feature_tokens, feature_vectors, train_labels, "SPAM")
+ham_class_tokens_frequencies = calculate_class_tokens_frequencies(feature_tokens, feature_vectors, train_labels, "HAM")
 
 dictionary_size = len(feature_tokens)
 no_of_train_documents = len(spam_train_files) + len(ham_train_files)
@@ -222,7 +219,6 @@ for i in range(len(test_files)):  # for all the test files that exist
     for j in range(len(feature_tokens)):
         if test_text_tokens.__contains__(feature_tokens[j]):
             feature_vector[j] = 1
-    feature_vector = tuple(feature_vector)
 
     # Laplace estimate classification #
     spam_laplace_estimate_probability = calculate_laplace_estimate_probability(feature_vector,

@@ -106,197 +106,196 @@ def calculate_laplace_estimate_probability(test_feature_vector, feature_tokens, 
 
 # MAIN #
 
-start_time = time.time()
+if __name__ == '__main__':
 
-feature_dictionary_dir = "feature_dictionary.txt"
+    start_time = time.time()
 
-spam_train_dir = "LingspamDataset/spam-train/"
-ham_train_dir = "LingspamDataset/nonspam-train/"
-spam_test_dir = "LingspamDataset/spam-test/"
-ham_test_dir = "LingspamDataset/nonspam-test/"
+    feature_dictionary_dir = "feature_dictionary.txt"
 
-spam_train_files = sorted([f for f in listdir(spam_train_dir) if isfile(join(spam_train_dir, f))])
-ham_train_files = sorted([f for f in listdir(ham_train_dir) if isfile(join(ham_train_dir, f))])
-spam_test_files = sorted([f for f in listdir(spam_test_dir) if isfile(join(spam_test_dir, f))])
-ham_test_files = sorted([f for f in listdir(ham_test_dir) if isfile(join(ham_test_dir, f))])
+    spam_train_dir = "LingspamDataset/spam-train/"
+    ham_train_dir = "LingspamDataset/nonspam-train/"
+    spam_test_dir = "LingspamDataset/spam-test/"
+    ham_test_dir = "LingspamDataset/nonspam-test/"
 
-train_files = list(spam_train_files)
-train_files.extend(ham_train_files)
+    spam_train_files = sorted([f for f in listdir(spam_train_dir) if isfile(join(spam_train_dir, f))])
+    ham_train_files = sorted([f for f in listdir(ham_train_dir) if isfile(join(ham_train_dir, f))])
+    spam_test_files = sorted([f for f in listdir(spam_test_dir) if isfile(join(spam_test_dir, f))])
+    ham_test_files = sorted([f for f in listdir(ham_test_dir) if isfile(join(ham_test_dir, f))])
 
-test_files = list(spam_test_files)
-test_files.extend(ham_test_files)
+    train_files = list(spam_train_files)
+    train_files.extend(ham_train_files)
 
-train_labels = [1] * len(spam_train_files)
-train_labels.extend([0] * len(ham_train_files))
+    test_files = list(spam_test_files)
+    test_files.extend(ham_test_files)
 
-test_true_labels = [1] * len(spam_test_files)
-test_true_labels.extend([0] * len(ham_test_files))
+    train_labels = [1] * len(spam_train_files)
+    train_labels.extend([0] * len(ham_train_files))
 
-spam_class_frequency = len(spam_train_files)  # 1 is for SPAM, 0 is for HAM
-print("number of SPAM train documents: " + str(spam_class_frequency))
-ham_class_frequency = len(ham_train_files)  # 1 is for SPAM, 0 is for HAM
-print("number of HAM train documents: " + str(ham_class_frequency))
+    test_true_labels = [1] * len(spam_test_files)
+    test_true_labels.extend([0] * len(ham_test_files))
 
-spam_class_probability = spam_class_frequency / (len(spam_train_files) + len(ham_train_files))
-print("SPAM train document probability: " + str(spam_class_probability))
-ham_class_probability = ham_class_frequency / (len(spam_train_files) + len(ham_train_files))
-print("HAM train document probability: " + str(ham_class_probability))
+    spam_class_frequency = len(spam_train_files)  # 1 is for SPAM, 0 is for HAM
+    print("number of SPAM train documents: " + str(spam_class_frequency))
+    ham_class_frequency = len(ham_train_files)  # 1 is for SPAM, 0 is for HAM
+    print("number of HAM train documents: " + str(ham_class_frequency))
 
-print('')
+    spam_class_probability = spam_class_frequency / (len(spam_train_files) + len(ham_train_files))
+    print("SPAM train document probability: " + str(spam_class_probability))
+    ham_class_probability = ham_class_frequency / (len(spam_train_files) + len(ham_train_files))
+    print("HAM train document probability: " + str(ham_class_probability))
 
-
-
-###############
+    print('')
 
 
-# read feature dictionary from file
-feature_tokens = read_dictionary_file(feature_dictionary_dir)
 
-# print("feature tokens dictionary: ")
-# print(feature_tokens)
-# print('')
+    ###############
 
 
-###############
+    # read feature dictionary from file
+    feature_tokens = read_dictionary_file(feature_dictionary_dir)
+
+    # print("feature tokens dictionary: ")
+    # print(feature_tokens)
+    # print('')
 
 
-# training files
-print("Reading TRAIN files...")
-feature_vectors = list()
-for i in range(len(train_files)):
-    print('Reading train file ' + "'" + train_files[i] + "'" + '...')
-
-    train_text = ''
-    if train_labels[i] == 1:
-        train_text = read_file(spam_train_dir + train_files[i])
-    elif train_labels[i] == 0:
-        train_text = read_file(ham_train_dir + train_files[i])
-
-    train_text_tokens = getTokens(train_text)
-
-    feature_vector = [0] * len(feature_tokens)
-    for j in range(len(feature_tokens)):
-        if train_text_tokens.__contains__(feature_tokens[j]):
-            feature_vector[j] = 1
-
-    feature_vectors.append(feature_vector)
-        
-print('')
+    ###############
 
 
-###############
+    # training files
+    print("Reading TRAIN files...")
+    feature_vectors = list()
+    for i in range(len(train_files)):
+        print('Reading train file ' + "'" + train_files[i] + "'" + '...')
+
+        train_text = ''
+        if train_labels[i] == 1:
+            train_text = read_file(spam_train_dir + train_files[i])
+        elif train_labels[i] == 0:
+            train_text = read_file(ham_train_dir + train_files[i])
+
+        train_text_tokens = getTokens(train_text)
+
+        feature_vector = [0] * len(feature_tokens)
+        for j in range(len(feature_tokens)):
+            if train_text_tokens.__contains__(feature_tokens[j]):
+                feature_vector[j] = 1
+
+        feature_vectors.append(feature_vector)
+            
+    print('')
 
 
-wrong_counter = 0  # the number of wrong classifications made by Logistic Regression
-spam_counter = 0  # the number of spam files
-ham_counter = 0  # the number of ham files
-wrong_spam_counter = 0  # the number of spam files classified as ham
-wrong_ham_counter = 0  # the number of ham files classified as spam
-
-spam_class_tokens_frequencies = calculate_class_tokens_frequencies(feature_tokens, feature_vectors, train_labels, "SPAM")
-ham_class_tokens_frequencies = calculate_class_tokens_frequencies(feature_tokens, feature_vectors, train_labels, "HAM")
-
-dictionary_size = len(feature_tokens)
-no_of_train_documents = len(spam_train_files) + len(ham_train_files)
-
-true_positives = 0
-false_positives = 0
-true_negatives = 0
-false_negatives = 0
-
-# testing files with Naive Bayes classifier using Laplace estimates
-print("Reading TEST files...")
-for i in range(len(test_files)):  # for all the test files that exist
-
-    test_text = ''
-    if test_true_labels[i] == 1:  # 1 is for class "SPAM"
-        test_text = read_file(spam_test_dir + test_files[i])
-    if test_true_labels[i] == 0:  # 0 is for class "HAM"
-        test_text = read_file(ham_test_dir + test_files[i])
-    test_text_tokens = getTokens(test_text)
-
-    feature_vector = [0] * len(feature_tokens)
-    for j in range(len(feature_tokens)):
-        if test_text_tokens.__contains__(feature_tokens[j]):
-            feature_vector[j] = 1
-
-    # Laplace estimate classification #
-    spam_laplace_estimate_probability = calculate_laplace_estimate_probability(feature_vector,
-                                                                               feature_tokens,
-                                                                               spam_class_tokens_frequencies,
-                                                                               class_frequency=spam_class_frequency,
-                                                                               dictionary_size=dictionary_size,
-                                                                               no_of_train_documents=no_of_train_documents)
-    #print("spam_laplace_estimate_probability: " + str(spam_laplace_estimate_probability))
-
-    ham_laplace_estimate_probability = calculate_laplace_estimate_probability(feature_vector,
-                                                                              feature_tokens,
-                                                                              ham_class_tokens_frequencies,
-                                                                              class_frequency=ham_class_frequency,
-                                                                              dictionary_size=dictionary_size,
-                                                                              no_of_train_documents=no_of_train_documents)
-    #print("ham_laplace_estimate_probability: " + str(ham_laplace_estimate_probability))
-
-    if spam_laplace_estimate_probability >= ham_laplace_estimate_probability and test_true_labels[i] == 1:
-        print("'" + test_files[i] + "'" + " classified as: SPAM -> correct")
-        true_positives += 1
-    elif spam_laplace_estimate_probability >= ham_laplace_estimate_probability and test_true_labels[i] == 0:
-        print("'" + test_files[i] + "'" + " classified as: SPAM -> WRONG!")
-        wrong_counter += 1
-        false_positives += 1
-    elif spam_laplace_estimate_probability < ham_laplace_estimate_probability and test_true_labels[i] == 1:
-        print("'" + test_files[i] + "'" + " classified as: HAM -> WRONG!")
-        wrong_counter += 1
-        false_negatives += 1
-    elif spam_laplace_estimate_probability < ham_laplace_estimate_probability and test_true_labels[i] == 0:
-        print("'" + test_files[i] + "'" + " classified as: HAM -> correct")
-        true_negatives += 1
-
-print('')
+    ###############
 
 
-###############
+    wrong_counter = 0  # the number of wrong classifications made by Logistic Regression
 
-# METRICS #
+    true_positives = 0
+    false_positives = 0
+    true_negatives = 0
+    false_negatives = 0
 
-print('Manual Naive-Bayes Classifier: ')
-print('number of features used: ' + str(dictionary_size))
+    spam_class_tokens_frequencies = calculate_class_tokens_frequencies(feature_tokens, feature_vectors, train_labels, "SPAM")
+    ham_class_tokens_frequencies = calculate_class_tokens_frequencies(feature_tokens, feature_vectors, train_labels, "HAM")
 
-print('')
+    dictionary_size = len(feature_tokens)
+    no_of_train_documents = len(spam_train_files) + len(ham_train_files)
 
-# Accuracy
+    # testing files with Naive Bayes classifier using Laplace estimates
+    print("Reading TEST files...")
+    for i in range(len(test_files)):  # for all the test files that exist
 
-accuracy = ((len(test_files) - wrong_counter) / len(test_files)) * 100
-print("accuracy: " + str(accuracy) + " %")
-print('')
+        test_text = ''
+        if test_true_labels[i] == 1:  # 1 is for class "SPAM"
+            test_text = read_file(spam_test_dir + test_files[i])
+        if test_true_labels[i] == 0:  # 0 is for class "HAM"
+            test_text = read_file(ham_test_dir + test_files[i])
+        test_text_tokens = getTokens(test_text)
 
-# Precision-Recall Report
+        feature_vector = [0] * len(feature_tokens)
+        for j in range(len(feature_tokens)):
+            if test_text_tokens.__contains__(feature_tokens[j]):
+                feature_vector[j] = 1
 
-print("number of wrong classifications: " + str(wrong_counter) + ' out of ' + str(len(test_files)) + ' files')
-print("number of wrong spam classifications: " + str(false_positives) + ' out of ' + str(y_test.size) + ' files')
-print("number of wrong ham classifications: " + str(false_negatives) + ' out of ' + str(y_test.size) + ' files')
+        # Laplace estimate classification #
+        spam_laplace_estimate_probability = calculate_laplace_estimate_probability(feature_vector,
+                                                                                   feature_tokens,
+                                                                                   spam_class_tokens_frequencies,
+                                                                                   class_frequency=spam_class_frequency,
+                                                                                   dictionary_size=dictionary_size,
+                                                                                   no_of_train_documents=no_of_train_documents)
+        #print("spam_laplace_estimate_probability: " + str(spam_laplace_estimate_probability))
 
-# print(true_positives, false_positives, true_negatives, false_negatives)
+        ham_laplace_estimate_probability = calculate_laplace_estimate_probability(feature_vector,
+                                                                                  feature_tokens,
+                                                                                  ham_class_tokens_frequencies,
+                                                                                  class_frequency=ham_class_frequency,
+                                                                                  dictionary_size=dictionary_size,
+                                                                                  no_of_train_documents=no_of_train_documents)
+        #print("ham_laplace_estimate_probability: " + str(ham_laplace_estimate_probability))
 
-print('')
+        if spam_laplace_estimate_probability >= ham_laplace_estimate_probability and test_true_labels[i] == 1:
+            print("'" + test_files[i] + "'" + " classified as: SPAM -> correct")
+            true_positives += 1
+        elif spam_laplace_estimate_probability >= ham_laplace_estimate_probability and test_true_labels[i] == 0:
+            print("'" + test_files[i] + "'" + " classified as: SPAM -> WRONG!")
+            wrong_counter += 1
+            false_positives += 1
+        elif spam_laplace_estimate_probability < ham_laplace_estimate_probability and test_true_labels[i] == 0:
+            print("'" + test_files[i] + "'" + " classified as: HAM -> correct")
+            true_negatives += 1
+        elif spam_laplace_estimate_probability < ham_laplace_estimate_probability and test_true_labels[i] == 1:
+            print("'" + test_files[i] + "'" + " classified as: HAM -> WRONG!")
+            wrong_counter += 1
+            false_negatives += 1
 
-spam_precision = true_positives / (true_positives + false_positives) * 100
-print("precision for spam files: " + str(spam_precision) + " %")
-ham_precision = true_negatives / (true_negatives + false_negatives) * 100
-print("precision for ham files: " + str(ham_precision) + " %")
 
-spam_recall = true_positives / (true_positives + false_negatives) * 100
-print("recall for spam files: " + str(spam_recall) + " %")
-ham_recall = true_negatives / (true_negatives + false_positives) * 100
-print("recall for ham files: " + str(ham_recall) + " %")
+    print('')
 
-spam_f1_score = 2 * spam_precision * spam_recall / (spam_precision + spam_recall)
-print("f1-score for spam files: " + str(spam_f1_score) + " %")
-ham_f1_score = 2 * ham_precision * ham_recall / (ham_precision + ham_recall)
-print("f1-score for ham files: " + str(ham_f1_score) + " %")
 
-print('')
+    ###############
 
-###############
+    # METRICS #
 
-print("total duration : %s seconds" % (time.time() - start_time))
+    print('Manual Naive-Bayes Classifier: ')
+    print('number of features used: ' + str(dictionary_size))
+
+    print('')
+
+    # Accuracy
+
+    accuracy = ((len(test_files) - wrong_counter) / len(test_files)) * 100
+    print("accuracy: " + str(accuracy) + " %")
+    print('')
+
+    # Precision-Recall Report
+
+    print("number of wrong classifications: " + str(wrong_counter) + ' out of ' + str(len(test_files)) + ' files')
+    print("number of wrong spam classifications: " + str(false_positives) + ' out of ' + str(y_test.size) + ' files')
+    print("number of wrong ham classifications: " + str(false_negatives) + ' out of ' + str(y_test.size) + ' files')
+
+    # print(true_positives, false_positives, true_negatives, false_negatives)
+
+    print('')
+
+    spam_precision = true_positives / (true_positives + false_positives) * 100
+    print("precision for spam files: " + str(spam_precision) + " %")
+    ham_precision = true_negatives / (true_negatives + false_negatives) * 100
+    print("precision for ham files: " + str(ham_precision) + " %")
+
+    spam_recall = true_positives / (true_positives + false_negatives) * 100
+    print("recall for spam files: " + str(spam_recall) + " %")
+    ham_recall = true_negatives / (true_negatives + false_positives) * 100
+    print("recall for ham files: " + str(ham_recall) + " %")
+
+    spam_f1_score = 2 * spam_precision * spam_recall / (spam_precision + spam_recall)
+    print("f1-score for spam files: " + str(spam_f1_score) + " %")
+    ham_f1_score = 2 * ham_precision * ham_recall / (ham_precision + ham_recall)
+    print("f1-score for ham files: " + str(ham_f1_score) + " %")
+
+    print('')
+
+    ###############
+
+    print("total duration : %s seconds" % (time.time() - start_time))

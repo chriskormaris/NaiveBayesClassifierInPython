@@ -11,7 +11,7 @@ Unzip the compressed file *"LingspamDataset.zip"* in the same directory where th
 
 Let's begin by denoting the variable C, which takes the values: C=1 for spam documents and C=0 for ham documents.
 First, run the python file "FeatureSelectionUsingIG.py" to generate the features tokens that we'll use. Run:
-```python
+```bash
 python FeatureSelectionUsingIG.py
 ```
 Feature selection for the most useful feature tokens, using Information Gain (IG) has been implemented in this program. The feature tokens are boolean, as in they take boolean values, 0 if the token does not appear in a text or 1 if the token appears in a text. The boolean values are assigned while generating the feature vectors of each text. At the start of the program, all the train files of the corpus are being parsed and we count in how many spam or ham documents in total, each word appears. The results are being saved in dictionary data structures with the names: *"feature_spam_frequency"*, *"feature_ham_frequency"* and *"feature_frequency"* respectively, with feature tokens being the keys and and frequencies being the values. These dictionary variables are used for the calculation of the probabilities of the Information Gain algorithm. We calculate the entropy *H(C)* and print it. We proceed by adding each candidate feature token to the "IG" dictionary, while calculating its IG score. Finally, we select the top *m* feature tokens, on terms of the highest Information Gain (IG) scores. The Information Gain score of each feature token is calculated using the formula:
@@ -30,7 +30,7 @@ which is the absolute difference between the conditional probabilities for the 2
 ## Perform Naive-Bayes Classification
 
 After the feature selection step, run *"NaiveBayesClassifier.py"* to start the classification process. Run:
-```python
+```bash
 python NaiveBayesClassifier.py
 ```
 First, the classifier counts in how many spam documents each spam feature token is found and in how many ham documents each ham feature token is found. We use boolean features. The total frequency of each spam and ham feature token is saved in two dictionaries: "spam_feature_tokens_frequencies" and "ham_feature_tokens_frequencies". We also count the number of spam and ham train documents and the total number of train documents. We use the acquired frequencies to estimate the Laplace probabilities that will determine the correct category of the test data. The Laplace probability estimate classification calculates the conditional probability of each test document's feature vector for each 2 categories (spam or ham) and categorizes the document in the class for which the conditional probability is higher. I.e. for the feature vector X<sub>i</sub> of the test document *i* we calculate the probabilities p(X<sub>i</sub>|C=1) and p(X<sub>i</sub>|C=0) (reminder: C=1 for spam, C=0 for ham). The class that has higher probability will be the predicted class of the train document. For the calculation of the probabilies we also use Laplace smoothing, adding 1 in the enumerator and 2 (for the 2 classes spam and ham) in the denominator. This is the formula that is used for calculating the probability of the feature token i, belonging to a spam document:
@@ -52,4 +52,3 @@ The execution results of the classifier delivered an accuracy of **98.08 %**, wh
 
 * Statistics show that the Naive-Bayes classifier has a higher accuracy on a small corpus, rather than a big corpus.
 * Console execution results are included in the "console_outputs" folder.
-

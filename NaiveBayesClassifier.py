@@ -12,13 +12,22 @@ import math
 from os import listdir
 from os.path import isfile, join
 
+from nltk.corpus import stopwords
+from nltk import word_tokenize
+
 __author__ = 'c.kormaris'
+
+feature_dictionary_dir = "feature_dictionary.txt"
+
+spam_train_dir = "LingspamDataset/spam-train/"
+ham_train_dir = "LingspamDataset/nonspam-train/"
+spam_test_dir = "LingspamDataset/spam-test/"
+ham_test_dir = "LingspamDataset/nonspam-test/"
 
 
 ###############
 
 # FUNCTIONS #
-
 
 def read_dictionary_file(filename):
     text_file = open(filename, "r")
@@ -34,71 +43,58 @@ def read_file(filename):
     return text
 
 
-# extracts tokens from the given text
-def getTokens(text):
-    text_tokens = re.findall(r"[\w']+", text)
-    # remove digits, special characters and convert to lowercase
-    for k in range(len(text_tokens)):
-        text_tokens[k] = text_tokens[k].lower()
-        text_tokens[k] = text_tokens[k].replace("_", "")
-        text_tokens[k] = re.sub("[0-9]+", "", text_tokens[k])
-    text_tokens = set(text_tokens)  # convert list to set, in order to remove duplicate tokens
+def calculate_token_frequencies_in_class(feature_tokens, stop_words, class_documents):
+    token_frequencies_in_class = dict()  # same size as a feature vector
+    class_distinct_words = set()
+    total_words_in_class = 0
 
-    return text_tokens
+    for token in feature_tokens:
+        token_frequencies_in_class[token] = 0
+
+    # For each feature token count how many times the documents of the given class contain it.
+    for i, document in enumerate(class_documents):
+        # print('document:', document)
+        tokenized_document = word_tokenize(document)
+        # print('tokenized_document:', tokenized_document)
+        filtered_document = [w.lower() for w in tokenized_document if not w.lower() in stop_words]
+        # print('filtered_document:', filtered_document)
+        for word in filtered_document:
+            if word in feature_tokens:
+                token_frequencies_in_class[word] = token_frequencies_in_class[word] + 1
+
+        document_set = set(filtered_document)
+        class_distinct_words = class_distinct_words.union(document_set)
+
+        # number_of_class_words += len(tokenized_document)
+        total_words_in_class += len(filtered_document)
+
+    # number_of_class_words = len(class_distinct_words)
+    return token_frequencies_in_class, class_distinct_words, total_words_in_class
 
 
-def calculate_class_tokens_frequencies(feature_tokens, feature_vectors, labels, class_label):
-    class_tokens_frequencies = dict()  # same size as a feature vector
+def calculate_laplace_estimate_probability(test_feature_vector, feature_tokens, class_probability,
+                                           token_frequencies_in_class, total_words_in_class, V):
 
-    # For each feature token count how many documents of the given class contain it.
-    for i, feature_vector in enumerate(feature_vectors):
-        if labels[i] == 1 and class_label == "SPAM" or labels[i] == 0 and class_label == "HAM":
-            for j in range(len(feature_tokens)):
-                token = feature_tokens[j]
-                if feature_vector[j] == 1:
-                    if class_tokens_frequencies.__contains__(token):
-                        class_tokens_frequencies[token] = class_tokens_frequencies[token] + 1
-                    else:
-                        class_tokens_frequencies[token] = 1
-    
-    return class_tokens_frequencies
-
-
-def calculate_laplace_estimate_probability(test_feature_vector, feature_tokens, class_tokens_frequencies, class_frequency, dictionary_size, no_of_train_documents):
-
-    class_probability = class_frequency / no_of_train_documents
-
-    # traditional way: use multiplications of probabilities
-    '''
-    laplace_estimate_probability = 1
-    for (i, token) in enumerate(feature_tokens):
-        test_feature = test_feature_vector[i]
-        if test_feature == 1:
-            if class_tokens_frequencies.__contains__(token):
-                probOfTokenBelongingToClass = (class_tokens_frequencies[token] + 1) \
-                                              / (class_frequency + dictionary_size)
-                laplace_estimate_probability *= probOfTokenBelongingToClass
-            else:
-                probOfTokenBelongingToClass = (0 + 1) / (class_frequency + dictionary_size)
-                laplace_estimate_probability *= probOfTokenBelongingToClass
-    laplace_estimate_probability *= class_probability
-    '''
-
-    # numerically stable way to avoid multiplications of probabilities
+    # laplace_estimate_probability = 1
     laplace_estimate_log_probability = 0
-    for (i, token) in enumerate(feature_tokens):
-        test_feature = test_feature_vector[i]
+    for i, test_feature in enumerate(test_feature_vector):
+        token = feature_tokens[i]
         if test_feature == 1:
-            if class_tokens_frequencies.__contains__(token):
-                probOfTokenBelongingToClass = (class_tokens_frequencies[token] + 1) \
-                                              / (class_frequency + dictionary_size)
-                laplace_estimate_log_probability += math.log(probOfTokenBelongingToClass, 2)
+            if token_frequencies_in_class.__contains__(token):
+                probOfTokenBelongingToClass = (token_frequencies_in_class[token] + 1) / (total_words_in_class + V)
             else:
-                probOfTokenBelongingToClass = (0 + 1) / (class_frequency + dictionary_size)
-                laplace_estimate_log_probability += math.log(probOfTokenBelongingToClass, 2)
+                probOfTokenBelongingToClass = (0 + 1) / (total_words_in_class + V)
+
+            # traditional way: using multiplications of probabilities
+            # laplace_estimate_probability *= probOfTokenBelongingToClass
+
+            # numerically stable way to avoid multiplications of probabilities
+            laplace_estimate_log_probability += math.log(probOfTokenBelongingToClass, 2)
+
+    # laplace_estimate_probability *= class_probability
     laplace_estimate_log_probability += math.log(class_probability, 2)
 
-    #return laplace_estimate_probability
+    # return laplace_estimate_probability
     return laplace_estimate_log_probability
 
 
@@ -109,13 +105,6 @@ def calculate_laplace_estimate_probability(test_feature_vector, feature_tokens, 
 if __name__ == '__main__':
 
     start_time = time.time()
-
-    feature_dictionary_dir = "feature_dictionary.txt"
-
-    spam_train_dir = "LingspamDataset/spam-train/"
-    ham_train_dir = "LingspamDataset/nonspam-train/"
-    spam_test_dir = "LingspamDataset/spam-test/"
-    ham_test_dir = "LingspamDataset/nonspam-test/"
 
     spam_train_files = sorted([f for f in listdir(spam_train_dir) if isfile(join(spam_train_dir, f))])
     ham_train_files = sorted([f for f in listdir(ham_train_dir) if isfile(join(ham_train_dir, f))])
@@ -158,36 +147,57 @@ if __name__ == '__main__':
     # print(feature_tokens)
     # print('')
 
+    stop_words = set(stopwords.words('english'))
+
 
     ###############
-
 
     # training files
     print("Reading TRAIN files...")
-    feature_vectors = list()
+    spam_train_documents = []
+    ham_train_documents = []
     for i in range(len(train_files)):
-        print('Reading train file ' + "'" + train_files[i] + "'" + '...')
+        if train_labels[i] == 1:  # for "SPAM" files
+            spam_train_document = read_file(spam_train_dir + train_files[i])
+            # candidate_features = getTokens(train_text)
+            spam_train_documents.append(spam_train_document)
+        elif train_labels[i] == 0:  # for "HAM" files
+            ham_train_document = read_file(ham_train_dir + train_files[i])
+            # candidate_features = getTokens(train_text)
+            ham_train_documents.append(ham_train_document)
 
-        train_text = ''
-        if train_labels[i] == 1:
-            train_text = read_file(spam_train_dir + train_files[i])
-        elif train_labels[i] == 0:
-            train_text = read_file(ham_train_dir + train_files[i])
-
-        train_text_tokens = getTokens(train_text)
-
-        feature_vector = [0] * len(feature_tokens)
-        for j in range(len(feature_tokens)):
-            if train_text_tokens.__contains__(feature_tokens[j]):
-                feature_vector[j] = 1
-
-        feature_vectors.append(feature_vector)
-            
-    print('')
+    print('DONE\n')
 
 
     ###############
 
+    print("Calculating feature token frequencies in SPAM files...")
+    token_frequencies_in_spam_class, spam_distinct_words, total_words_in_spam_class = \
+        calculate_token_frequencies_in_class(feature_tokens, stop_words, spam_train_documents)
+    print('DONE\n')
+
+    print("Calculating feature token frequencies in HAM files...")
+    token_frequencies_in_ham_class, ham_distinct_words, total_words_in_ham_class = \
+        calculate_token_frequencies_in_class(feature_tokens, stop_words, ham_train_documents)
+    print('DONE\n')
+
+    # FOR DEBUGGING
+    # print('token frequencies in spam class:')
+    # print(sorted(token_frequencies_in_spam_class.items()))
+    # print('token frequencies in ham class:')
+    # print(sorted(token_frequencies_in_ham_class.items()))
+    # print('')
+
+    # print(spam_distinct_words)
+    # print(ham_distinct_words)
+    # print('')
+
+    V = len(spam_distinct_words.union(ham_distinct_words))
+
+    print('total words in spam class:', total_words_in_spam_class)
+    print('total words in ham class:', total_words_in_ham_class)
+    print('vocabulary size |V|:', V)
+    print('')
 
     wrong_counter = 0  # the number of wrong classifications made by Logistic Regression
 
@@ -195,12 +205,6 @@ if __name__ == '__main__':
     false_positives = 0
     true_negatives = 0
     false_negatives = 0
-
-    spam_class_tokens_frequencies = calculate_class_tokens_frequencies(feature_tokens, feature_vectors, train_labels, "SPAM")
-    ham_class_tokens_frequencies = calculate_class_tokens_frequencies(feature_tokens, feature_vectors, train_labels, "HAM")
-
-    dictionary_size = len(feature_tokens)
-    no_of_train_documents = len(spam_train_files) + len(ham_train_files)
 
     # testing files with Naive Bayes classifier using Laplace estimates
     print("Reading TEST files...")
@@ -211,29 +215,28 @@ if __name__ == '__main__':
             test_text = read_file(spam_test_dir + test_files[i])
         if test_true_labels[i] == 0:  # 0 is for class "HAM"
             test_text = read_file(ham_test_dir + test_files[i])
-        test_text_tokens = getTokens(test_text)
-
-        feature_vector = [0] * len(feature_tokens)
+        test_text_tokens = word_tokenize(test_text)
+        filtered_test_text_tokens = [w.lower() for w in test_text_tokens if not w.lower() in stop_words]
+        
+        test_feature_vector = [0] * len(feature_tokens)
         for j in range(len(feature_tokens)):
             if test_text_tokens.__contains__(feature_tokens[j]):
-                feature_vector[j] = 1
+                test_feature_vector[j] = 1
 
         # Laplace estimate classification #
-        spam_laplace_estimate_probability = calculate_laplace_estimate_probability(feature_vector,
+        spam_laplace_estimate_probability = calculate_laplace_estimate_probability(test_feature_vector,
                                                                                    feature_tokens,
-                                                                                   spam_class_tokens_frequencies,
-                                                                                   class_frequency=spam_class_frequency,
-                                                                                   dictionary_size=dictionary_size,
-                                                                                   no_of_train_documents=no_of_train_documents)
-        #print("spam_laplace_estimate_probability: " + str(spam_laplace_estimate_probability))
+                                                                                   spam_class_probability,
+                                                                                   token_frequencies_in_spam_class,
+                                                                                   total_words_in_spam_class, V)
+        # print("spam_laplace_estimate_probability: " + str(spam_laplace_estimate_probability))
 
-        ham_laplace_estimate_probability = calculate_laplace_estimate_probability(feature_vector,
+        ham_laplace_estimate_probability = calculate_laplace_estimate_probability(test_feature_vector,
                                                                                   feature_tokens,
-                                                                                  ham_class_tokens_frequencies,
-                                                                                  class_frequency=ham_class_frequency,
-                                                                                  dictionary_size=dictionary_size,
-                                                                                  no_of_train_documents=no_of_train_documents)
-        #print("ham_laplace_estimate_probability: " + str(ham_laplace_estimate_probability))
+                                                                                  ham_class_probability,
+                                                                                  token_frequencies_in_ham_class,
+                                                                                  total_words_in_ham_class, V)
+        # print("ham_laplace_estimate_probability: " + str(ham_laplace_estimate_probability))
 
         if spam_laplace_estimate_probability >= ham_laplace_estimate_probability and test_true_labels[i] == 1:
             print("'" + test_files[i] + "'" + " classified as: SPAM -> correct")
@@ -259,7 +262,7 @@ if __name__ == '__main__':
     # METRICS #
 
     print('Manual Naive-Bayes Classifier: ')
-    print('number of features used: ' + str(dictionary_size))
+    print('number of features used: ' + str(len(feature_tokens)))
 
     print('')
 
@@ -272,8 +275,8 @@ if __name__ == '__main__':
     # Precision-Recall Report
 
     print("number of wrong classifications: " + str(wrong_counter) + ' out of ' + str(len(test_files)) + ' files')
-    print("number of wrong spam classifications: " + str(false_positives) + ' out of ' + str(y_test.size) + ' files')
-    print("number of wrong ham classifications: " + str(false_negatives) + ' out of ' + str(y_test.size) + ' files')
+    print("number of wrong spam classifications: " + str(false_positives) + ' out of ' + str(len(test_files)) + ' files')
+    print("number of wrong ham classifications: " + str(false_negatives) + ' out of ' + str(len(test_files)) + ' files')
 
     # print(true_positives, false_positives, true_negatives, false_negatives)
 

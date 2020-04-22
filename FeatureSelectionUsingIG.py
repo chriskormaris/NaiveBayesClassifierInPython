@@ -10,7 +10,20 @@ import math
 from collections import OrderedDict
 from operator import itemgetter
 
+from nltk.corpus import stopwords
+
 __author__ = 'c.kormaris'
+
+
+# number of features
+m = 1000
+# m = 100
+# m = 50
+
+spam_train_dir = "LingspamDataset/spam-train/"
+ham_train_dir = "LingspamDataset/nonspam-train/"
+
+feature_dictionary_dir = "feature_dictionary.txt"
 
 
 ###############
@@ -55,16 +68,6 @@ def getTokens(text):
     return text_tokens
 
 
-def getStopwords(stopwords_file):
-    stopwords = []
-    # Load stopwords
-    with open(stopwords_file, 'r') as f:
-        for line in f:
-            stopwords.append(line.split()[0])
-
-    return stopwords
-
-
 def write_tokens_to_file(tokens, filename):
     f = open(filename, 'w')
     for token in tokens:
@@ -76,12 +79,6 @@ def write_tokens_to_file(tokens, filename):
 
 # MAIN #
 
-feature_dictionary_dir = "feature_dictionary.txt"
-stopwords_dir = "stopwords.txt"
-
-spam_train_dir = "LingspamDataset/spam-train/"
-ham_train_dir = "LingspamDataset/nonspam-train/"
-
 spam_train_files = sorted([f for f in listdir(spam_train_dir) if isfile(join(spam_train_dir, f))])
 ham_train_files = sorted([f for f in listdir(ham_train_dir) if isfile(join(ham_train_dir, f))])
 
@@ -91,7 +88,7 @@ train_files.extend(ham_train_files)
 train_labels = [1] * len(spam_train_files)
 train_labels.extend([0] * len(ham_train_files))
 
-stopwords = getStopwords(stopwords_dir)
+stop_words = set(stopwords.words('english'))
 
 no_of_train_files = len(train_files)
 
@@ -110,11 +107,6 @@ print('')
 ###############
 
 # feature selection with Information Gain #
-
-# number of features
-m = 1000
-#m = 100
-#m = 50
 
 # a dictionary which has as a key how many documents a feature (token) appears in
 feature_frequency = dict()
@@ -137,7 +129,7 @@ for i in range(len(train_files)):
     candidate_features = getTokens(train_text)
 
     for token in candidate_features:
-        if token not in stopwords:
+        if token not in stop_words:
             if not feature_frequency.__contains__(token):
                 feature_frequency[token] = 1
             else:

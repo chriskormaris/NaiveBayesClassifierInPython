@@ -65,12 +65,12 @@ For the calculation of the probabilies we also use Laplace smoothing, adding 1 i
 *(where |V| is the number of distinct words in the corpus, i.e. is the vocabulary size of the corpus)*. 
 This is the formula that is used for calculating the probability of the feature token i, belonging to a spam document:
 
-![Laplace Smoothing token](http://latex.codecogs.com/gif.latex?\frac{frequencyInSpamClassForToken[i][i]%20&plus;%201}%20{numberOfSpamDocuments%20&plus;%20numberOfFeatures}%20%3D%20\frac{frequencyInSpamClassForToken[i][i]%20&plus;%201}%20{numberOfWordsInSpamClass%20&plus;%20|V|})
+![Laplace Smoothing token](http://latex.codecogs.com/gif.latex?\frac{frequencyInSpamClassForToken[i]%20&plus;%201}%20{numberOfSpamDocuments%20&plus;%20numberOfFeatures}%20%3D%20\frac{frequencyInSpamClassForToken[i]%20&plus;%201}%20{numberOfWordsInSpamClass%20&plus;%20|V|})
 
 To calculate the probability of the entire feature vector belonging to the spam class we multiply the probability of each separate feature token belonging to the spam class. 
 The exact formula is:
 
-![Laplace Smoothing vector](http://latex.codecogs.com/gif.latex?probOfFeatureVectorBelongingToSpam%20%3D%20\frac{P(C%3D1)}{P(featureVector)}%20\cdot%20\prod_i%20\frac{frequencyInSpamClassForToken[i][i]%20&plus;%201}%20{numberOfWordsInSpamClass%20&plus;%20|V|})
+![Laplace Smoothing vector](http://latex.codecogs.com/gif.latex?probOfFeatureVectorBelongingToSpam%20%3D%20\frac{P(C%3D1)}{P(featureVector)}%20\cdot%20\prod_i%20\frac{frequencyInSpamClassForToken[i]%20&plus;%201}%20{numberOfWordsInSpamClass%20&plus;%20|V|})
 
 We do the same for the ham class. We can omit the term *P(featureVector)* since it's the same for both 2 classes. 
 The probability of the 2 which is bigger, indicates the category that the given test document and its feature vector is more likely to belong to. 

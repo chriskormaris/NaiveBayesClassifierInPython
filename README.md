@@ -15,7 +15,7 @@ First, run the python file "FeatureSelectionUsingIG.py" to generate the features
 ```shell
 python FeatureSelectionUsingIG.py
 ```
-Feature selection for the most useful feature tokens, using Information Gain (IG) has been implemented in this program. 
+Feature selection for the most useful feature tokens, using Information Gain (IG) has been implemented. 
 The feature tokens are boolean, as in they take boolean values, 0 if the token does not appear in a text or 1 if the token appears in a text. 
 The boolean values are assigned while generating the feature vectors of each text. 
 At the start of the program, all the train files of the corpus are being parsed and we count in how many spam or ham documents in total, each word appears. 

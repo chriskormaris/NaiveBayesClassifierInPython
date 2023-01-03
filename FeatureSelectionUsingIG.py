@@ -205,8 +205,8 @@ for (i, token) in enumerate(feature_frequency):
         #                                                                     feature_ham_probability[token],
         #                                                                     feature_spam_probability[token]))
 
-'''
-# ALTERNATIVE IG score calculation implementation
+"""
+# MY ALTERNATIVE IG score calculation implementation
 # Calculate the information gain for each candidate feature.
 # IG is defined as the difference between the two conditional probabilities.
 # The tokens where this difference is higher have higher Information Gain.
@@ -224,7 +224,7 @@ for (i, token) in enumerate(feature_frequency):
         #print('{0}: P(Xi=1): {1}, P(Xi=1|C=0): {2}, P(Xi=1|C=1): {3}'.format(token, feature_probability[token],
         #                                                                     feature_ham_probability[token],
         #                                                                     feature_spam_probability[token]))
-'''
+"""
 
 
 # sort IG dictionary in descending order by score (the higher score the better)
@@ -245,5 +245,5 @@ for (i, token) in enumerate(IG):
         break
 print('')
 
-#write feature_tokens to file
+# write feature_tokens to file
 write_tokens_to_file(feature_tokens, feature_dictionary_dir)

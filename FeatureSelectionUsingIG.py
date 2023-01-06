@@ -1,6 +1,3 @@
-# force the result of divisions to be float numbers
-from __future__ import division
-
 import math
 import re
 # for sorting dictionaries

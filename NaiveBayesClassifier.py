@@ -1,21 +1,14 @@
 # THIS NAIVE BAYES IMPLEMENTATION IS WRITTEN BY HAND #
 # IT USES BOOLEAN FEATURES #
 
-# force the result of divisions to be float numbers
-from __future__ import division
-
-import re
-import time
 import math
-
+import time
 # I/O Libraries
 from os import listdir
 from os.path import isfile, join
 
-from nltk.corpus import stopwords
 from nltk import word_tokenize
-
-__author__ = 'c.kormaris'
+from nltk.corpus import stopwords
 
 feature_dictionary_dir = "feature_dictionary.txt"
 
@@ -72,9 +65,14 @@ def calculate_token_frequencies_in_class(feature_tokens, stop_words, class_docum
     return token_frequencies_in_class, class_distinct_words, total_words_in_class
 
 
-def calculate_laplace_estimate_probability(test_feature_vector, feature_tokens, class_probability,
-                                           token_frequencies_in_class, total_words_in_class, V):
-
+def calculate_laplace_estimate_probability(
+        test_feature_vector,
+        feature_tokens,
+        class_probability,
+        token_frequencies_in_class,
+        total_words_in_class,
+        V
+):
     # laplace_estimate_probability = 1
     laplace_estimate_log_probability = 0
     for i, test_feature in enumerate(test_feature_vector):
@@ -135,10 +133,7 @@ if __name__ == '__main__':
 
     print('')
 
-
-
     ###############
-
 
     # read feature dictionary from file
     feature_tokens = read_dictionary_file(feature_dictionary_dir)
@@ -148,7 +143,6 @@ if __name__ == '__main__':
     # print('')
 
     stop_words = set(stopwords.words('english'))
-
 
     ###############
 
@@ -167,7 +161,6 @@ if __name__ == '__main__':
             ham_train_documents.append(ham_train_document)
 
     print('DONE\n')
-
 
     ###############
 
@@ -217,25 +210,31 @@ if __name__ == '__main__':
             test_text = read_file(ham_test_dir + test_files[i])
         test_text_tokens = word_tokenize(test_text)
         filtered_test_text_tokens = [w.lower() for w in test_text_tokens if not w.lower() in stop_words]
-        
+
         test_feature_vector = [0] * len(feature_tokens)
         for j in range(len(feature_tokens)):
             if test_text_tokens.__contains__(feature_tokens[j]):
                 test_feature_vector[j] = 1
 
         # Laplace estimate classification #
-        spam_laplace_estimate_probability = calculate_laplace_estimate_probability(test_feature_vector,
-                                                                                   feature_tokens,
-                                                                                   spam_class_probability,
-                                                                                   token_frequencies_in_spam_class,
-                                                                                   total_words_in_spam_class, V)
+        spam_laplace_estimate_probability = calculate_laplace_estimate_probability(
+            test_feature_vector,
+            feature_tokens,
+            spam_class_probability,
+            token_frequencies_in_spam_class,
+            total_words_in_spam_class,
+            V
+        )
         # print("spam_laplace_estimate_probability: " + str(spam_laplace_estimate_probability))
 
-        ham_laplace_estimate_probability = calculate_laplace_estimate_probability(test_feature_vector,
-                                                                                  feature_tokens,
-                                                                                  ham_class_probability,
-                                                                                  token_frequencies_in_ham_class,
-                                                                                  total_words_in_ham_class, V)
+        ham_laplace_estimate_probability = calculate_laplace_estimate_probability(
+            test_feature_vector,
+            feature_tokens,
+            ham_class_probability,
+            token_frequencies_in_ham_class,
+            total_words_in_ham_class,
+            V
+        )
         # print("ham_laplace_estimate_probability: " + str(ham_laplace_estimate_probability))
 
         if spam_laplace_estimate_probability >= ham_laplace_estimate_probability and test_true_labels[i] == 1:
@@ -253,9 +252,7 @@ if __name__ == '__main__':
             wrong_counter += 1
             false_negatives += 1
 
-
     print('')
-
 
     ###############
 
@@ -275,7 +272,8 @@ if __name__ == '__main__':
     # Precision-Recall Report
 
     print("number of wrong classifications: " + str(wrong_counter) + ' out of ' + str(len(test_files)) + ' files')
-    print("number of wrong spam classifications: " + str(false_positives) + ' out of ' + str(len(test_files)) + ' files')
+    print(
+        "number of wrong spam classifications: " + str(false_positives) + ' out of ' + str(len(test_files)) + ' files')
     print("number of wrong ham classifications: " + str(false_negatives) + ' out of ' + str(len(test_files)) + ' files')
 
     # print(true_positives, false_positives, true_negatives, false_negatives)

@@ -1,19 +1,15 @@
 # force the result of divisions to be float numbers
 from __future__ import division
 
-from os import listdir
-from os.path import isfile, join
-import re
 import math
-
+import re
 # for sorting dictionaries
 from collections import OrderedDict
 from operator import itemgetter
+from os import listdir
+from os.path import isfile, join
 
 from nltk.corpus import stopwords
-
-__author__ = 'c.kormaris'
-
 
 # number of features
 m = 1000
@@ -166,7 +162,8 @@ feature_ham_cond_probability = dict()
 IG = dict()
 
 # First calculate the entropy of the dataset
-H_C = - (spam_class_probability * math.log(spam_class_probability) + ham_class_probability * math.log(ham_class_probability))
+H_C = - (spam_class_probability * math.log(spam_class_probability) +
+         ham_class_probability * math.log(ham_class_probability))
 
 print('entropy of the dataset: H(C) = ' + str(H_C))
 
@@ -183,27 +180,36 @@ for (i, token) in enumerate(feature_frequency):
         feature_spam_cond_probability[token] = feature_spam_frequency[token] / spam_class_frequency  # P(Xi=1|C=1)
 
         # bayes rule: P(C=1|Xi=1) = P(Xi=1|C=1) * P(C=1) / P(Xi=1)
-        P_C1_given_X1 = feature_spam_cond_probability[token] * spam_class_probability / (feature_probability[token] + error)
+        P_C1_given_X1 = feature_spam_cond_probability[token] * spam_class_probability / \
+                        (feature_probability[token] + error)
         # bayes rule: P(C=0|Xi=1) = P(Xi=1|C=0) * P(C=0) / P(Xi=1)
-        P_C0_given_X1 = feature_ham_cond_probability[token] * ham_class_probability / (feature_probability[token] + error)
+        P_C0_given_X1 = feature_ham_cond_probability[token] * ham_class_probability / \
+                        (feature_probability[token] + error)
 
         # conditional entropy: H(C|Xi=1)
-        H_C_given_X1 = - (P_C1_given_X1 * math.log(P_C1_given_X1 + error) + P_C0_given_X1 * math.log(P_C0_given_X1 + error))
+        H_C_given_X1 = - (P_C1_given_X1 * math.log(P_C1_given_X1 + error) +
+                          P_C0_given_X1 * math.log(P_C0_given_X1 + error))
 
         # bayes rule: P(C=1|Xi=0) = P(Xi=0|C=1) * P(C=1) / P(Xi=0)
-        P_C1_given_X0 = (1 - feature_spam_cond_probability[token]) * spam_class_probability / (1 - feature_probability[token] + error)
+        P_C1_given_X0 = (1 - feature_spam_cond_probability[token]) * spam_class_probability / \
+                        (1 - feature_probability[token] + error)
         # bayes rule: P(C=0|Xi=0) = P(Xi=0|C=0) * P(C=0) / P(Xi=0)
-        P_C0_given_X0 = (1 - feature_ham_cond_probability[token]) * ham_class_probability / (1 - feature_probability[token] + error)
+        P_C0_given_X0 = (1 - feature_ham_cond_probability[token]) * ham_class_probability / \
+                        (1 - feature_probability[token] + error)
 
         # conditional entropy: H(C|Xi=0)
-        H_C_given_X0 = - (P_C1_given_X0 * math.log(P_C1_given_X0 + error) + P_C0_given_X0 * math.log(P_C0_given_X0 + error))
+        H_C_given_X0 = - (P_C1_given_X0 * math.log(P_C1_given_X0 + error) +
+                          P_C0_given_X0 * math.log(P_C0_given_X0 + error))
 
         # IG(C,Xi) = IG(Xi,C) = H(C) - SUM ( P(Xi=X_train) * H(C|Xi=X_train) for every X_train)
         IG[token] = H_C - (feature_probability[token] * H_C_given_X1 + (1 - feature_probability[token]) * H_C_given_X0)
 
-        #print('{0}: P(Xi=1): {1}, P(Xi=1|C=0): {2}, P(Xi=1|C=1): {3}'.format(token, feature_probability[token],
-        #                                                                     feature_ham_probability[token],
-        #                                                                     feature_spam_probability[token]))
+        # print('{0}: P(Xi=1): {1}, P(Xi=1|C=0): {2}, P(Xi=1|C=1): {3}'.format(
+        #     token,
+        #     feature_probability[token],
+        #     feature_ham_probability[token],
+        #     feature_spam_probability[token]
+        # ))
 
 """
 # MY ALTERNATIVE IG score calculation implementation
@@ -225,7 +231,6 @@ for (i, token) in enumerate(feature_frequency):
         #                                                                     feature_ham_probability[token],
         #                                                                     feature_spam_probability[token]))
 """
-
 
 # sort IG dictionary in descending order by score (the higher score the better)
 IG = OrderedDict(sorted(IG.items(), key=itemgetter(1), reverse=True))

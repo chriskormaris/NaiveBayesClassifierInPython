@@ -78,7 +78,7 @@ def calculate_laplace_estimate_probability(
     for i, test_feature in enumerate(test_feature_vector):
         token = feature_tokens[i]
         if test_feature == 1:
-            if token_frequencies_in_class.__contains__(token):
+            if token in token_frequencies_in_class:
                 probOfTokenBelongingToClass = (token_frequencies_in_class[token] + 1) / (total_words_in_class + V)
             else:
                 probOfTokenBelongingToClass = (0 + 1) / (total_words_in_class + V)
@@ -213,7 +213,7 @@ if __name__ == '__main__':
 
         test_feature_vector = [0] * len(feature_tokens)
         for j in range(len(feature_tokens)):
-            if test_text_tokens.__contains__(feature_tokens[j]):
+            if feature_tokens[j] in test_text_tokens:
                 test_feature_vector[j] = 1
 
         # Laplace estimate classification #
@@ -272,8 +272,8 @@ if __name__ == '__main__':
     # Precision-Recall Report
 
     print("number of wrong classifications: " + str(wrong_counter) + ' out of ' + str(len(test_files)) + ' files')
-    print(
-        "number of wrong spam classifications: " + str(false_positives) + ' out of ' + str(len(test_files)) + ' files')
+    print("number of wrong spam classifications: " + str(false_positives)
+          + ' out of ' + str(len(test_files)) + ' files')
     print("number of wrong ham classifications: " + str(false_negatives) + ' out of ' + str(len(test_files)) + ' files')
 
     # print(true_positives, false_positives, true_negatives, false_negatives)

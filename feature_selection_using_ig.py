@@ -123,19 +123,19 @@ for i in range(len(train_files)):
 
     for token in candidate_features:
         if token not in stop_words:
-            if not feature_frequency.__contains__(token):
+            if token not in feature_frequency:
                 feature_frequency[token] = 1
             else:
                 feature_frequency[token] = feature_frequency[token] + 1
 
             if train_labels[i] == 1:  # for "SPAM" files
-                if not feature_spam_frequency.__contains__(token):
+                if token not in feature_spam_frequency:
                     feature_spam_frequency[token] = 1
                     feature_ham_frequency[token] = 0
                 else:
                     feature_spam_frequency[token] = feature_spam_frequency[token] + 1
             elif train_labels[i] == 0:  # for "HAM" files
-                if not feature_ham_frequency.__contains__(token):
+                if token not in feature_ham_frequency:
                     feature_ham_frequency[token] = 1
                     feature_spam_frequency[token] = 0
                 else:

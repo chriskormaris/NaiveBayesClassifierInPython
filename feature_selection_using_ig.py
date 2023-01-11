@@ -204,15 +204,15 @@ for (i, token) in enumerate(feature_frequency):
         # print('{0}: P(Xi=1): {1}, P(Xi=1|C=0): {2}, P(Xi=1|C=1): {3}'.format(
         #     token,
         #     feature_probability[token],
-        #     feature_ham_probability[token],
-        #     feature_spam_probability[token]
+        #     feature_ham_cond_probability[token],
+        #     feature_spam_cond_probability[token]
         # ))
 
-"""
 # MY ALTERNATIVE IG score calculation implementation
 # Calculate the information gain for each candidate feature.
 # IG is defined as the difference between the two conditional probabilities.
 # The tokens where this difference is higher have higher Information Gain.
+"""
 feature_ham_probability = dict()
 feature_spam_probability = dict()
 for (i, token) in enumerate(feature_frequency):
@@ -224,9 +224,12 @@ for (i, token) in enumerate(feature_frequency):
         #IG[token] = feature_probability[token] * abs(feature_ham_probability[token] - feature_spam_probability[token])
         IG[token] = abs(feature_ham_probability[token] - feature_spam_probability[token])
 
-        #print('{0}: P(Xi=1): {1}, P(Xi=1|C=0): {2}, P(Xi=1|C=1): {3}'.format(token, feature_probability[token],
-        #                                                                     feature_ham_probability[token],
-        #                                                                     feature_spam_probability[token]))
+        # print('{0}: P(Xi=1): {1}, P(Xi=1|C=0): {2}, P(Xi=1|C=1): {3}'.format(
+        #     token,
+        #     feature_probability[token],
+        #     feature_ham_cond_probability[token],
+        #     feature_spam_cond_probability[token]
+        # ))
 """
 
 # sort IG dictionary in descending order by score (the higher score the better)
